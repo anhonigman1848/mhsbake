@@ -1,0 +1,7 @@
+This is the result of a clean bake using the mhsmicro_data DB.
+
+I baked the models first, tweaked the associations, then did controllers and views.
+
+I added a new version of Dan's homepage for ease of access.
+
+-ahon 2012.02.20 00:15

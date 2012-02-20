@@ -1,0 +1,11 @@
+# Exclude the core and database configuration files from our /app/config directory.
+/app/config/core.php
+/app/config/database.php
+
+# We also want to exclude our app's temporary file directory.
+/app/tmp
+
+# A few other annoyances/hazards
+.DS_Store
+Thumbs.db
+Desktop.ini
