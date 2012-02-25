@@ -7,14 +7,14 @@ App::uses('AppController', 'Controller');
  */
 class NewspaperContentsController extends AppController {
 
-
+	public $uses = array('NewspaperContent', 'Newspaper');
 /**
  * index method
  *
  * @return void
  */
-	public function index() {
-		$this->NewspaperContent->recursive = 0;
+	public function index() {		
+		$this->NewspaperContent->recursive = 0;		
 		$this->set('newspaperContents', $this->paginate());
 	}
 

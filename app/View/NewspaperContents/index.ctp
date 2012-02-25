@@ -29,6 +29,7 @@
 		<td><?php echo h($newspaperContent['NewspaperContent']['usage_rights']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperContent['NewspaperContent']['created']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperContent['NewspaperContent']['modified']); ?>&nbsp;</td>
+                <td><?php echo h($newspaperContent['Newspaper']['city']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $newspaperContent['NewspaperContent']['newspaper_content_id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $newspaperContent['NewspaperContent']['newspaper_content_id'])); ?>

@@ -1,24 +1,25 @@
 <?php
 App::uses('AppController', 'Controller');
-/**
- * NewspaperReels Controller
- *
- * @property NewspaperReel $NewspaperReel
- */
-class NewspaperReelsController extends AppController {
-
 
 /**
+* NewspaperRecords Controller
+* 
+*/
+class NewspaperRecordsController extends AppController {
+
+    public $uses = array('NewspaperReel');
+
+    /**
  * index method
  *
  * @return void
  */
-	public function index() {
+	public function index() {                
 		$this->NewspaperReel->recursive = 0;
-		$this->set('newspaperReels', $this->paginate());		
+		$this->set('newspaperRecords', $this->paginate());		
 	}
-
-/**
+        
+        /**
  * view method
  *
  * @param string $id
@@ -29,7 +30,7 @@ class NewspaperReelsController extends AppController {
 		if (!$this->NewspaperReel->exists()) {
 			throw new NotFoundException(__('Invalid newspaper reel'));
 		}
-		$this->set('newspaperReel', $this->NewspaperReel->read(null, $id));
+		$this->set('newspaperRecord', $this->NewspaperReel->read(null, $id));
 	}
 
 /**

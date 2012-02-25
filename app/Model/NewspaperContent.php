@@ -46,6 +46,7 @@ class NewspaperContent extends AppModel {
 	public $belongsTo = array(
 		'Newspaper' => array(
 			'className' => 'Newspaper',
+                        'joinTable' => 'newspaper',
 			'foreignKey' => 'newspaper_id',
 			'conditions' => '',
 			'fields' => '',
@@ -61,6 +62,7 @@ class NewspaperContent extends AppModel {
 	public $hasMany = array(
 		'NewspaperReel' => array(
 			'className' => 'NewspaperReel',
+                        'joinTable' => 'newspaper_reel',
 			'foreignKey' => 'newspaper_content_id',
 			'associationForeignKey' => 'newspaper_reel_id',
 			'conditions' => '',

@@ -50,6 +50,14 @@ class NewspaperReel extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+                'Newspaper' => array(
+                        'className' => 'Newspaper',
+                        'foreignKey' => false,
+			'dependent' => false,
+			'conditions' => 'Newspaper.newspaper_id = NewspaperContent.newspaper_id',
+			'fields' => '',
+			'order' => ''
+                )
 	);
 }
