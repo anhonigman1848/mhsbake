@@ -5,71 +5,69 @@ App::uses('AppModel', 'Model');
  *
  */
 class User extends AppModel {
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'name_last';
-/**
- * Validation rules
- *
- * @var array
- */
+	public $name = 'User';
+	public $displayField = 'name';
+	
 	public $validate = array(
-		'name_last' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+		'first_name'=>array(
+			'Please enter your first name.'=>array(
+				'rule'=>'notEmpty',
+				'message'=>'Please enter your first name.'
+			)
 		),
-		'name_first' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+		'last_name'=>array(
+			'Please enter your last name.'=>array(
+				'rule'=>'notEmpty',
+				'message'=>'Please enter your last name.'
+			)
 		),
-		'username' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+		'username'=>array(
+			'The username must be between 3 and 15 characters.'=>array(
+				'rule'=>array('between', 3, 15),
+				'message'=>'The username must be between 3 and 15 characters.'
 			),
+			'That username has already been taken'=>array(
+				'rule'=>'isUnique',
+				'message'=>'That username has already been taken.'
+			)
 		),
-		'password' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+		'email'=>array(
+			'Valid email'=>array(
+				'rule'=>array('email'),
+				'message'=>'Please enter a valid email address'
+			)
 		),
-		'role' => array(
-                        'valid' => array(
-                            'rule' => array('inList', array('admin', 'staff', 'basic')),
-                            'message' => 'Please enter a valid role',
-                            'allowEmpty' => false
-                        )
-                )
+		'password'=>array(
+		    'Not empty'=>array(
+		        'rule'=>'notEmpty',
+		        'message'=>'Please enter your password'
+		    ),
+		    'Match passwords'=>array(
+		        'rule'=>'matchPasswords',
+		        'message'=>'Your passwords do not match'
+		    )
+		),
+		'password_confirmation'=>array(
+		    'Not empty'=>array(
+		        'rule'=>'notEmpty',
+		        'message'=>'Please confirm your password'
+		    )
+		)
 	);
-        
-    public function beforeSave() {
-        if (isset($this->data[$this->alias]['password'])) {
-            $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
-        }
-        return true;
-    }
+	
+	public function matchPasswords($data) {
+	    if ($data['password'] == $this->data['User']['password_confirmation']) {
+	        return true;
+	    }
+	    $this->invalidate('password_confirmation', 'Your passwords do not match');
+	    return false;
+	}
+	
+	public function beforeSave() {
+	    if (isset($this->data['User']['password'])) {
+	        $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
+	    }
+	    return true;
+	}
 }
+?>

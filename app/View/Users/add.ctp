@@ -3,10 +3,11 @@
 	<fieldset>
 		<legend><?php echo __('Add User'); ?></legend>
 	<?php
-		echo $this->Form->input('name_last');
-		echo $this->Form->input('name_first');
+		echo $this->Form->input('first_name');
+		echo $this->Form->input('last_name');
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
+		echo $this->Form->input('password_confirmation', array('type'=>'password'));
 		echo $this->Form->input('role', array(
 			'options' => array('admin' => 'admin', 'staff' => 'staff', 'user' => 'user')
 		));

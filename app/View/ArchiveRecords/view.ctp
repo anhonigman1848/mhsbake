@@ -5,8 +5,7 @@
 		<dd>
 			<?php echo h($archiveRecord['ArchiveReel']['archive_reel_id']); ?>
 			&nbsp;
-		</dd>
-		
+		</dd>		
 		<dt><?php echo __('Title'); ?></dt>
 		<dd>
 			<?php echo h($archiveRecord['Archive']['title']); ?>
@@ -26,8 +25,7 @@
 		<dd>
 			<?php echo h($archiveRecord['Archive']['aleph_number']); ?>
 			&nbsp;
-		</dd>
-		
+		</dd>		
 		<dt><?php echo __('Series'); ?></dt>
 		<dd>
 			<?php echo h($archiveRecord['Archive']['series']); ?>
@@ -84,12 +82,7 @@
 		<dd>
 			<?php echo h($archiveRecord['ArchiveContent']['usage_rights']); ?>
 			&nbsp;
-		</dd>
-		
-		
-		
-		
-		
+		</dd>		
 		<dt><?php echo __('Reel Polarity'); ?></dt>
 		<dd>
 			<?php echo h($archiveRecord['ArchiveReel']['reel_polarity']); ?>

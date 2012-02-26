@@ -10,7 +10,8 @@
 <hr />
 <br />
 <br />
-<?php echo $this->Html->link('Accessors', array('controller' => 'accessors')); ?>
+<?php echo $this->Html->link('Newspaper Records', array('controller' => 'newspaperrecords')); ?>
+<br />
 <br />
 <?php echo $this->Html->link('Newspapers', array('controller' => 'newspapers')); ?>
 <br />
@@ -18,11 +19,19 @@
 <br />
 <?php echo $this->Html->link('Newspaper Reels', array('controller' => 'newspaper_reels')); ?>
 <br />
+<br />
+<br />
+<?php echo $this->Html->link('Archive Records', array('controller' => 'archiverecords')); ?>
+<br />
+<br />
 <?php echo $this->Html->link('Archives', array('controller' => 'archives')); ?>
 <br />
 <?php echo $this->Html->link('Archive Contents', array('controller' => 'archive_contents')); ?>
 <br />
 <?php echo $this->Html->link('Archive Reels', array('controller' => 'archive_reels')); ?>
 <br />
+<br />
+<br />
+<?php echo $this->Html->link('Users', array('controller' => 'users')); ?>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />	
 </body><link rel="stylesheet" type="text/css" href="data:text/css,"></html>

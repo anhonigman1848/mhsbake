@@ -2,12 +2,10 @@
 <?php echo $this->Form->create('User');?>
 	<fieldset>
 		<legend><?php echo __('Edit User'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('name_last');
-		echo $this->Form->input('name_first');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
+	<?php		
+		echo $this->Form->input('first_name');
+		echo $this->Form->input('last_name');
+		echo $this->Form->input('username');		
 		echo $this->Form->input('role', array(
 			'options' => array('admin' => 'admin', 'staff' => 'staff', 'user' => 'user')
 		));

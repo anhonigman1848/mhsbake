@@ -5,24 +5,19 @@
 			<th><?php echo $this->Paginator->sort('archive_reel_id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
                         <th><?php echo $this->Paginator->sort('city');?></th>
-                        <th><?php echo $this->Paginator->sort('county');?></th>
-                        
-                        <th><?php echo $this->Paginator->sort('aleph_number');?></th>
-			
+                        <th><?php echo $this->Paginator->sort('county');?></th>                        
+                        <th><?php echo $this->Paginator->sort('aleph_number');?></th>			
 			<th><?php echo $this->Paginator->sort('series');?></th>
 			<th><?php echo $this->Paginator->sort('series_number');?></th>
-			<th><?php echo $this->Paginator->sort('author_citation');?></th>
-			
+			<th><?php echo $this->Paginator->sort('author_citation');?></th>			
 			<th><?php echo $this->Paginator->sort('reel_number');?></th>
 			<th><?php echo $this->Paginator->sort('begin_year');?></th>
 			<th><?php echo $this->Paginator->sort('begin_month');?></th>
 			<th><?php echo $this->Paginator->sort('end_year');?></th>
-			<th><?php echo $this->Paginator->sort('end_month');?></th>
-			
+			<th><?php echo $this->Paginator->sort('end_month');?></th>			
 			<th><?php echo $this->Paginator->sort('contents');?></th>
 			<th><?php echo $this->Paginator->sort('comments');?></th>			
-			<th><?php echo $this->Paginator->sort('usage_rights');?></th>
-			
+			<th><?php echo $this->Paginator->sort('usage_rights');?></th>			
 			<th><?php echo $this->Paginator->sort('reel_polarity');?></th>
 			<th><?php echo $this->Paginator->sort('generation');?></th>
 			<th><?php echo $this->Paginator->sort('redox_quality_date');?></th>
@@ -44,24 +39,19 @@
 		<td><?php echo h($archiveRecord['ArchiveReel']['archive_reel_id']); ?>&nbsp;</td>		
 		<td><?php echo h($archiveRecord['Archive']['title']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['city']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['county']); ?>&nbsp;</td>
-		
-		<td><?php echo h($archiveRecord['Archive']['aleph_number']); ?>&nbsp;</td>
-		
+		<td><?php echo h($archiveRecord['Archive']['county']); ?>&nbsp;</td>		
+		<td><?php echo h($archiveRecord['Archive']['aleph_number']); ?>&nbsp;</td>		
 		<td><?php echo h($archiveRecord['Archive']['series']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['series_number']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['author_citation']); ?>&nbsp;</td>
-		
+		<td><?php echo h($archiveRecord['Archive']['author_citation']); ?>&nbsp;</td>		
 		<td><?php echo h($archiveRecord['ArchiveContent']['reel_number']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['ArchiveContent']['begin_year']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['ArchiveContent']['begin_month']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['ArchiveContent']['end_year']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['ArchiveContent']['end_month']); ?>&nbsp;</td>
-		
+		<td><?php echo h($archiveRecord['ArchiveContent']['end_month']); ?>&nbsp;</td>		
 		<td><?php echo h($archiveRecord['ArchiveContent']['contents']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['ArchiveContent']['comments']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['ArchiveContent']['usage_rights']); ?>&nbsp;</td>
-		
+		<td><?php echo h($archiveRecord['ArchiveContent']['usage_rights']); ?>&nbsp;</td>		
 		<td><?php echo h($archiveRecord['ArchiveReel']['reel_polarity']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['ArchiveReel']['generation']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['ArchiveReel']['redox_quality_date']); ?>&nbsp;</td>

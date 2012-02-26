@@ -46,6 +46,7 @@ class ArchiveContent extends AppModel {
 	public $belongsTo = array(
 		'Archive' => array(
 			'className' => 'Archive',
+                        'joinTable' => 'archive',
 			'foreignKey' => 'archive_id',
 			'conditions' => '',
 			'fields' => '',
@@ -61,6 +62,7 @@ class ArchiveContent extends AppModel {
 	public $hasMany = array(
 		'ArchiveReel' => array(
 			'className' => 'ArchiveReel',
+                        'joinTable' => 'archive_reel',
 			'foreignKey' => 'archive_content_id',
 			'associationForeignKey' => 'archive_reel_id',
 			'conditions' => '',

@@ -35,21 +35,21 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
     public $components = array(
         'Session',
-        'Auth' => array(
-            'loginRedirect' => array('controller' => 'newspapers', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
-            'authorize' => array('Controller') // Added this line
+        'Auth'=>array(
+            'loginRedirect'=>array('controller'=>'users', 'action'=>'index'),
+            'logoutRedirect'=>array('controller'=>'users', 'action'=>'index'),
+            'authError'=>"You can't access that page",
+            'authorize'=>array('Controller')
         )
     );
     
     public function isAuthorized($user) {
-    if (isset($user['admin']) && $user['admin'] === 'admin') {
-        return true; //Admin can access every action
+        return true;
     }
-    return false; // The rest don't
-}
-
+    
     public function beforeFilter() {
         $this->Auth->allow('index', 'view');
+        $this->set('logged_in', $this->Auth->loggedIn());
+        $this->set('current_user', $this->Auth->user());
     }
 }
