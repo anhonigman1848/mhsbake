@@ -50,6 +50,14 @@ class ArchiveReel extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+                'Archive' => array(
+                        'className' => 'Archive',
+                        'foreignKey' => false,
+			'dependent' => false,
+			'conditions' => 'Archive.archive_id = ArchiveContent.archive_id',
+			'fields' => '',
+			'order' => ''
+                )
 	);
 }
