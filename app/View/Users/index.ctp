@@ -38,5 +38,6 @@
 	<h3>Actions</h3>
 	<ul>
 		<li><?php echo $this->Html->link('New User', array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 	</ul>
 </div>

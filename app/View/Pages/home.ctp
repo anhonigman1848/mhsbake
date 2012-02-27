@@ -10,7 +10,7 @@
 <hr />
 <br />
 <br />
-<?php echo $this->Html->link('Newspaper Records', array('controller' => 'newspaperrecords')); ?>
+<?php echo $this->Html->link('Newspaper Records', array('controller' => 'newspaper_reels', 'action' => 'expanded')); ?>
 <br />
 <br />
 <?php echo $this->Html->link('Newspapers', array('controller' => 'newspapers')); ?>
@@ -21,7 +21,7 @@
 <br />
 <br />
 <br />
-<?php echo $this->Html->link('Archive Records', array('controller' => 'archiverecords')); ?>
+<?php echo $this->Html->link('Archive Records', array('controller' => 'archive_reels', 'action' => 'expanded')); ?>
 <br />
 <br />
 <?php echo $this->Html->link('Archives', array('controller' => 'archives')); ?>

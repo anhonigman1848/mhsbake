@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
 */
 class NewspaperRecordsController extends AppController {
 
-    public $uses = array('NewspaperReel');
+    public $uses = array('NewspaperReel');	
 
     /**
  * index method

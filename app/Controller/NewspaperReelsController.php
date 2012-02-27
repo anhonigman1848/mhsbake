@@ -17,6 +17,16 @@ class NewspaperReelsController extends AppController {
 		$this->NewspaperReel->recursive = 0;
 		$this->set('newspaperReels', $this->paginate());		
 	}
+	
+/**
+ * expanded method
+ *
+ * @return void
+ */
+	public function expanded() {
+		$this->NewspaperReel->recursive = 0;
+		$this->set('newspaperRecords', $this->paginate());		
+	}	
 
 /**
  * view method
@@ -30,6 +40,20 @@ class NewspaperReelsController extends AppController {
 			throw new NotFoundException(__('Invalid newspaper reel'));
 		}
 		$this->set('newspaperReel', $this->NewspaperReel->read(null, $id));
+	}
+	
+/**
+ * record method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function record($id = null) {
+		$this->NewspaperReel->id = $id;
+		if (!$this->NewspaperReel->exists()) {
+			throw new NotFoundException(__('Invalid newspaper reel'));
+		}
+		$this->set('newspaperRecord', $this->NewspaperReel->read(null, $id));
 	}
 
 /**

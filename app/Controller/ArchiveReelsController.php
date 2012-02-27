@@ -19,6 +19,16 @@ class ArchiveReelsController extends AppController {
 	}
 
 /**
+ * expanded method
+ *
+ * @return void
+ */
+	public function expanded() {
+		$this->ArchiveReel->recursive = 0;
+		$this->set('archiveRecords', $this->paginate());
+	}
+
+/**
  * view method
  *
  * @param string $id
@@ -30,6 +40,20 @@ class ArchiveReelsController extends AppController {
 			throw new NotFoundException(__('Invalid archive reel'));
 		}
 		$this->set('archiveReel', $this->ArchiveReel->read(null, $id));
+	}
+	
+/**
+ * record method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function record($id = null) {
+		$this->ArchiveReel->id = $id;
+		if (!$this->ArchiveReel->exists()) {
+			throw new NotFoundException(__('Invalid archive reel'));
+		}
+		$this->set('archiveRecord', $this->ArchiveReel->read(null, $id));
 	}
 
 /**
