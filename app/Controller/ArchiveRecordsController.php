@@ -5,7 +5,7 @@ App::uses('AppController', 'Controller');
  */
 class ArchiveRecordsController extends AppController {	
 	
-	public $uses = array('ArchiveReel');
+	public $uses = array('ArchiveReel');	
 
 /**
  * index method

@@ -52,5 +52,6 @@
 		<li><?php echo $this->Html->link(__('New Newspaper'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Newspaper Contents'), array('controller' => 'newspaper_contents', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Newspaper Content'), array('controller' => 'newspaper_contents', 'action' => 'add')); ?> </li>
+                <li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 	</ul>
 </div>

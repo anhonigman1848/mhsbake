@@ -130,6 +130,7 @@
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Archive Reel'), array('controller' => 'archive_reels', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 		</ul>
 	</div>
 </div>
