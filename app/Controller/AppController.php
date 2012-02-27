@@ -47,8 +47,9 @@ class AppController extends Controller {
         return true;
     }
     
+	
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
+        $this->Auth->allow('index', 'view' ); // Use only to allow a 
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('current_user', $this->Auth->user());
     }
