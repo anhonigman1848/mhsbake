@@ -9,7 +9,7 @@
 		echo $this->Form->input('password');
 		echo $this->Form->input('password_confirmation', array('type'=>'password'));
 		echo $this->Form->input('role', array(
-			'options' => array('admin' => 'admin', 'staff' => 'staff', 'user' => 'user')
+			'options' => array('admin' => 'admin', 'staff' => 'staff', 'basic' => 'basic')
 		));
 	?>
 	</fieldset>

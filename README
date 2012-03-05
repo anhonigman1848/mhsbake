@@ -1,7 +1,19 @@
-This is the result of a clean bake using the mhsmicro_data DB.
+This, along with the push from several minutes ago, completes
+the ACL functionality.  Details follow below:
 
-I baked the models first, tweaked the associations, then did controllers and views.
+-EK 2012.03.02 21:15
 
-I added a new version of Dan's homepage for ease of access.
 
--ahon 2012.02.20 00:15
+You can change access to a behavior within a controller two
+ways now:
+
+1.  add it to the allow function call shown in beforeFilter
+    as follows:
+            -   $this->Auth->allow('NAME_OF_ACTION','display',
+                'login','ANOTHER_ACTION');
+            -   this gives everyone access to the action, even
+                when not signed in.
+
+2.  add it to the arrays shown in isAuthorized.  Two arrays
+    exist.  One is for staff, and the other is for basic
+    users.

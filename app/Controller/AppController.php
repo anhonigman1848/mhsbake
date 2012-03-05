@@ -33,6 +33,7 @@ App::uses('Controller', 'Controller');
 * @link http://book.cakephp.org/view/957/The-App-Controller
 */
 class AppController extends Controller {
+    // These components are included in every controller.
     public $components = array(
         'Session',
         'Auth'=>array(
@@ -43,13 +44,17 @@ class AppController extends Controller {
         )
     );
     
+    // default isauthorized() function.  Authorizes only the admin to view pages.
     public function isAuthorized($user) {
-        return true;
+        if ($user['role'] == 'admin') {
+            return true; // every action request authorized
+	}
+        return false;
     }
     
-
+    
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view' ); // Use only to allow a
+        // Authorization functionality
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('current_user', $this->Auth->user());
     }
