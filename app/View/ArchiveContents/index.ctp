@@ -1,3 +1,4 @@
+<?php $this->Access->setRole($current_user['role']); ?>
 <div class="archiveContents index">
 	<h2><?php echo __('Archive Contents');?></h2>
 	<table cellpadding="0" cellspacing="0">

@@ -1,3 +1,4 @@
+<?php $this->Access->setRole($current_user['role']); ?>
 <div class="newspapers form">
 <?php echo $this->Form->create('Newspaper');?>
 	<fieldset>

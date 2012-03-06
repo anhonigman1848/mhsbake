@@ -1,5 +1,10 @@
 <?php
 class UsersController extends AppController {
+	
+	/*
+	 * Include these helpers for the views
+	 */
+	public $helpers = array('Access');
 
 	public $name = 'Users';
 	

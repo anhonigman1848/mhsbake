@@ -1,3 +1,4 @@
+<?php $this->Access->setRole($current_user['role']); ?>
 <div class="archives form">
 <?php echo $this->Form->create('Archive');?>
 	<fieldset>
