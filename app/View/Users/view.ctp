@@ -1,3 +1,4 @@
+<?php $this->Access->setRole($current_user['role']); ?>
 <div class="users view">
 <h2><?php  echo __('User');?></h2>
 	<dl>

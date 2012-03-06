@@ -1,3 +1,4 @@
+<?php $this->Access->setRole($current_user['role']); ?>
 <div class="archiveReels view">
 <h2><?php  echo __('Archive Reel');?></h2>
 	<dl>

@@ -1,19 +1,5 @@
-This, along with the push from several minutes ago, completes
-the ACL functionality.  Details follow below:
+Removed the zipped file in the app folder.
 
--EK 2012.03.02 21:15
+I was using it to transfer files to the server.
 
-
-You can change access to a behavior within a controller two
-ways now:
-
-1.  add it to the allow function call shown in beforeFilter
-    as follows:
-            -   $this->Auth->allow('NAME_OF_ACTION','display',
-                'login','ANOTHER_ACTION');
-            -   this gives everyone access to the action, even
-                when not signed in.
-
-2.  add it to the arrays shown in isAuthorized.  Two arrays
-    exist.  One is for staff, and the other is for basic
-    users.
+It has no value to the project.

@@ -45,5 +45,44 @@ class Newspaper extends AppModel {
 			'insertQuery' => ''
 		)
 	);
+/**
+ * Validation rules
+ *
+ * @var array
+ */	
+	public $validate = array(
+		'title'=>array(
+			'notEmpty'=>array(
+				'rule'=>'notEmpty',
+				'required'=>'true',
+				'message'=>'Please enter the newspaper Title.'
+			), 
+			'between'=>array(
+				'rule'=>array('between', 2, 255),
+				'message'=>'Minimum 2 characters in length — field cannot be left empty.'
+			)
+		), 
+		'city'=>array(
+				'rule'=>'notEmpty',
+				'required'=>'true',
+				'message'=>'Please enter City — field cannot be left empty.'
+		),
+		'county'=>array(
+				'rule'=>'notEmpty',
+				'required'=>'true',
+				'message'=>'Please enter County — field cannot be left empty.'
+		), 
+		'title_control'=>array(
+				'rule'=>'notEmpty',
+				'required'=>'true',
+				'message'=>'Please enter Title Control — field cannot be left empty.'
+/*
+		), 
+		'aleph_number'=>array(
+				'rule'=>'alphaNumeric',
+				'message'=>'Please enter alphanumeric characters only.'
+*/
+		) 
+	);
 
 }
