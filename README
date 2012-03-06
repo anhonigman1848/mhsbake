@@ -1,4 +1,5 @@
-Access control helper added to view.
+Removed the zipped file in the app folder.
 
-Need to add a line to beginning of new views and also add helper to the $helpers variable in new controllers.
+I was using it to transfer files to the server.
 
+It has no value to the project.
