@@ -44,5 +44,62 @@ class Archive extends AppModel {
 			'insertQuery' => ''
 		)
 	);
+/**
+ * Validation rules
+ *
+ * @var array
+ */	
+	public $validate = array(
+		'series'=>array(
+			'notEmpty'=>array(
+				'rule'=>'notEmpty',
+				'required'=>'true',
+				'message'=>'Please enter the archive Series.'
+			), 
+			'between'=>array(
+				'rule'=>array('between', 1, 255),
+				'message'=>'Minimum 2 characters in length — field cannot be left empty.'
+			)
+		), 
+		'series_number'=>array(
+				'rule'=>'alphaNumeric',
+				'message'=>'Please enter numeric characters only.'
+/*
+		), 
+		'author_citation'=>array(
+				'rule'=>'notEmpty',
+				'message'=>'Please enter Author Citation — field cannot be left empty.'
+*/
+		),		
+		'title'=>array(
+			'notEmpty'=>array(
+				'rule'=>'notEmpty',
+				'required'=>'true',
+				'message'=>'Please enter the archive Title.'
+			), 
+			'between'=>array(
+				'rule'=>array('between', 2, 255),
+				'message'=>'Minimum 2 characters in length — field cannot be left empty.'
+			)
+/*
+		), 
+		'county'=>array(
+				'rule'=>'notEmpty',
+				'required'=>'true',
+				'message'=>'Please enter County — field cannot be left empty.'
+		),
+		'city'=>array(
+				'rule'=>'notEmpty',
+				'required'=>'true',
+				'message'=>'Please enter City — field cannot be left empty.'
+		),
+		'aleph_number'=>array(
+				'rule'=>'alphaNumeric',
+				'message'=>'Please enter alphanumeric characters only.'
+*/
+		) 
+	);
+	
+	
 
 }

@@ -653,10 +653,10 @@ class PaginatorHelper extends AppHelper {
 				'before' => ' | ', 'after' => ' | ', 'first' => 'first', 'last' => 'last'
 			);
 		}
-
+// Anne changed modulus default from '8' to '18'
 		$defaults = array(
 			'tag' => 'span', 'before' => null, 'after' => null, 'model' => $this->defaultModel(), 'class' => null,
-			'modulus' => '8', 'separator' => ' | ', 'first' => null, 'last' => null, 'ellipsis' => '...',
+			'modulus' => '18', 'separator' => ' | ', 'first' => null, 'last' => null, 'ellipsis' => '...',
 		);
 		$options += $defaults;
 
