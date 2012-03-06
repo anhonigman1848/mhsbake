@@ -44,6 +44,8 @@ class AppController extends Controller {
         )
     );
     
+    //public $helpers = array('Access');
+    
     // default isauthorized() function.  Authorizes only the admin to view pages.
     public function isAuthorized($user) {
         if ($user['role'] == 'admin') {

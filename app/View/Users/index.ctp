@@ -1,3 +1,4 @@
+<?php $this->Access->setRole($current_user['role']); ?>
 <div class="users index">
 	<h2>Users</h2>
 	<table cellpadding="0" cellspacing="0">
@@ -18,18 +19,22 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $user['User']['id']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['first_name']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['last_name']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['username']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['role']; ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link('View', array('action' => 'view', $user['User']['id'])); ?>
-			<?php if ($current_user['id'] == $user['User']['id'] || $current_user['role'] == 'admin'): ?>
-			    <?php echo $this->Html->link('Edit', array('action' => 'edit', $user['User']['id'])); ?>
-			    <?php echo $this->Form->postLink('Delete', array('action' => 'delete', $user['User']['id']), array('confirm'=>'Are you sure you want to delete that user?')); ?>
-		    <?php endif; ?>
-		</td>
+		<?php if ($current_user['id'] == $user['User']['id'] || $current_user['role'] == 'admin'): ?>
+			<td><?php echo $user['User']['id']; ?>&nbsp;</td>
+			<td><?php echo $user['User']['first_name']; ?>&nbsp;</td>
+			<td><?php echo $user['User']['last_name']; ?>&nbsp;</td>
+			<td><?php echo $user['User']['username']; ?>&nbsp;</td>
+			<td><?php echo $user['User']['role']; ?>&nbsp;</td>
+			<td class="actions">
+				<?php if($this->Access->cat('view')){
+					echo $this->Html->link('View', array('action' => 'view', $user['User']['id'])); } ?>
+				<?php if($this->Access->cat('edit')){
+					echo $this->Html->link('Edit', array('action' => 'edit', $user['User']['id'])); } ?>
+				<?php if($this->Access->cat('delete')){
+					echo $this->Form->postLink('Delete', array('action' => 'delete', $user['User']['id']),
+								   array('confirm'=>'Are you sure you want to delete that user?')); } ?>
+			</td>
+		<?php endif; ?>
 	</tr>
 <?php endforeach; ?>
 	</table>
@@ -37,7 +42,8 @@
 <div class="actions">
 	<h3>Actions</h3>
 	<ul>
-		<li><?php echo $this->Html->link('New User', array('action' => 'add')); ?></li>
+		<li><?php if($this->Access->cat('add')){
+			echo $this->Html->link('New User', array('action' => 'add')); } ?></li>
 		<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 	</ul>
 </div>

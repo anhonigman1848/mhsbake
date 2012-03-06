@@ -1,3 +1,4 @@
+<?php $this->Access->setRole($current_user['role']); ?>
 <div class="newspaperContents index">
 	<h2><?php echo __('Newspaper Contents');?></h2>
 	<table cellpadding="0" cellspacing="0">

@@ -1,3 +1,4 @@
+<?php $this->Access->setRole($current_user['role']); ?>
 <div class="newspapers view">
 <h2><?php  echo __('Newspaper');?></h2>
 	<dl>

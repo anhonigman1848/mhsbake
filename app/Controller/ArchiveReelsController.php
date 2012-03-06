@@ -8,6 +8,12 @@ App::uses('AppController', 'Controller');
 class ArchiveReelsController extends AppController {
 	
 	/*
+	 * Include these helpers for the views
+	 */
+	public $helpers = array('Access');
+
+	
+	/*
 	 *	beforeFilter() runs before its internal script before
 	 *	the action function (such as add, delete, or index) starts.
 	 *	Here, we add string names to the array of actions allowed
