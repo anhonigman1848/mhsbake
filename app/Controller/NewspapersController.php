@@ -6,18 +6,24 @@ App::uses('AppController', 'Controller');
  * @property Newspaper $Newspaper
  */
 class NewspapersController extends AppController {
+
+/*
+ * Include the Search component
+ */	
+	public $components = array('Search.Prg');
+	//Debugger::dump($components); 
 	
-	/*
-	 * Include these helpers for the views
-	 */
+/*
+ * Include these helpers for the views
+ */
 	public $helpers = array('Access');
 	
-	/*
-	 *	beforeFilter() runs before its internal script before
-	 *	the action function (such as add, delete, or index) starts.
-	 *	Here, we add string names to the array of actions allowed
-	 *	without authorization.
-	 */
+/*
+ *	beforeFilter() runs before its internal script before
+ *	the action function (such as add, delete, or index) starts.
+ *	Here, we add string names to the array of actions allowed
+ *	without authorization.
+ */
 	public function beforeFilter() {
 	    parent::beforeFilter();
 	    // Give some permissions that don't depend on authentication, such
@@ -28,21 +34,21 @@ class NewspapersController extends AppController {
 	}
 	
 	
-	/*
-	 *	isAuthorized(), as the UsersController level, makes additional
-	 *	checks for authentication.  Looking below, you see that several
-	 *	cases are considered:
-	 *		1. user session id and user id do not match
-	 *		2. $user['role'] is considered for each role, returning
-	 *		   true if the role is authorized to request action and
-	 *		   false if not authorized
-	 *		3. no user roles were matched, so authentication is not
-	 *		   given
-	 *	Checks for an action can be cirmcumvented completely by adding
-	 *	to $this->Auth->allow(ADD_TO_ARRAY) in beforeFilter().
-	 *	@precondition - this username and password checked
-	 *	@postcondition -  authorization pass/fails if returns true/false
-	 */
+/*
+ *	isAuthorized(), as the UsersController level, makes additional
+ *	checks for authentication.  Looking below, you see that several
+ *	cases are considered:
+ *		1. user session id and user id do not match
+ *		2. $user['role'] is considered for each role, returning
+ *		   true if the role is authorized to request action and
+ *		   false if not authorized
+ *		3. no user roles were matched, so authentication is not
+ *		   given
+ *	Checks for an action can be cirmcumvented completely by adding
+ *	to $this->Auth->allow(ADD_TO_ARRAY) in beforeFilter().
+ *	@precondition - this username and password checked
+ *	@postcondition -  authorization pass/fails if returns true/false
+ */
 	public function isAuthorized($user) {
 		
 		// Admin permissions [see also the beforeFilter()]
@@ -70,6 +76,14 @@ class NewspapersController extends AppController {
 		
 		return false; // action request not authorized - unknown user 
 	}
+		
+	public $presetVars = array(
+        array('field' => 'title', 'type' => 'value'),
+        array('field' => 'city', 'type' => 'value'),
+		array('field' => 'county', 'type' => 'value'),
+		array('field' => 'aleph_number', 'type' => 'value')
+        );
+	
 
 
 /**
@@ -81,6 +95,22 @@ class NewspapersController extends AppController {
 		$this->Newspaper->recursive = 0;
 		$this->set('newspapers', $this->paginate());
 	}
+	
+/**
+ * find method
+ *
+ * @return void
+ */	
+	public function find() {
+        $this->Prg->commonProcess();
+		
+		
+		
+        $this->paginate = array('conditions' => $this->Newspaper->parseCriteria($this->passedArgs));
+		
+        $this->set('newspapers', $this->paginate());
+		
+    }
 
 /**
  * view method

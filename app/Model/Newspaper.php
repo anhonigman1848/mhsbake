@@ -45,6 +45,26 @@ class Newspaper extends AppModel {
 			'insertQuery' => ''
 		)
 	);
+
+/**
+ * Gets Searchable behavior from Search plugin
+ *
+ * @var array
+ */	
+	public $actsAs = array('Search.Searchable');
+	
+/**
+ * Search filters
+ *
+ * @var array
+ */		
+	public $filterArgs = array(
+        array('name' => 'title', 'type' => 'like'),
+        array('name' => 'city', 'type' => 'like'),
+        array('name' => 'county', 'type' => 'like'),
+        array('name' => 'aleph_number', 'type' => 'value')        
+    );
+	
 /**
  * Validation rules
  *
