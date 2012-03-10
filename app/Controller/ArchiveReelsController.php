@@ -6,6 +6,7 @@ App::uses('AppController', 'Controller');
  * @property ArchiveReel $ArchiveReel
  */
 class ArchiveReelsController extends AppController {
+    
 	
 	/*
 	 * Include these helpers for the views
@@ -140,6 +141,26 @@ class ArchiveReelsController extends AppController {
 		}
 		$archiveContents = $this->ArchiveReel->ArchiveContent->find('list');
 		$this->set(compact('archiveContents'));
+	}
+
+/**
+ * addWithContent method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function addWithContent($id = null) {
+		$this->loadModel('ArchiveContent', $id);
+		$this->set('archiveContent', $this->ArchiveContent->read());
+		if ($this->request->is('post')) {
+			$this->ArchiveReel->create();
+			if ($this->ArchiveReel->save($this->request->data)) {
+				$this->Session->setFlash(__('The archive reel has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The archive reel could not be saved. Please, try again.'));
+			}
+		}
 	}
 
 /**
