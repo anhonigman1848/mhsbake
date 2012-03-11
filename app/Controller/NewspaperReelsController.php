@@ -142,6 +142,26 @@ class NewspaperReelsController extends AppController {
 	}
 
 /**
+ * addWithContent method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function addWithContent($id = null) {
+		$this->loadModel('NewspaperContent', $id);
+		$this->set('newspaperContent', $this->NewspaperContent->read());
+		if ($this->request->is('post')) {
+			$this->NewspaperReel->create();
+			if ($this->NewspaperReel->save($this->request->data)) {
+				$this->Session->setFlash(__('The newspaper reel has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The newspaper reel could not be saved. Please try again.'));
+			}
+		}
+	}
+
+/**
  * edit method
  *
  * @param string $id
