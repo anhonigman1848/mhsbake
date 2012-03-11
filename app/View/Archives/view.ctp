@@ -113,6 +113,7 @@
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Archive Content'), array('controller' => 'archive_contents', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Content for This Archive'), array('controller' => 'archive_contents', 'action' => 'addWithArchive', $archive['Archive']['archive_id']));?> </li>
 			<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 		</ul>
 	</div>

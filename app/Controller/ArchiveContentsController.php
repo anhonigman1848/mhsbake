@@ -116,6 +116,26 @@ class ArchiveContentsController extends AppController {
 	}
 
 /**
+ * addWithArchive method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function addWithArchive($id = null) {
+		$this->loadModel('Archive', $id);
+		$this->set('archive', $this->Archive->read());
+		if ($this->request->is('post')) {
+			$this->ArchiveContent->create();
+			if ($this->ArchiveContent->save($this->request->data)) {
+				$this->Session->setFlash(__('The archive content has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
+			}
+		}
+	}
+
+/**
  * edit method
  *
  * @param string $id
