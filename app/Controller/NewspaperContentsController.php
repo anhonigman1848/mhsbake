@@ -116,6 +116,26 @@ class NewspaperContentsController extends AppController {
 	}
 
 /**
+ * addWithNewspaper method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function addWithNewspaper($id = null) {
+		$this->loadModel('Newspaper', $id);
+		$this->set('newspaper', $this->Newspaper->read());
+		if ($this->request->is('post')) {
+			$this->NewspaperContent->create();
+			if ($this->NewspaperContent->save($this->request->data)) {
+				$this->Session->setFlash(__('The newspaper content has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The newspaper content could not be saved. Please, try again.'));
+			}
+		}
+	}
+
+/**
  * edit method
  *
  * @param string $id
