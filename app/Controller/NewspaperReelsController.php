@@ -202,9 +202,57 @@ class NewspaperReelsController extends AppController {
 		}
 		if ($this->NewspaperReel->delete()) {
 			$this->Session->setFlash(__('Newspaper reel deleted'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'expanded'));
 		}
 		$this->Session->setFlash(__('Newspaper reel was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('action' => 'expanded'));
+	}
+	
+/**
+ * This is the soft delete action.  Basically, it changes the deleted field of
+ * NewspaperReel to true for the NewspaperReel_id passed.
+ *
+ * @param string $id - this is the id of the newspaper reel to be "soft deleted"
+ * @return void
+ */
+	public function softdelete($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->NewspaperReel->id = $id;
+		if (!$this->NewspaperReel->exists()) {
+			throw new NotFoundException(__('Invalid newspaper reel'));
+		}
+		if ($this->NewspaperReel->saveField('deleted', true, false)) {
+			$this->Session->setFlash(__('Newspaper reel deleted'));
+			$this->redirect(array('action' => 'expanded'));
+		}
+		$this->Session->setFlash(__('Newspaper reel was not deleted'));
+		$this->redirect(array('action' => 'expanded'));
+	}
+
+
+/**
+ * This is the restore record action.  Basically, it changes the deleted field of
+ * NewspaperReel to false for the NewspaperReel_id passed.  It is used in
+ * conjunction with the "soft delete" action to restore a deleted record
+ *
+ * @param string $id - this is the id of the newspaper reel to be restored
+ * @return void
+ */
+	public function restore($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->NewspaperReel->id = $id;
+		if (!$this->NewspaperReel->exists()) {
+			throw new NotFoundException(__('Invalid newspaper reel'));
+		}
+		if ($this->NewspaperReel->saveField('deleted', false, false)) {
+			$this->Session->setFlash(__('Newspaper reel restored'));
+			$this->redirect(array('action' => 'expanded'));
+		}
+		$this->Session->setFlash(__('Newspaper reel was not restored'));
+		$this->redirect(array('action' => 'expanded'));
 	}
 }

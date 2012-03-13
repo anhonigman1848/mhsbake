@@ -62,9 +62,24 @@
 		<td><?php if($this->Access->cat('deleted')){ echo h($newspaperRecord['NewspaperReel']['deleted']);} ?>&nbsp;</td>		
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('controller' => 'newspaper_reels', 'action' => 'record', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
-			<?php if($this->Access->cat('deleted')){ echo $this->Html->link(__('Edit'), array('action' => 'edit', $newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
-			<?php if($this->Access->cat('deleted')){ echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']),
-											    null, __('Are you sure you want to delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
+			<?php if($this->Access->cat('edit')){
+				echo $this->Html->link(__('Edit'), array('action' => 'edit',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
+			<?php if($this->Access->cat('deleted')){
+				echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']), null,
+					__('Are you sure you want to delete # %s?',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
+			<?php if($this->Access->cat('soft_delete')){
+				echo $this->Form->postLink(__('Delete'), array('action' => 'softdelete',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']), null,
+					__('Are you sure you want to delete # %s?',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
+			<?php if($this->Access->cat('deleted')){
+				echo $this->Form->postLink(__('Restore'), array('action' => 'restore',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']), null,
+					__('Are you sure you want to restore # %s?',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

@@ -204,9 +204,59 @@ class ArchiveReelsController extends AppController {
 		}
 		if ($this->ArchiveReel->delete()) {
 			$this->Session->setFlash(__('Archive reel deleted'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'expanded'));
 		}
 		$this->Session->setFlash(__('Archive reel was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('action' => 'expanded'));
 	}
+
+
+/**
+ * This is the soft delete action.  Basically, it changes the deleted field of
+ * ArchiveReel to true for the ArchiveReel_id passed.
+ *
+ * @param string $id - this is the id of the archive reel to be "soft deleted"
+ * @return void
+ */
+	public function softdelete($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->ArchiveReel->id = $id;
+		if (!$this->ArchiveReel->exists()) {
+			throw new NotFoundException(__('Invalid archive reel'));
+		}
+		if ($this->ArchiveReel->saveField('deleted', true, false)) {
+			$this->Session->setFlash(__('Archive reel deleted'));
+			$this->redirect(array('action' => 'expanded'));
+		}
+		$this->Session->setFlash(__('Archive reel was not deleted'));
+		$this->redirect(array('action' => 'expanded'));
+	}
+
+
+/**
+ * This is the restore record action.  Basically, it changes the deleted field of
+ * ArchiveReel to false for the ArchiveReel_id passed.  It is used in
+ * conjunction with the "soft delete" action to restore a deleted record
+ *
+ * @param string $id - this is the id of the archive reel to be restored
+ * @return void
+ */
+	public function restore($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->ArchiveReel->id = $id;
+		if (!$this->ArchiveReel->exists()) {
+			throw new NotFoundException(__('Invalid archive reel'));
+		}
+		if ($this->ArchiveReel->saveField('deleted', false, false)) {
+			$this->Session->setFlash(__('Archive reel restored'));
+			$this->redirect(array('action' => 'expanded'));
+		}
+		$this->Session->setFlash(__('Archive reel was not restored'));
+		$this->redirect(array('action' => 'expanded'));
+	}
+
 }
