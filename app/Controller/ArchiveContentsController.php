@@ -128,7 +128,7 @@ class ArchiveContentsController extends AppController {
 			$this->ArchiveContent->create();
 			if ($this->ArchiveContent->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive content has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'archives', 'action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
 			}

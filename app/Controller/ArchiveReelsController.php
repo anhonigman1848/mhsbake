@@ -156,7 +156,7 @@ class ArchiveReelsController extends AppController {
 			$this->ArchiveReel->create();
 			if ($this->ArchiveReel->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive reel has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'archive_contents', 'action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(__('The archive reel could not be saved. Please, try again.'));
 			}
