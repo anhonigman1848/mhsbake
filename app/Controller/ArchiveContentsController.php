@@ -149,7 +149,7 @@ class ArchiveContentsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->ArchiveContent->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive content has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
 			}

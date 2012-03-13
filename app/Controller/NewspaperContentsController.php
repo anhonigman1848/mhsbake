@@ -149,7 +149,7 @@ class NewspaperContentsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->NewspaperContent->save($this->request->data)) {
 				$this->Session->setFlash(__('The newspaper content has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(__('The newspaper content could not be saved. Please, try again.'));
 			}
