@@ -60,4 +60,5 @@ class NewspaperReel extends AppModel {
 			'order' => ''
                 )
 	);
+
 }
