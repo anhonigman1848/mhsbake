@@ -20,6 +20,8 @@
 <br />
 <?php echo $this->Html->link('Newspaper Reels', array('controller' => 'newspaper_reels')); ?>
 <br />
+<?php echo $this->Html->link('Search Newspapers', array('controller' => 'newspapers', 'action' => 'find')); ?>
+<br />
 <br />
 <br />
 <?php echo $this->Html->link('Archive Records', array('controller' => 'archive_reels', 'action' => 'expanded')); ?>
