@@ -17,26 +17,16 @@
 			<?php echo h($archiveContent['ArchiveContent']['reel_number']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Begin Year'); ?></dt>
+		<dt><?php echo __('Begin Date'); ?></dt>
 		<dd>
 			<?php echo h($archiveContent['ArchiveContent']['begin_year']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Begin Month'); ?></dt>
-		<dd>
-			<?php echo h($archiveContent['ArchiveContent']['begin_month']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('End Year'); ?></dt>
+		</dd>		
+		<dt><?php echo __('End Date'); ?></dt>
 		<dd>
 			<?php echo h($archiveContent['ArchiveContent']['end_year']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('End Month'); ?></dt>
-		<dd>
-			<?php echo h($archiveContent['ArchiveContent']['end_month']); ?>
-			&nbsp;
-		</dd>
+		</dd>		
 		<dt><?php echo __('Contents'); ?></dt>
 		<dd>
 			<?php echo h($archiveContent['ArchiveContent']['contents']); ?>

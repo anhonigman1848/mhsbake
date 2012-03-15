@@ -6,10 +6,8 @@
 			<th><?php echo $this->Paginator->sort('archive_content_id');?></th>
 			<th><?php echo $this->Paginator->sort('archive_id');?></th>
 			<th><?php echo $this->Paginator->sort('reel_number');?></th>
-			<th><?php echo $this->Paginator->sort('begin_year');?></th>
-			<th><?php echo $this->Paginator->sort('begin_month');?></th>
-			<th><?php echo $this->Paginator->sort('end_year');?></th>
-			<th><?php echo $this->Paginator->sort('end_month');?></th>
+			<th><?php echo $this->Paginator->sort('begin_date');?></th>			
+			<th><?php echo $this->Paginator->sort('end_date');?></th>			
 			<th><?php echo $this->Paginator->sort('contents');?></th>
 			<th><?php echo $this->Paginator->sort('comments');?></th>
 			<th><?php echo $this->Paginator->sort('usage_rights');?></th>
@@ -25,10 +23,8 @@
 			<?php echo $this->Html->link($archiveContent['Archive']['title'], array('controller' => 'archives', 'action' => 'view', $archiveContent['Archive']['archive_id'])); ?>
 		</td>
 		<td><?php echo h($archiveContent['ArchiveContent']['reel_number']); ?>&nbsp;</td>
-		<td><?php echo h($archiveContent['ArchiveContent']['begin_year']); ?>&nbsp;</td>
-		<td><?php echo h($archiveContent['ArchiveContent']['begin_month']); ?>&nbsp;</td>
-		<td><?php echo h($archiveContent['ArchiveContent']['end_year']); ?>&nbsp;</td>
-		<td><?php echo h($archiveContent['ArchiveContent']['end_month']); ?>&nbsp;</td>
+		<td><?php echo h($archiveContent['ArchiveContent']['begin_date']); ?>&nbsp;</td>		
+		<td><?php echo h($archiveContent['ArchiveContent']['end_date']); ?>&nbsp;</td>		
 		<td><?php echo h($archiveContent['ArchiveContent']['contents']); ?>&nbsp;</td>
 		<td><?php echo h($archiveContent['ArchiveContent']['comments']); ?>&nbsp;</td>
 		<td><?php echo h($archiveContent['ArchiveContent']['usage_rights']); ?>&nbsp;</td>

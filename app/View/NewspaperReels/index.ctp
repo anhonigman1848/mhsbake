@@ -45,7 +45,9 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $newspaperReel['NewspaperReel']['newspaper_reel_id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $newspaperReel['NewspaperReel']['newspaper_reel_id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $newspaperReel['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperReel['NewspaperReel']['newspaper_reel_id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete', $newspaperReel['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperReel['NewspaperReel']['newspaper_reel_id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'softdelete', $newspaperReel['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperReel['NewspaperReel']['newspaper_reel_id'])); ?>
+			<?php echo $this->Form->postLink(__('Restore'), array('action' => 'restore', $newspaperReel['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to restore # %s?', $newspaperReel['NewspaperReel']['newspaper_reel_id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

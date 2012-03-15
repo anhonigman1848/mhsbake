@@ -81,6 +81,7 @@ class Newspaper extends AppModel {
 				'rule'=>array('between', 2, 255),
 				'message'=>'Minimum 2 characters in length — field cannot be left empty.'
 			)
+/*
 		), 
 		'city'=>array(
 				'rule'=>'notEmpty',
@@ -96,7 +97,6 @@ class Newspaper extends AppModel {
 				'rule'=>'notEmpty',
 				'required'=>'true',
 				'message'=>'Please enter Title Control — field cannot be left empty.'
-/*
 		), 
 		'aleph_number'=>array(
 				'rule'=>'alphaNumeric',

@@ -106,7 +106,7 @@ class ArchiveContentsController extends AppController {
 			$this->ArchiveContent->create();
 			if ($this->ArchiveContent->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive content has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->ArchiveContent->id));
 			} else {
 				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
 			}
@@ -128,9 +128,28 @@ class ArchiveContentsController extends AppController {
 			$this->ArchiveContent->create();
 			if ($this->ArchiveContent->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive content has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'archives', 'action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
+			}
+		}
+	}
+
+/**
+ * addWithAssociated method
+ *
+ * @return void
+ */
+	public function addWithAssociated() {
+		if ($this->request->is('post')) {
+			$this->ArchiveContent->create();
+			// saveAssociated() saves into related tables
+			if ($this->ArchiveContent->saveAssociated($this->request->data, $options = array('deep' => true))) {
+				$this->Session->setFlash(__('The archive record has been saved'));
+				$this->redirect(array('controller' => 'archive_reels', 'action' => 'record',
+						      $this->ArchiveContent->ArchiveReel->id)); // display the new record
+			} else {
+				$this->Session->setFlash(__('The archive record could not be saved. Please, try again.'));
 			}
 		}
 	}
@@ -149,7 +168,7 @@ class ArchiveContentsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->ArchiveContent->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive content has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
 			}

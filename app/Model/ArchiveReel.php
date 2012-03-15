@@ -61,11 +61,55 @@ class ArchiveReel extends AppModel {
                 )
 	);
 
+        
 /**
- * Gets Auditable behavior from AuditLog plugin
+ * Gets Searchable behavior from Search plugin and Auditable behavior from AuditLog plugin
  *
  * @var array
  */	
-	public $actsAs = array( 'AuditLog.Auditable' );	
+	public $actsAs = array('Search.Searchable', 'AuditLog.Auditable');
+	
+/**
+ * Search filters
+ *
+ * @var array
+ */		
+	public $filterArgs = array(            
+            array('name' => 'title', 'type' => 'like', 'field' => 'Archive.title'),
+            array('name' => 'city', 'type' => 'like', 'field' => 'Archive.city'),
+            array('name' => 'county', 'type' => 'like', 'field' => 'Archive.county'),
+            array('name' => 'county', 'type' => 'like', 'field' => 'Archive.series'),
+            array('name' => 'county', 'type' => 'like', 'field' => 'Archive.series_number'),
+            array('name' => 'county', 'type' => 'like', 'field' => 'Archive.author_citation'),
+            array('name' => 'aleph_number', 'type' => 'like', 'field' => 'Archive.aleph_number'),
+            array('name' => 'date_from',
+                  'name' => 'date_to',
+                  'type' => 'expression',
+                  'method' => 'makeRangeCondition',
+                  'field' => '(ArchiveContent.begin_date BETWEEN ? AND ? OR ArchiveContent.end_date BETWEEN ? AND ?)')           
+        );
 
+/**
+ * makeRangeCondition returns an array of date strings that filterArgs can use to populate the
+ * expression 'ArchiveContent.begin_date BETWEEN ? AND ? OR ArchiveContent.end_date BETWEEN ? AND ?'
+ *
+ * @var array
+ */
+        public function makeRangeCondition($data = array()) {            
+            if  (
+                (empty($data['date_from']['year'])) ||
+                (empty($data['date_from']['month'])) ||
+                (empty($data['date_from']['day'])) ||
+                (empty($data['date_to']['year'])) ||
+                (empty($data['date_to']['month'])) ||
+                (empty($data['date_to']['day']))
+                ) {
+                    return array('0000-00-00', '2032-12-31', '0000-00-00', '2032-12-31');
+            }
+            $from = $data['date_from'];            
+            $from = implode("-", $from);            
+            $to = implode("-", $data['date_to']);
+            return array($from, $to, $from, $to);
+        }        
+>>>>>>> b7b109802a8c79d66b8aa46c52bac94939606e9a
 }

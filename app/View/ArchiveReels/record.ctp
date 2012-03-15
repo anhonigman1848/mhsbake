@@ -48,38 +48,29 @@
 			<?php echo h($archiveRecord['ArchiveContent']['reel_number']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Begin Year'); ?></dt>
+		<dt><?php echo __('Begin Date'); ?></dt>
 		<dd>
-			<?php echo h($archiveRecord['ArchiveContent']['begin_year']); ?>
+			<?php echo h($archiveRecord['ArchiveContent']['begin_date']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Begin Month'); ?></dt>
+		</dd>		
+		<dt><?php echo __('End Date'); ?></dt>
 		<dd>
-			<?php echo h($archiveRecord['ArchiveContent']['begin_month']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('End Year'); ?></dt>
-		<dd>
-			<?php echo h($archiveRecord['ArchiveContent']['end_year']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('End Month'); ?></dt>
-		<dd>
-			<?php echo h($archiveRecord['ArchiveContent']['end_month']); ?>
+			<?php echo h($archiveRecord['ArchiveContent']['end_date']); ?>
 			&nbsp;
 		</dd>
 		
-		<dt><?php echo __('End Month'); ?></dt>
+		
+		<dt><?php echo __('Contents'); ?></dt>
 		<dd>
 			<?php echo h($archiveRecord['ArchiveContent']['contents']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('End Month'); ?></dt>
+		<dt><?php echo __('Comments'); ?></dt>
 		<dd>
 			<?php echo h($archiveRecord['ArchiveContent']['comments']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('End Month'); ?></dt>
+		<dt><?php echo __('Usage Rights'); ?></dt>
 		<dd>
 			<?php echo h($archiveRecord['ArchiveContent']['usage_rights']); ?>
 			&nbsp;
