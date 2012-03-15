@@ -72,7 +72,22 @@ class NewspaperReelsController extends AppController {
 		
 		return false; // action request not authorized - unknown user 
 	}
-
+/*
+ * Include the Search component
+ */	
+	public $components = array('Search.Prg');
+	
+/**
+ * presetVars are used by Search.Prg to pull values from models  
+ */	
+	public $presetVars = array(		
+		array('field' => 'title', 'type' => 'value'),
+		array('field' => 'city', 'type' => 'value'),
+		array('field' => 'county', 'type' => 'value'),
+		array('field' => 'aleph_number', 'type' => 'value',
+		array('field' => 'date_from', 'type' => 'expression'),
+		array('field' => 'date_to', 'type' => 'expression'))		
+        );
 
 /**
  * index method
@@ -83,6 +98,18 @@ class NewspaperReelsController extends AppController {
 		$this->NewspaperReel->recursive = 0;
 		$this->set('newspaperReels', $this->paginate());		
 	}
+/**
+ * find method
+ *
+ * @return void
+ */	
+	public function find() {
+		$this->Prg->commonProcess();		
+		$this->paginate = array('conditions' => 
+			$this->NewspaperReel->parseCriteria($this->passedArgs));		
+		$this->set('newspaperRecords', $this->paginate());		
+    }	
+	
 	
 /**
  * expanded method

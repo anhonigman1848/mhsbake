@@ -78,13 +78,13 @@ class NewspapersController extends AppController {
 	}
 		
 	public $presetVars = array(
-        array('field' => 'title', 'type' => 'value'),
-        array('field' => 'city', 'type' => 'value'),
+		array('field' => 'title', 'type' => 'value'),
+		array('field' => 'city', 'type' => 'value'),
 		array('field' => 'county', 'type' => 'value'),
 		array('field' => 'aleph_number', 'type' => 'value')
         );
 	
-
+	
 
 /**
  * index method
@@ -102,14 +102,9 @@ class NewspapersController extends AppController {
  * @return void
  */	
 	public function find() {
-        $this->Prg->commonProcess();
-		
-		
-		
-        $this->paginate = array('conditions' => $this->Newspaper->parseCriteria($this->passedArgs));
-		
-        $this->set('newspapers', $this->paginate());
-		
+		$this->Prg->commonProcess();		
+		$this->paginate = array('conditions' => $this->Newspaper->parseCriteria($this->passedArgs));		
+		$this->set('newspapers', $this->paginate());		
     }
 
 /**

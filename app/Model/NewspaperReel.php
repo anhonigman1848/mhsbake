@@ -60,4 +60,50 @@ class NewspaperReel extends AppModel {
 			'order' => ''
                 )
 	);
+/**
+ * Gets Searchable behavior from Search plugin
+ *
+ * @var array
+ */	
+	public $actsAs = array('Search.Searchable');
+	
+/**
+ * Search filters
+ *
+ * @var array
+ */		
+	public $filterArgs = array(            
+            array('name' => 'title', 'type' => 'like', 'field' => 'Newspaper.title'),
+            array('name' => 'city', 'type' => 'like', 'field' => 'Newspaper.city'),
+            array('name' => 'county', 'type' => 'like', 'field' => 'Newspaper.county'),
+            array('name' => 'aleph_number', 'type' => 'like', 'field' => 'Newspaper.aleph_number'),
+            array('name' => 'date_from',
+                  'name' => 'date_to',
+                  'type' => 'expression',
+                  'method' => 'makeRangeCondition',
+                  'field' => '(NewspaperContent.begin_date BETWEEN ? AND ? OR NewspaperContent.end_date BETWEEN ? AND ?)')           
+        );
+
+/**
+ * makeRangeCondition returns an array of date strings that filterArgs can use to populate the
+ * expression 'NewspaperContent.begin_date BETWEEN ? AND ? OR NewspaperContent.end_date BETWEEN ? AND ?'
+ *
+ * @var array
+ */
+        public function makeRangeCondition($data = array()) {            
+            if  (
+                (empty($data['date_from']['year'])) ||
+                (empty($data['date_from']['month'])) ||
+                (empty($data['date_from']['day'])) ||
+                (empty($data['date_to']['year'])) ||
+                (empty($data['date_to']['month'])) ||
+                (empty($data['date_to']['day']))
+                ) {
+                    return array('1800-01-01', '2031-12-31', '1800-01-01', '2031-12-31');
+            }
+            $from = $data['date_from'];            
+            $from = implode("-", $from);            
+            $to = implode("-", $data['date_to']);
+            return array($from, $to, $from, $to);
+        }
 }
