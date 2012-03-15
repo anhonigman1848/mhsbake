@@ -7,6 +7,13 @@ App::uses('AppModel', 'Model');
 class User extends AppModel {
 	public $name = 'User';
 	public $displayField = 'name';
+
+/**
+ * Gets Auditable behavior from AuditLog plugin
+ *
+ * @var array
+ */	
+	public $actsAs = array( 'AuditLog.Auditable' );	
 	
 	public $validate = array(
 		'first_name'=>array(

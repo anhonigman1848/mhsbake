@@ -47,11 +47,11 @@ class Newspaper extends AppModel {
 	);
 
 /**
- * Gets Searchable behavior from Search plugin
+ * Gets Searchable behavior from Search plugin and Auditable behavior from AuditLog plugin
  *
  * @var array
  */	
-	public $actsAs = array('Search.Searchable');
+	public $actsAs = array('Search.Searchable', 'AuditLog.Auditable');
 	
 /**
  * Search filters

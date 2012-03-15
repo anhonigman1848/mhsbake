@@ -60,4 +60,12 @@ class NewspaperReel extends AppModel {
 			'order' => ''
                 )
 	);
+
+/**
+ * Gets Auditable behavior from AuditLog plugin
+ *
+ * @var array
+ */	
+	public $actsAs = array( 'AuditLog.Auditable' );	
+
 }
