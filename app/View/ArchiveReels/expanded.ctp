@@ -12,10 +12,8 @@
 			<th><?php if($this->Access->cat('series_number')){ echo $this->Paginator->sort('series_number');} ?></th>
 			<th><?php if($this->Access->cat('author_citation')){ echo $this->Paginator->sort('author_citation');} ?></th>			
 			<th><?php if($this->Access->cat('reel_number')){ echo $this->Paginator->sort('reel_number');} ?></th>
-			<th><?php if($this->Access->cat('begin_year')){ echo $this->Paginator->sort('begin_year');} ?></th>
-			<th><?php if($this->Access->cat('begin_month')){ echo $this->Paginator->sort('begin_month');} ?></th>
-			<th><?php if($this->Access->cat('end_year')){ echo $this->Paginator->sort('end_year');} ?></th>
-			<th><?php if($this->Access->cat('end_month')){ echo $this->Paginator->sort('end_month');} ?></th>			
+			<th><?php if($this->Access->cat('begin_date')){ echo $this->Paginator->sort('begin_year');} ?></th>			
+			<th><?php if($this->Access->cat('end_date')){ echo $this->Paginator->sort('end_year');} ?></th>						
 			<th><?php if($this->Access->cat('contents')){ echo $this->Paginator->sort('contents');} ?></th>
 			<th><?php if($this->Access->cat('comments')){ echo $this->Paginator->sort('comments');} ?></th>			
 			<th><?php if($this->Access->cat('usage_rights')){ echo $this->Paginator->sort('usage_rights');} ?></th>			
@@ -46,10 +44,8 @@
 		<td><?php if($this->Access->cat('series_number')){ echo h($archiveRecord['Archive']['series_number']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('author_citation')){ echo h($archiveRecord['Archive']['author_citation']);} ?>&nbsp;</td>		
 		<td><?php if($this->Access->cat('reel_number')){ echo h($archiveRecord['ArchiveContent']['reel_number']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('begin_year')){ echo h($archiveRecord['ArchiveContent']['begin_year']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('begin_month')){ echo h($archiveRecord['ArchiveContent']['begin_month']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('end_year')){ echo h($archiveRecord['ArchiveContent']['end_year']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('end_month')){ echo h($archiveRecord['ArchiveContent']['end_month']);} ?>&nbsp;</td>		
+		<td><?php if($this->Access->cat('begin_date')){ echo h($archiveRecord['ArchiveContent']['begin_date']);} ?>&nbsp;</td>		
+		<td><?php if($this->Access->cat('end_date')){ echo h($archiveRecord['ArchiveContent']['end_date']);} ?>&nbsp;</td>			
 		<td><?php if($this->Access->cat('contents')){ echo h($archiveRecord['ArchiveContent']['contents']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('comments')){ echo h($archiveRecord['ArchiveContent']['comments']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('usage_rights')){ echo h($archiveRecord['ArchiveContent']['usage_rights']);} ?>&nbsp;</td>		

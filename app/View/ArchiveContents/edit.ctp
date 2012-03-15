@@ -7,10 +7,8 @@
 		echo $this->Form->input('archive_content_id');
 		echo $this->Form->input('archive_id');
 		echo $this->Form->input('reel_number');
-		echo $this->Form->input('begin_year');
-		echo $this->Form->input('begin_month');
-		echo $this->Form->input('end_year');
-		echo $this->Form->input('end_month');
+		echo $this->Form->input('begin_date');		
+		echo $this->Form->input('end_date');		
 		echo $this->Form->input('contents');
 		echo $this->Form->input('comments');
 		echo $this->Form->input('usage_rights');

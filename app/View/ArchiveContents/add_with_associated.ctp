@@ -12,10 +12,8 @@
 		echo $this->Form->input('Archive.city');
 		echo $this->Form->input('Archive.aleph_number');
 		echo $this->Form->input('ArchiveContent.reel_number');
-		echo $this->Form->input('ArchiveContent.begin_year');
-		echo $this->Form->input('ArchiveContent.begin_month');
-		echo $this->Form->input('ArchiveContent.end_year');
-		echo $this->Form->input('ArchiveContent.end_month');
+		echo $this->Form->input('ArchiveContent.begin_date');		
+		echo $this->Form->input('ArchiveContent.end_date');		
 		echo $this->Form->input('ArchiveContent.contents');
 		echo $this->Form->input('ArchiveContent.comments');
 		echo $this->Form->input('ArchiveContent.usage_rights');
