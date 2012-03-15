@@ -99,6 +99,7 @@
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Newspaper Content'), array('controller' => 'newspaper_contents', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Content for This Newspaper'), array('controller' => 'newspaper_contents', 'action' => 'addWithNewspaper', $newspaper['Newspaper']['newspaper_id']));?> </li>
 			<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 		</ul>
 	</div>

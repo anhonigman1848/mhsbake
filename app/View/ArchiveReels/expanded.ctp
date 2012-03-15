@@ -68,9 +68,24 @@
 		<td><?php if($this->Access->cat('deleted')){ echo h($archiveRecord['ArchiveReel']['deleted']);} ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('controller' => 'archive_reels', 'action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-			<?php if($this->Access->cat('edit')){ echo $this->Html->link(__('Edit'), array('action' => 'edit', $archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
-			<?php if($this->Access->cat('delete')){ echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']),
-								null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
+			<?php if($this->Access->cat('edit')){
+				echo $this->Html->link(__('Edit'), array('action' => 'edit',
+					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
+			<?php if($this->Access->cat('deleted')){
+				echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete',
+					$archiveRecord['ArchiveReel']['archive_reel_id']), null,
+					__('Are you sure you want to delete # %s?',
+					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
+			<?php if($this->Access->cat('soft_delete')){
+				echo $this->Form->postLink(__('Delete'), array('action' => 'softdelete',
+					$archiveRecord['ArchiveReel']['archive_reel_id']), null,
+					__('Are you sure you want to delete # %s?',
+					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
+			<?php if($this->Access->cat('deleted')){
+				echo $this->Form->postLink(__('Restore'), array('action' => 'restore',
+					$archiveRecord['ArchiveReel']['archive_reel_id']), null,
+					__('Are you sure you want to restore # %s?',
+					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

@@ -8,13 +8,13 @@
 		echo $this->Form->input('archive_content_id');
 		echo $this->Form->input('reel_polarity');
 		echo $this->Form->input('generation');
-		echo $this->Form->input('redox_quality_date');
+		echo $this->Form->input('redox_quality_date', $options = array('empty' => true));
 		echo $this->Form->input('redox_quality_present');
 		echo $this->Form->input('scratches');
 		echo $this->Form->input('quality_in');
 		echo $this->Form->input('sdn_number');
 		echo $this->Form->input('shipping_box');
-		echo $this->Form->input('date_of_last_access');
+		echo $this->Form->input('date_of_last_access', $options = array('empty' => true));
 		echo $this->Form->input('checked_out');
 		echo $this->Form->input('deleted');
 	?>

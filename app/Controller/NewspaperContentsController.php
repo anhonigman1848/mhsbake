@@ -106,13 +106,55 @@ class NewspaperContentsController extends AppController {
 			$this->NewspaperContent->create();
 			if ($this->NewspaperContent->save($this->request->data)) {
 				$this->Session->setFlash(__('The newspaper content has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->NewspaperContent->id));
 			} else {
 				$this->Session->setFlash(__('The newspaper content could not be saved. Please, try again.'));
 			}
 		}
 		$newspapers = $this->NewspaperContent->Newspaper->find('list');
 		$this->set(compact('newspapers'));
+	}
+
+/**
+ * addWithNewspaper method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function addWithNewspaper($id = null) {
+		// loadModel() makes model data and methods available in this controller
+		$this->loadModel('Newspaper', $id);
+		// create reference to Newspaper with given id
+		$this->set('newspaper', $this->Newspaper->read());
+		if ($this->request->is('post')) {
+			$this->NewspaperContent->create();
+			if ($this->NewspaperContent->save($this->request->data)) {
+				$this->Session->setFlash(__('The newspaper content has been saved'));
+				// display newspaper with new content
+				$this->redirect(array('controller' => 'newspapers', 'action' => 'view', $id));
+			} else {
+				$this->Session->setFlash(__('The newspaper content could not be saved. Please, try again.'));
+			}
+		}
+	}
+
+/**
+ * addWithAssociated method
+ *
+ * @return void
+ */
+	public function addWithAssociated() {
+		if ($this->request->is('post')) {
+			$this->NewspaperContent->create();
+			// saveAssociated() saves into related tables
+			if ($this->NewspaperContent->saveAssociated($this->request->data, $options = array('deep' => true))) {
+				$this->Session->setFlash(__('The newspaper record has been saved'));
+				$this->redirect(array('controller' => 'newspaper_reels', 'action' => 'record',
+						      $this->NewspaperContent->NewspaperReel->id)); // display the new record
+			} else {
+				$this->Session->setFlash(__('The newspaper record could not be saved. Please, try again.'));
+			}
+		}
 	}
 
 /**
@@ -129,7 +171,8 @@ class NewspaperContentsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->NewspaperContent->save($this->request->data)) {
 				$this->Session->setFlash(__('The newspaper content has been saved'));
-				$this->redirect(array('action' => 'index'));
+				// display newspaper_content with edits made
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(__('The newspaper content could not be saved. Please, try again.'));
 			}

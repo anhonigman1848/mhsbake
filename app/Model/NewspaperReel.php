@@ -60,6 +60,7 @@ class NewspaperReel extends AppModel {
 			'order' => ''
                 )
 	);
+
 /**
  * Gets Searchable behavior from Search plugin
  *
@@ -99,7 +100,7 @@ class NewspaperReel extends AppModel {
                 (empty($data['date_to']['month'])) ||
                 (empty($data['date_to']['day']))
                 ) {
-                    return array('1800-01-01', '2031-12-31', '1800-01-01', '2031-12-31');
+                    return array('0000-00-00', '2032-12-31', '0000-00-00', '2032-12-31');
             }
             $from = $data['date_from'];            
             $from = implode("-", $from);            

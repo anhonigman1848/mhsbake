@@ -45,7 +45,10 @@ echo $this->Form->end(); ?>
 		<td><?php echo h($newspaperRecord['Newspaper']['aleph_number']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['NewspaperContent']['begin_date']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['NewspaperContent']['end_date']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperRecord['NewspaperReel']['newspaper_reel_id']); ?>&nbsp;</td>
+		
+		<td>
+			<?php echo $this->Html->link($newspaperRecord['NewspaperReel']['newspaper_reel_id'], array('controller' => 'newspaper_reels', 'action' => 'view', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
+		</td>
 		<td>
 			<?php echo $this->Html->link($newspaperRecord['NewspaperContent']['newspaper_content_id'], array('controller' => 'newspaper_contents', 'action' => 'view', $newspaperRecord['NewspaperContent']['newspaper_content_id'])); ?>
 		</td>

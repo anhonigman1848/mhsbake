@@ -6,6 +6,7 @@ App::uses('AppController', 'Controller');
  * @property ArchiveReel $ArchiveReel
  */
 class ArchiveReelsController extends AppController {
+    
 	
 	/*
 	 * Include these helpers for the views
@@ -73,7 +74,26 @@ class ArchiveReelsController extends AppController {
 		
 		return false; // action request not authorized - unknown user 
 	}
-
+	
+/*
+ * Include the Search component
+ */	
+	public $components = array('Search.Prg');
+	
+/**
+ * presetVars are used by Search.Prg to pull values from models  
+ */	
+	public $presetVars = array(		
+		array('field' => 'title', 'type' => 'value'),
+		array('field' => 'city', 'type' => 'value'),
+		array('field' => 'county', 'type' => 'value'),
+		array('field' => 'aleph_number', 'type' => 'value'),
+		array('field' => 'series', 'type' => 'value'),
+		array('field' => 'series_number', 'type' => 'value'),
+		array('field' => 'author_citation', 'type' => 'value'),
+		array('field' => 'date_from', 'type' => 'expression'),
+		array('field' => 'date_to', 'type' => 'expression')		
+        );
 
 /**
  * index method
@@ -84,6 +104,19 @@ class ArchiveReelsController extends AppController {
 		$this->ArchiveReel->recursive = 0;
 		$this->set('archiveReels', $this->paginate());
 	}
+	
+/**
+ * find method
+ *
+ * @return void
+ */	
+	public function find() {
+		$this->Prg->commonProcess();		
+		$this->paginate = array('conditions' => 
+			$this->ArchiveReel->parseCriteria($this->passedArgs));		
+		$this->set('archiveRecords', $this->paginate());		
+    }	
+	
 
 /**
  * expanded method
@@ -143,6 +176,26 @@ class ArchiveReelsController extends AppController {
 	}
 
 /**
+ * addWithContent method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function addWithContent($id = null) {
+		$this->loadModel('ArchiveContent', $id);
+		$this->set('archiveContent', $this->ArchiveContent->read());
+		if ($this->request->is('post')) {
+			$this->ArchiveReel->create();
+			if ($this->ArchiveReel->save($this->request->data)) {
+				$this->Session->setFlash(__('The archive reel has been saved'));
+				$this->redirect(array('controller' => 'archive_contents', 'action' => 'view', $id));
+			} else {
+				$this->Session->setFlash(__('The archive reel could not be saved. Please, try again.'));
+			}
+		}
+	}
+
+/**
  * edit method
  *
  * @param string $id
@@ -156,7 +209,7 @@ class ArchiveReelsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->ArchiveReel->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive reel has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(__('The archive reel could not be saved. Please, try again.'));
 			}
@@ -183,9 +236,59 @@ class ArchiveReelsController extends AppController {
 		}
 		if ($this->ArchiveReel->delete()) {
 			$this->Session->setFlash(__('Archive reel deleted'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'expanded'));
 		}
 		$this->Session->setFlash(__('Archive reel was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('action' => 'expanded'));
 	}
+
+
+/**
+ * This is the soft delete action.  Basically, it changes the deleted field of
+ * ArchiveReel to true for the ArchiveReel_id passed.
+ *
+ * @param string $id - this is the id of the archive reel to be "soft deleted"
+ * @return void
+ */
+	public function softdelete($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->ArchiveReel->id = $id;
+		if (!$this->ArchiveReel->exists()) {
+			throw new NotFoundException(__('Invalid archive reel'));
+		}
+		if ($this->ArchiveReel->saveField('deleted', true, false)) {
+			$this->Session->setFlash(__('Archive reel deleted'));
+			$this->redirect(array('action' => 'expanded'));
+		}
+		$this->Session->setFlash(__('Archive reel was not deleted'));
+		$this->redirect(array('action' => 'expanded'));
+	}
+
+
+/**
+ * This is the restore record action.  Basically, it changes the deleted field of
+ * ArchiveReel to false for the ArchiveReel_id passed.  It is used in
+ * conjunction with the "soft delete" action to restore a deleted record
+ *
+ * @param string $id - this is the id of the archive reel to be restored
+ * @return void
+ */
+	public function restore($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->ArchiveReel->id = $id;
+		if (!$this->ArchiveReel->exists()) {
+			throw new NotFoundException(__('Invalid archive reel'));
+		}
+		if ($this->ArchiveReel->saveField('deleted', false, false)) {
+			$this->Session->setFlash(__('Archive reel restored'));
+			$this->redirect(array('action' => 'expanded'));
+		}
+		$this->Session->setFlash(__('Archive reel was not restored'));
+		$this->redirect(array('action' => 'expanded'));
+	}
+
 }

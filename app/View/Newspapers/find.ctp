@@ -1,5 +1,7 @@
 <div class="newspapers index">
-	<h2><?php echo __('Newspapers Search');?></h2>
+
+	<h2><?php echo __('Search Newspapers');?></h2>
+
 
 <?php $this->Access->setRole($current_user['role']); 
 

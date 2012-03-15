@@ -5,8 +5,8 @@
 		<legend><?php echo __('Add Newspaper Content'); ?></legend>
 	<?php
 		echo $this->Form->input('newspaper_id');
-		echo $this->Form->input('begin_date');
-		echo $this->Form->input('end_date');
+		echo $this->Form->input('begin_date', $options = array('empty' => true));
+		echo $this->Form->input('end_date', $options = array('empty' => true));
 		echo $this->Form->input('reel_control');
 		echo $this->Form->input('gaps');
 		echo $this->Form->input('comments');
