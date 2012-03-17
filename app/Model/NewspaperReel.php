@@ -107,5 +107,5 @@ class NewspaperReel extends AppModel {
             $to = implode("-", $data['date_to']);
             return array($from, $to, $from, $to);
         }
->>>>>>> b7b109802a8c79d66b8aa46c52bac94939606e9a
+//>>>>>>> b7b109802a8c79d66b8aa46c52bac94939606e9a
 }
