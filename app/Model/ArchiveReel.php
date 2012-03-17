@@ -111,5 +111,6 @@ class ArchiveReel extends AppModel {
             $to = implode("-", $data['date_to']);
             return array($from, $to, $from, $to);
         }        
->>>>>>> b7b109802a8c79d66b8aa46c52bac94939606e9a
+//The following line appeared on 3/16/2012. Not sure where it came from. Commented out.
+//>>>>>>> b7b109802a8c79d66b8aa46c52bac94939606e9a
 }

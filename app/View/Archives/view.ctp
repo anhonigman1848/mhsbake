@@ -73,10 +73,8 @@
 		<th><?php echo __('Archive Content Id'); ?></th>
 		<th><?php echo __('Archive Id'); ?></th>
 		<th><?php echo __('Reel Number'); ?></th>
-		<th><?php echo __('Begin Year'); ?></th>
-		<th><?php echo __('Begin Month'); ?></th>
-		<th><?php echo __('End Year'); ?></th>
-		<th><?php echo __('End Month'); ?></th>
+		<th><?php echo __('Begin Date'); ?></th>
+		<th><?php echo __('End Date'); ?></th>
 		<th><?php echo __('Contents'); ?></th>
 		<th><?php echo __('Comments'); ?></th>
 		<th><?php echo __('Usage Rights'); ?></th>
@@ -91,10 +89,8 @@
 			<td><?php echo $archiveContent['archive_content_id'];?></td>
 			<td><?php echo $archiveContent['archive_id'];?></td>
 			<td><?php echo $archiveContent['reel_number'];?></td>
-			<td><?php echo $archiveContent['begin_year'];?></td>
-			<td><?php echo $archiveContent['begin_month'];?></td>
-			<td><?php echo $archiveContent['end_year'];?></td>
-			<td><?php echo $archiveContent['end_month'];?></td>
+			<td><?php echo $archiveContent['begin_date'];?></td>
+			<td><?php echo $archiveContent['end_date'];?></td>
 			<td><?php echo $archiveContent['contents'];?></td>
 			<td><?php echo $archiveContent['comments'];?></td>
 			<td><?php echo $archiveContent['usage_rights'];?></td>
