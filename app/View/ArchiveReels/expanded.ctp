@@ -2,7 +2,8 @@
 <div class="archiveReels index">
 	<h2><?php echo __('Archive Records Expanded View');?></h2>
 	<table cellpadding="0" cellspacing="0">
-	<tr>
+	<tr>			
+			<th><?php if($this->Access->cat('selected')){ echo $this->Paginator->sort('selected');} ?></th>
 			<th><?php if($this->Access->cat('archive_reel_id')){ echo $this->Paginator->sort('archive_reel_id');} ?></th>
 			<th><?php if($this->Access->cat('title')){ echo $this->Paginator->sort('title');} ?></th>
                         <th><?php if($this->Access->cat('city')){ echo $this->Paginator->sort('city');} ?></th>
@@ -34,7 +35,8 @@
 	</tr>
 	<?php
 	foreach ($archiveRecords as $archiveRecord): ?>
-	<tr>
+	<tr>		
+		<td><?php if($this->Access->cat('selected')){ echo $this->Form->checkbox('selected');} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('archive_reel_id')){ echo h($archiveRecord['ArchiveReel']['archive_reel_id']);} ?>&nbsp;</td>		
 		<td><?php if($this->Access->cat('title')){ echo h($archiveRecord['Archive']['title']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('city')){ echo h($archiveRecord['Archive']['city']);} ?>&nbsp;</td>
