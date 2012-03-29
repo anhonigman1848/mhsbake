@@ -6,7 +6,8 @@ class AccessHelper extends AppHelper {
     
     private $role = '';
     
-    private $admin = array( 'archive_reel_id' => true,
+    private $admin = array( 'selected' => true,
+                            'archive_reel_id' => true,
                             'newspaper_reel_id' => true,
                             'title' => true,
                             'city' => true,
@@ -19,11 +20,7 @@ class AccessHelper extends AppHelper {
                             'reel_number' => true,
                             'reel_control' => true,
                             'begin_date' => true,
-                            'end_date' => true,
-                            'begin_year' => true,
-                            'begin_month' => true,
-                            'end_year' => true,
-                            'end_month' => true,
+                            'end_date' => true,                            
                             'gaps' => true,
                             'contents' => true,
                             'comments' => true,
@@ -52,7 +49,8 @@ class AccessHelper extends AppHelper {
                             'first_name' => true);
     
     
-    private $staff = array( 'archive_reel_id' => true,
+    private $staff = array( 'selected' => true,
+                            'archive_reel_id' => true,
                             'newspaper_reel_id' => true,
                             'title' => true,
                             'city' => true,
@@ -65,11 +63,7 @@ class AccessHelper extends AppHelper {
                             'reel_number' => true,
                             'reel_control' => true,
                             'begin_date' => true,
-                            'end_date' => true,
-                            'begin_year' => true,
-                            'begin_month' => true,
-                            'end_year' => true,
-                            'end_month' => true,
+                            'end_date' => true,                            
                             'gaps' => true,
                             'contents' => true,
                             'comments' => true,
@@ -97,7 +91,8 @@ class AccessHelper extends AppHelper {
                             'last_name' => true,
                             'first_name' => true);
     
-    private $basic = array( 'archive_reel_id' => false,
+    private $basic = array( 'selected' => true,
+                            'archive_reel_id' => false,
                             'newspaper_reel_id' => false,
                             'title' => true,
                             'city' => true,
@@ -110,11 +105,7 @@ class AccessHelper extends AppHelper {
                             'reel_number' => true,
                             'reel_control' => true,
                             'begin_date' => true,
-                            'end_date' => true,
-                            'begin_year' => true,
-                            'begin_month' => true,
-                            'end_year' => true,
-                            'end_month' => true,
+                            'end_date' => true,                            
                             'gaps' => true,
                             'contents' => true,
                             'comments' => true,
@@ -143,7 +134,9 @@ class AccessHelper extends AppHelper {
                             'first_name' => false);
     
     
-    private $signedOut = array( 'archive_reel_id' => false,
+    private $signedOut = array(
+                            'selected' => true,
+                            'archive_reel_id' => false,
                             'newspaper_reel_id' => false,
                             'title' => false,
                             'city' => false,
@@ -156,11 +149,7 @@ class AccessHelper extends AppHelper {
                             'reel_number' => false,
                             'reel_control' => false,
                             'begin_date' => false,
-                            'end_date' => false,
-                            'begin_year' => false,
-                            'begin_month' => false,
-                            'end_year' => false,
-                            'end_month' => false,
+                            'end_date' => false,                            
                             'gaps' => false,
                             'contents' => false,
                             'comments' => false,

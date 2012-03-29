@@ -6,6 +6,7 @@
    echo $this->Form->create('NewspaperReel', array(
     'url' => array_merge(array('action' => 'find'), $this->params['pass'])
 ));
+
 echo $this->Form->input('title', array('div' => false));
 echo $this->Form->input('city', array('div' => false));
 echo $this->Form->input('county', array('div' => false));
@@ -19,7 +20,8 @@ echo $this->Form->end(); ?>
 	
 
 	<table cellpadding="0" cellspacing="0">
-	<tr>
+	<tr>			
+			<th><?php echo $this->Paginator->sort('selected');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
 			<th><?php echo $this->Paginator->sort('city');?></th>
 			<th><?php echo $this->Paginator->sort('county');?></th>
@@ -39,6 +41,7 @@ echo $this->Form->end(); ?>
 	<?php
 	foreach ($newspaperRecords as $newspaperRecord): ?>
 	<tr>		
+		<td><?php echo $this->Form->checkbox('selected') ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['Newspaper']['title']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['Newspaper']['city']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['Newspaper']['county']); ?>&nbsp;</td>

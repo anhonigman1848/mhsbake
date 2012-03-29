@@ -23,6 +23,7 @@ echo $this->Form->end(); ?>
 
 	<table cellpadding="0" cellspacing="0">
 	<tr>
+			<th><?php echo $this->Paginator->sort('selected');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
 			<th><?php echo $this->Paginator->sort('city');?></th>
 			<th><?php echo $this->Paginator->sort('county');?></th>
@@ -45,6 +46,7 @@ echo $this->Form->end(); ?>
 	<?php
 	foreach ($archiveRecords as $archiveRecord): ?>
 	<tr>		
+		<td><?php echo $this->Form->checkbox('selected') ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['title']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['city']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['county']); ?>&nbsp;</td>

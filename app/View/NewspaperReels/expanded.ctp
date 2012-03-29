@@ -3,6 +3,7 @@
 	<h2><?php echo __('Newspaper Records Expanded View');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
+			<th><?php if($this->Access->cat('selected')){ echo $this->Paginator->sort('selected');} ?></th>
 			<th><?php if($this->Access->cat('newspaper_reel_id')){ echo $this->Paginator->sort('newspaper_reel_id');}?></th>
                         <th><?php if($this->Access->cat('title')){ echo $this->Paginator->sort('title');}?></th>
                         <th><?php if($this->Access->cat('city')){ echo $this->Paginator->sort('city');}?></th>
@@ -34,6 +35,7 @@
 	<?php 
 	foreach ($newspaperRecords as $newspaperRecord): ?>
 	<tr>
+		<td><?php if($this->Access->cat('selected')){ echo $this->Form->checkbox('selected');} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('newspaper_reel_id')){ echo h($newspaperRecord['NewspaperReel']['newspaper_reel_id']);} ?>&nbsp;</td>
                 <td><?php if($this->Access->cat('title')){ echo h($newspaperRecord['Newspaper']['title']);}?>&nbsp;</td>
                 <td><?php if($this->Access->cat('city')){ echo h($newspaperRecord['Newspaper']['city']);}?>&nbsp;</td>
