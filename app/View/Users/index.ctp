@@ -21,8 +21,8 @@
 	<tr<?php echo $class;?>>
 		<?php if ($current_user['id'] == $user['User']['id'] || $current_user['role'] == 'admin'): ?>
 			<td><?php echo $user['User']['id']; ?>&nbsp;</td>
-			<td><?php echo $user['User']['first_name']; ?>&nbsp;</td>
-			<td><?php echo $user['User']['last_name']; ?>&nbsp;</td>
+			<td class="editfirstname" id="<?php echo $user['User']['id']; ?>"><?php echo $user['User']['first_name']; ?></td>
+			<td class="editlastname" id="<?php echo $user['User']['id']; ?>"><?php echo $user['User']['last_name']; ?></td>
 			<td><?php echo $user['User']['username']; ?>&nbsp;</td>
 			<td><?php echo $user['User']['role']; ?>&nbsp;</td>
 			<td class="actions">
