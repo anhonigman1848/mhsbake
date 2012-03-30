@@ -46,7 +46,19 @@ class AccessHelper extends AppHelper {
                             'soft_delete' => true,
                             'changelog' => true,
                             'last_name' => true,
-                            'first_name' => true);
+                            'first_name' => true,
+                            'audits_id' => true,
+                            'event' => true,
+                            'model' => true,
+                            'entity_id' => true,
+                            'json_object' => true,
+                            'description' => true,
+                            'source_id' => true,
+                            'audits_created' => true,
+                            'audit_deltas_id' => true,
+                            'property_name' => true,
+                            'old_value' => true,
+                            'new_value' => true);
     
     
     private $staff = array( 'selected' => true,
