@@ -99,12 +99,20 @@ class NewspaperReelsController extends AppController {
 		$this->set('newspaperReels', $this->paginate());		
 	}
 /**
- * find method
- *
+ * find method sets default dates for empty date fields
+ * then passes form data to Prg component for search processing
+ * 
  * @return void
  */	
-	public function find() {
-		$this->Prg->commonProcess();		
+	public function find() {		
+		if (empty($this->passedArgs['date_from'])) {
+			$this->passedArgs['date_from'] = '0000-00-00';	
+		}
+		if (empty($this->passedArgs['date_to'])) {
+			$this->passedArgs['date_to'] = '2032-12-31';	
+		}		
+		$this->Prg->commonProcess();
+		
 		$this->paginate = array('conditions' => 
 			$this->NewspaperReel->parseCriteria($this->passedArgs));		
 		$this->set('newspaperRecords', $this->paginate());		

@@ -31,6 +31,13 @@ $cakeDescription = 'Minnesota Historical Society Microfilm Collection';
 echo $this->Html->meta('icon');
 
 echo $this->Html->css('cake.generic');
+echo $this->Html->css('jquery-ui-1.8.4.custom.css');
+
+echo $this->Html->css('cake.generic');
+echo $this->Html->script('jquery.js');
+echo $this->Html->script('jquery.jeditable.js');
+echo $this->Html->script('jquery.ui.js');
+echo $this->Html->script('testinline.js');
 
 echo $scripts_for_layout;
 ?>

@@ -78,11 +78,10 @@ class NewspaperReel extends AppModel {
             array('name' => 'city', 'type' => 'like', 'field' => 'Newspaper.city'),
             array('name' => 'county', 'type' => 'like', 'field' => 'Newspaper.county'),
             array('name' => 'aleph_number', 'type' => 'like', 'field' => 'Newspaper.aleph_number'),
-            array('name' => 'date_from',
-                  'name' => 'date_to',
+            array('name' => 'date_from',                  
                   'type' => 'expression',
                   'method' => 'makeRangeCondition',
-                  'field' => '(NewspaperContent.begin_date BETWEEN ? AND ? OR NewspaperContent.end_date BETWEEN ? AND ?)')           
+                  'field' => '(NewspaperContent.begin_date BETWEEN ? AND ? OR NewspaperContent.end_date BETWEEN ? AND ?)')            
         );
 
 /**
@@ -91,20 +90,22 @@ class NewspaperReel extends AppModel {
  *
  * @var array
  */
-        public function makeRangeCondition($data = array()) {            
-            if  (
-                (empty($data['date_from']['year'])) ||
-                (empty($data['date_from']['month'])) ||
-                (empty($data['date_from']['day'])) ||
-                (empty($data['date_to']['year'])) ||
-                (empty($data['date_to']['month'])) ||
-                (empty($data['date_to']['day']))
-                ) {
-                    return array('0000-00-00', '2032-12-31', '0000-00-00', '2032-12-31');
+        public function makeRangeCondition($data = array()) {
+            
+            if  (empty($data['date_from'])) {
+                $from = '0000-00-00';
             }
-            $from = $data['date_from'];            
-            $from = implode("-", $from);            
-            $to = implode("-", $data['date_to']);
+            else {
+                $from = $data['date_from']; 
+            }
+            
+            if  (empty($data['date_to'])) {
+                $to = '2032-12-31';
+            }
+            else {
+                $to = $data['date_to']; 
+            }                
+            
             return array($from, $to, $from, $to);
         }
 }
