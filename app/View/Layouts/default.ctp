@@ -31,9 +31,9 @@ $cakeDescription = 'Minnesota Historical Society Microfilm Collection';
 echo $this->Html->meta('icon');
 
 echo $this->Html->css('cake.generic');
+
 echo $this->Html->css('jquery-ui-1.8.4.custom.css');
 
-echo $this->Html->css('cake.generic');
 echo $this->Html->script('jquery.js');
 echo $this->Html->script('jquery.jeditable.js');
 echo $this->Html->script('jquery.ui.js');
@@ -46,6 +46,11 @@ echo $scripts_for_layout;
 <div id="container">
 <div id="header">
 <h1><?php echo $this->Html->link('Sitemap', '/'); ?></h1>
+<h1>
+	<?php
+		// [Erik]: I'm going to add a help button here, later
+	?>
+</h1>
 </div>
 <div id="content">
 <div style="text-align: right;">
