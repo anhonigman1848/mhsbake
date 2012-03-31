@@ -19,12 +19,12 @@
 		</dd>
 		<dt><?php echo __('Begin Date'); ?></dt>
 		<dd>
-			<?php echo h($archiveContent['ArchiveContent']['begin_year']); ?>
+			<?php echo h($archiveContent['ArchiveContent']['begin_date']); ?>
 			&nbsp;
 		</dd>		
 		<dt><?php echo __('End Date'); ?></dt>
 		<dd>
-			<?php echo h($archiveContent['ArchiveContent']['end_year']); ?>
+			<?php echo h($archiveContent['ArchiveContent']['end_date']); ?>
 			&nbsp;
 		</dd>		
 		<dt><?php echo __('Contents'); ?></dt>

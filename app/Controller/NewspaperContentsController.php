@@ -139,11 +139,11 @@ class NewspaperContentsController extends AppController {
 	}
 
 /**
- * addWithAssociated method
+ * addNewspaperRecord method
  *
  * @return void
  */
-	public function addWithAssociated() {
+	public function addNewspaperRecord() {
 		if ($this->request->is('post')) {
 			$this->NewspaperContent->create();
 			// saveAssociated() saves into related tables

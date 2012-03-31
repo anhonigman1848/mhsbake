@@ -10,7 +10,7 @@
                         <th><?php if($this->Access->cat('county')){ echo $this->Paginator->sort('county');}?></th>
                         <th><?php if($this->Access->cat('title_control')){ echo $this->Paginator->sort('title_control');}?></th>
                         <th><?php if($this->Access->cat('aleph_number')){ echo $this->Paginator->sort('aleph_number');}?></th>
-			<th><?php if($this->Access->cat('begin_date')){ echo $this->Paginator->sort('begin_date');}?></th>
+			<th><?php if($this->Access->cat('begin_date')){ echo $this->Paginator->sort('NewspaperContent.begin_date', 'Begin Date');}?></th>
                         <th><?php if($this->Access->cat('end_date')){ echo $this->Paginator->sort('end_date');}?></th>
                         <th><?php if($this->Access->cat('reel_control')){ echo $this->Paginator->sort('reel_control');}?></th>
                         <th><?php if($this->Access->cat('gaps')){ echo $this->Paginator->sort('gaps');}?></th>
@@ -105,7 +105,8 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Newspaper Record'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('New Newspaper Reel'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('New Newspaper Record'), array('controller' => 'newspaper_contents', 'action' => 'addWithAssociated')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Newspaper Contents'), array('controller' => 'newspaper_contents', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 	</ul>

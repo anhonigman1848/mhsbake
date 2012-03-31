@@ -54,7 +54,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
@@ -65,15 +65,15 @@
 		<li><?php echo $this->Html->link(__('New Archive Reel'), array('controller' => 'archive_reels', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<div class="archiveContents form">
+--><div class="archiveContents form">
 <?php echo $this->Form->create('ArchiveContent');?>
 	<fieldset>
 		<legend><?php echo __('Add Archive Content for Archive ID '.$archive['Archive']['archive_id']); ?></legend>
 	<?php
 		echo $this->Form->hidden('archive_id', array('default' => $archive['Archive']['archive_id']));
 		echo $this->Form->input('reel_number');
-		echo $this->Form->input('begin_date');		
-		echo $this->Form->input('end_date');		
+		echo $this->Form->input('begin_date', array('default' => '0000-00-00'));		
+		echo $this->Form->input('end_date', array('default' => '0000-00-00'));		
 		echo $this->Form->input('contents');
 		echo $this->Form->input('comments');
 		echo $this->Form->input('usage_rights');

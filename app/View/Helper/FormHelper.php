@@ -1871,7 +1871,7 @@ class FormHelper extends AppHelper {
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html#FormHelper::day
  */
 	public function day($fieldName = null, $attributes = array()) {
-		$attributes += array('empty' => true, 'value' => null);
+		$attributes += array('empty' => true, 'value' => '00');
 		$attributes = $this->_dateTimeSelected('day', $fieldName, $attributes);
 
 		if (strlen($attributes['value']) > 2) {
@@ -1901,7 +1901,7 @@ class FormHelper extends AppHelper {
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html#FormHelper::year
  */
 	public function year($fieldName, $minYear = null, $maxYear = null, $attributes = array()) {
-		$attributes += array('empty' => true, 'value' => null);
+		$attributes += array('empty' => true, 'value' => '0000');
 		if ((empty($attributes['value']) || $attributes['value'] === true) && $value = $this->value($fieldName)) {
 			if (is_array($value)) {
 				extract($value);
@@ -1953,7 +1953,7 @@ class FormHelper extends AppHelper {
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html#FormHelper::month
  */
 	public function month($fieldName, $attributes = array()) {
-		$attributes += array('empty' => true, 'value' => null);
+		$attributes += array('empty' => true, 'value' => '00');
 		$attributes = $this->_dateTimeSelected('month', $fieldName, $attributes);
 
 		if (strlen($attributes['value']) > 2) {
@@ -2058,7 +2058,7 @@ class FormHelper extends AppHelper {
 			} else {
 				if (empty($value)) {
 					if (!$attributes['empty']) {
-						$attributes['value'] = 'now';
+						$attributes['value'] = '0000-00-00';
 					}
 				} else {
 					$attributes['value'] = $value;
@@ -2458,7 +2458,7 @@ class FormHelper extends AppHelper {
 				$data = array('am' => 'am', 'pm' => 'pm');
 			break;
 			case 'day':
-				$min = 1;
+				$min = 0;
 				$max = 31;
 
 				if (isset($options['min'])) {
@@ -2474,6 +2474,7 @@ class FormHelper extends AppHelper {
 			break;
 			case 'month':
 				if ($options['monthNames'] === true) {
+					$data['00'] = __d('cake', '00');
 					$data['01'] = __d('cake', 'January');
 					$data['02'] = __d('cake', 'February');
 					$data['03'] = __d('cake', 'March');
@@ -2506,6 +2507,7 @@ class FormHelper extends AppHelper {
 				for ($i = $min; $i <= $max; $i++) {
 					$data[$i] = $i;
 				}
+                                $data['0000'] = '0000';
 				if ($options['order'] != 'asc') {
 					$data = array_reverse($data, true);
 				}
