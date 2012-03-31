@@ -4,6 +4,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>			
 			<th><?php if($this->Access->cat('selected')){ echo $this->Paginator->sort('selected');} ?></th>
+			<th class="actions"><?php echo __('Actions');?></th>
 			<th><?php if($this->Access->cat('archive_reel_id')){ echo $this->Paginator->sort('archive_reel_id');} ?></th>
 			<th><?php if($this->Access->cat('title')){ echo $this->Paginator->sort('title');} ?></th>
                         <th><?php if($this->Access->cat('city')){ echo $this->Paginator->sort('city');} ?></th>
@@ -13,8 +14,8 @@
 			<th><?php if($this->Access->cat('series_number')){ echo $this->Paginator->sort('series_number');} ?></th>
 			<th><?php if($this->Access->cat('author_citation')){ echo $this->Paginator->sort('author_citation');} ?></th>			
 			<th><?php if($this->Access->cat('reel_number')){ echo $this->Paginator->sort('reel_number');} ?></th>
-			<th><?php if($this->Access->cat('begin_date')){ echo $this->Paginator->sort('begin_year');} ?></th>			
-			<th><?php if($this->Access->cat('end_date')){ echo $this->Paginator->sort('end_year');} ?></th>						
+			<th><?php if($this->Access->cat('begin_date')){ echo $this->Paginator->sort('begin_date');} ?></th>			
+			<th><?php if($this->Access->cat('end_date')){ echo $this->Paginator->sort('end_date');} ?></th>						
 			<th><?php if($this->Access->cat('contents')){ echo $this->Paginator->sort('contents');} ?></th>
 			<th><?php if($this->Access->cat('comments')){ echo $this->Paginator->sort('comments');} ?></th>			
 			<th><?php if($this->Access->cat('usage_rights')){ echo $this->Paginator->sort('usage_rights');} ?></th>			
@@ -31,12 +32,32 @@
 			<th><?php if($this->Access->cat('created')){ echo $this->Paginator->sort('created');} ?></th>
 			<th><?php if($this->Access->cat('modified')){ echo $this->Paginator->sort('modified');} ?></th>
 			<th><?php if($this->Access->cat('deleted')){ echo $this->Paginator->sort('deleted');} ?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 	foreach ($archiveRecords as $archiveRecord): ?>
 	<tr>		
 		<td><?php if($this->Access->cat('selected')){ echo $this->Form->checkbox('selected');} ?>&nbsp;</td>
+		<td class="actions">
+			<?php echo $this->Html->link(__('View'), array('controller' => 'archive_reels', 'action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
+			<?php if($this->Access->cat('edit')){
+				echo $this->Html->link(__('Edit'), array('action' => 'edit',
+					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
+			<?php if($this->Access->cat('deleted')){
+				echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete',
+					$archiveRecord['ArchiveReel']['archive_reel_id']), null,
+					__('Are you sure you want to delete # %s?',
+					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
+			<?php if($this->Access->cat('soft_delete')){
+				echo $this->Form->postLink(__('Delete'), array('action' => 'softdelete',
+					$archiveRecord['ArchiveReel']['archive_reel_id']), null,
+					__('Are you sure you want to delete # %s?',
+					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
+			<?php if($this->Access->cat('deleted')){
+				echo $this->Form->postLink(__('Restore'), array('action' => 'restore',
+					$archiveRecord['ArchiveReel']['archive_reel_id']), null,
+					__('Are you sure you want to restore # %s?',
+					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
+		</td>
 		<td><?php if($this->Access->cat('archive_reel_id')){ echo h($archiveRecord['ArchiveReel']['archive_reel_id']);} ?>&nbsp;</td>		
 		<td><?php if($this->Access->cat('title')){ echo h($archiveRecord['Archive']['title']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('city')){ echo h($archiveRecord['Archive']['city']);} ?>&nbsp;</td>
@@ -64,27 +85,6 @@
 		<td><?php if($this->Access->cat('created')){ echo h($archiveRecord['ArchiveReel']['created']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('modified')){ echo h($archiveRecord['ArchiveReel']['modified']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('deleted')){ echo h($archiveRecord['ArchiveReel']['deleted']);} ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('controller' => 'archive_reels', 'action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-			<?php if($this->Access->cat('edit')){
-				echo $this->Html->link(__('Edit'), array('action' => 'edit',
-					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
-			<?php if($this->Access->cat('deleted')){
-				echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete',
-					$archiveRecord['ArchiveReel']['archive_reel_id']), null,
-					__('Are you sure you want to delete # %s?',
-					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
-			<?php if($this->Access->cat('soft_delete')){
-				echo $this->Form->postLink(__('Delete'), array('action' => 'softdelete',
-					$archiveRecord['ArchiveReel']['archive_reel_id']), null,
-					__('Are you sure you want to delete # %s?',
-					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
-			<?php if($this->Access->cat('deleted')){
-				echo $this->Form->postLink(__('Restore'), array('action' => 'restore',
-					$archiveRecord['ArchiveReel']['archive_reel_id']), null,
-					__('Are you sure you want to restore # %s?',
-					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
-		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
@@ -103,7 +103,7 @@
 	?>
 	</div>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Archive Record'), array('action' => 'add')); ?></li>
@@ -111,3 +111,4 @@
 		<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 	</ul>
 </div>
+-->

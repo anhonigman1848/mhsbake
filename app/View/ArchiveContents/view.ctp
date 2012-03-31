@@ -54,7 +54,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Archive Content'), array('action' => 'edit', $archiveContent['ArchiveContent']['archive_content_id'])); ?> </li>
@@ -67,11 +67,12 @@
 		<li><?php echo $this->Html->link(__('New Archive Reel'), array('controller' => 'archive_reels', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<div class="related">
+--><div class="related">
 	<h3><?php echo __('Related Archive Reels');?></h3>
 	<?php if (!empty($archiveContent['ArchiveReel'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
+		<th class="actions"><?php echo __('Actions');?></th>
 		<th><?php echo __('Archive Reel Id'); ?></th>
 		<th><?php echo __('Archive Content Id'); ?></th>
 		<th><?php echo __('Reel Polarity'); ?></th>
@@ -87,12 +88,16 @@
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th><?php echo __('Deleted'); ?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
 		foreach ($archiveContent['ArchiveReel'] as $archiveReel): ?>
 		<tr>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'archive_reels', 'action' => 'view', $archiveReel['archive_reel_id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'archive_reels', 'action' => 'edit', $archiveReel['archive_reel_id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'archive_reels', 'action' => 'delete', $archiveReel['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveReel['archive_reel_id'])); ?>
+			</td>
 			<td><?php echo $archiveReel['archive_reel_id'];?></td>
 			<td><?php echo $archiveReel['archive_content_id'];?></td>
 			<td><?php echo $archiveReel['reel_polarity'];?></td>
@@ -108,21 +113,16 @@
 			<td><?php echo $archiveReel['created'];?></td>
 			<td><?php echo $archiveReel['modified'];?></td>
 			<td><?php echo $archiveReel['deleted'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'archive_reels', 'action' => 'view', $archiveReel['archive_reel_id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'archive_reels', 'action' => 'edit', $archiveReel['archive_reel_id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'archive_reels', 'action' => 'delete', $archiveReel['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveReel['archive_reel_id'])); ?>
-			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
+<!--	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Archive Reel'), array('controller' => 'archive_reels', 'action' => 'add'));?> </li>
 			<li><?php echo $this->Html->link(__('New Reel with This Content'), array('controller' => 'archive_reels', 'action' => 'addWithContent', $archiveContent['ArchiveContent']['archive_content_id']));?> </li>
 			<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 		</ul>
-	</div>
+	</div>-->
 </div>

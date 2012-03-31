@@ -54,7 +54,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
@@ -62,7 +62,7 @@
 		<li><?php echo $this->Html->link(__('List Archive Contents'), array('controller' => 'archive_contents', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Archive Content'), array('controller' => 'archive_contents', 'action' => 'add')); ?> </li>
 	</ul>
-</div>
+</div>-->
 <div class="archiveReels form">
 <?php echo $this->Form->create('ArchiveReel');?>
 	<fieldset>
