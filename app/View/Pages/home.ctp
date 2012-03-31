@@ -13,27 +13,16 @@
 <br />
 <?php echo $this->Html->link('Newspaper Records', array('controller' => 'newspaper_reels', 'action' => 'expanded')); ?>
 <br />
+<?php echo $this->Html->link('Newspaper Records Search', array('controller' => 'newspaper_reels', 'action' => 'find')); ?>
 <br />
-<?php echo $this->Html->link('Newspapers', array('controller' => 'newspapers')); ?>
-<br />
-<?php echo $this->Html->link('Newspaper Contents', array('controller' => 'newspaper_contents')); ?>
-<br />
-<?php echo $this->Html->link('Newspaper Reels', array('controller' => 'newspaper_reels')); ?>
-<br />
-<?php echo $this->Html->link('Search Newspapers', array('controller' => 'newspaper_reels', 'action' => 'find')); ?>
-<br />
+<?php echo $this->Html->link('Newspaper Records Quality Search', array('controller' => 'newspaper_reels', 'action' => 'quality')); ?>
 <br />
 <br />
 <?php echo $this->Html->link('Archive Records', array('controller' => 'archive_reels', 'action' => 'expanded')); ?>
 <br />
+<?php echo $this->Html->link('Archive Records Search', array('controller' => 'archive_reels', 'action' => 'find')); ?>
 <br />
-<?php echo $this->Html->link('Archives', array('controller' => 'archives')); ?>
-<br />
-<?php echo $this->Html->link('Archive Contents', array('controller' => 'archive_contents')); ?>
-<br />
-<?php echo $this->Html->link('Archive Reels', array('controller' => 'archive_reels')); ?>
-<br />
-<?php echo $this->Html->link('Search Archives', array('controller' => 'archive_reels', 'action' => 'find')); ?>
+<?php echo $this->Html->link('Archive Records Quality Search', array('controller' => 'archive_reels', 'action' => 'quality')); ?>
 <br />
 <br />
 <?php echo $this->Html->link('Users', array('controller' => 'users')); ?>

@@ -84,9 +84,13 @@ class NewspaperReelsController extends AppController {
 		array('field' => 'title', 'type' => 'value'),
 		array('field' => 'city', 'type' => 'value'),
 		array('field' => 'county', 'type' => 'value'),
-		array('field' => 'aleph_number', 'type' => 'value',
+		array('field' => 'aleph_number', 'type' => 'value'),
 		array('field' => 'date_from', 'type' => 'expression'),
-		array('field' => 'date_to', 'type' => 'expression'))		
+		array('field' => 'date_to', 'type' => 'expression'),
+		array('field' => 'redox_from', 'type' => 'expression'),
+		array('field' => 'redox_to', 'type' => 'expression'),
+		array('field' => 'redox_quality_present', 'type' => 'value'),
+		array('field' => 'checked_out', 'type' => 'value')
         );
 
 /**
@@ -118,6 +122,31 @@ class NewspaperReelsController extends AppController {
 		$this->set('newspaperRecords', $this->paginate());		
     }	
 	
+/**
+ * quality search method sets default dates for empty date fields
+ * then passes form data to Prg component for search processing
+ * 
+ * @return void
+ */	
+	public function quality() {		
+		if (empty($this->passedArgs['date_from'])) {
+			$this->passedArgs['date_from'] = '0000-00-00';	
+		}
+		if (empty($this->passedArgs['date_to'])) {
+			$this->passedArgs['date_to'] = '2032-12-31';	
+		}
+		if (empty($this->passedArgs['redox_from'])) {
+			$this->passedArgs['redox_from'] = '0000-00-00';	
+		}
+		if (empty($this->passedArgs['redox_to'])) {
+			$this->passedArgs['redox_to'] = '2032-12-31';	
+		}	
+		$this->Prg->commonProcess();
+		
+		$this->paginate = array('conditions' => 
+			$this->NewspaperReel->parseCriteria($this->passedArgs));		
+		$this->set('newspaperRecords', $this->paginate());		
+    }
 	
 /**
  * expanded method

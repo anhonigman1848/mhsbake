@@ -82,11 +82,17 @@ class ArchiveReel extends AppModel {
             array('name' => 'county', 'type' => 'like', 'field' => 'Archive.series_number'),
             array('name' => 'county', 'type' => 'like', 'field' => 'Archive.author_citation'),
             array('name' => 'aleph_number', 'type' => 'like', 'field' => 'Archive.aleph_number'),
-            array('name' => 'date_from',
-                  'name' => 'date_to',
+            array('name' => 'reel_number', 'type' => 'value', 'field' => 'ArchiveContent.reel_number'),
+            array('name' => 'date_from',                  
                   'type' => 'expression',
                   'method' => 'makeRangeCondition',
-                  'field' => '(ArchiveContent.begin_date BETWEEN ? AND ? OR ArchiveContent.end_date BETWEEN ? AND ?)')           
+                  'field' => '(ArchiveContent.begin_date BETWEEN ? AND ? OR ArchiveContent.end_date BETWEEN ? AND ?)'),
+            array('name' => 'redox_from',                  
+                  'type' => 'expression',
+                  'method' => 'makeRedoxRangeCondition',
+                  'field' => 'ArchiveReel.redox_quality_date BETWEEN ? AND ?'),
+            array('name' => 'redox_quality_present', 'type' => 'value', 'field' => 'ArchiveReel.redox_quality_present'),
+            array('name' => 'checked_out', 'type' => 'value', 'field' => 'ArchiveReel.checked_out')
         );
 
 /**
@@ -95,20 +101,47 @@ class ArchiveReel extends AppModel {
  *
  * @var array
  */
-        public function makeRangeCondition($data = array()) {            
-            if  (
-                (empty($data['date_from']['year'])) ||
-                (empty($data['date_from']['month'])) ||
-                (empty($data['date_from']['day'])) ||
-                (empty($data['date_to']['year'])) ||
-                (empty($data['date_to']['month'])) ||
-                (empty($data['date_to']['day']))
-                ) {
-                    return array('0000-00-00', '2032-12-31', '0000-00-00', '2032-12-31');
+        public function makeRangeCondition($data = array()) {
+            
+            if  (empty($data['date_from'])) {
+                $from = '0000-00-00';
             }
-            $from = $data['date_from'];            
-            $from = implode("-", $from);            
-            $to = implode("-", $data['date_to']);
+            else {
+                $from = $data['date_from']; 
+            }
+            
+            if  (empty($data['date_to'])) {
+                $to = '2032-12-31';
+            }
+            else {
+                $to = $data['date_to']; 
+            }                
+            
             return array($from, $to, $from, $to);
-        }        
+        }
+
+/**
+ * makeRedoxRangeCondition returns an array of date strings that filterArgs can use to populate the
+ * expression 'ArchiveReel.redox_quality_date BETWEEN ? AND ?'
+ *
+ * @var array
+ */
+        public function makeRedoxRangeCondition($data = array()) {
+            
+            if  (empty($data['redox_from'])) {
+                $from = '0000-00-00';
+            }
+            else {
+                $from = $data['redox_from']; 
+            }
+            
+            if  (empty($data['redox_to'])) {
+                $to = '2032-12-31';
+            }
+            else {
+                $to = $data['redox_to']; 
+            }                
+            
+            return array($from, $to);
+        }
 }

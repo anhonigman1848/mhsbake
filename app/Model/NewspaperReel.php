@@ -81,7 +81,13 @@ class NewspaperReel extends AppModel {
             array('name' => 'date_from',                  
                   'type' => 'expression',
                   'method' => 'makeRangeCondition',
-                  'field' => '(NewspaperContent.begin_date BETWEEN ? AND ? OR NewspaperContent.end_date BETWEEN ? AND ?)')            
+                  'field' => '(NewspaperContent.begin_date BETWEEN ? AND ? OR NewspaperContent.end_date BETWEEN ? AND ?)'),
+            array('name' => 'redox_from',                  
+                  'type' => 'expression',
+                  'method' => 'makeRedoxRangeCondition',
+                  'field' => 'NewspaperReel.redox_quality_date BETWEEN ? AND ?'),
+            array('name' => 'redox_quality_present', 'type' => 'value', 'field' => 'NewspaperReel.redox_quality_present'),
+            array('name' => 'checked_out', 'type' => 'value', 'field' => 'NewspaperReel.checked_out')
         );
 
 /**
@@ -107,5 +113,30 @@ class NewspaperReel extends AppModel {
             }                
             
             return array($from, $to, $from, $to);
+        }
+
+/**
+ * makeRedoxRangeCondition returns an array of date strings that filterArgs can use to populate the
+ * expression 'NewspaperReel.redox_quality_date BETWEEN ? AND ?'
+ *
+ * @var array
+ */
+        public function makeRedoxRangeCondition($data = array()) {
+            
+            if  (empty($data['redox_from'])) {
+                $from = '0000-00-00';
+            }
+            else {
+                $from = $data['redox_from']; 
+            }
+            
+            if  (empty($data['redox_to'])) {
+                $to = '2032-12-31';
+            }
+            else {
+                $to = $data['redox_to']; 
+            }                
+            
+            return array($from, $to);
         }
 }

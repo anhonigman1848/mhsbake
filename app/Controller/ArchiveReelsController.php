@@ -91,8 +91,15 @@ class ArchiveReelsController extends AppController {
 		array('field' => 'series', 'type' => 'value'),
 		array('field' => 'series_number', 'type' => 'value'),
 		array('field' => 'author_citation', 'type' => 'value'),
+		
+		array('field' => 'reel_number', 'type' => 'value'),
+		
 		array('field' => 'date_from', 'type' => 'expression'),
-		array('field' => 'date_to', 'type' => 'expression')		
+		array('field' => 'date_to', 'type' => 'expression'),
+		array('field' => 'redox_from', 'type' => 'expression'),
+		array('field' => 'redox_to', 'type' => 'expression'),
+		array('field' => 'redox_quality_present', 'type' => 'value'),
+		array('field' => 'checked_out', 'type' => 'value')
         );
 
 /**
@@ -111,6 +118,36 @@ class ArchiveReelsController extends AppController {
  * @return void
  */	
 	public function find() {
+		if (empty($this->passedArgs['date_from'])) {
+			$this->passedArgs['date_from'] = '0000-00-00';	
+		}
+		if (empty($this->passedArgs['date_to'])) {
+			$this->passedArgs['date_to'] = '2032-12-31';	
+		}		
+		$this->Prg->commonProcess();		
+		$this->paginate = array('conditions' => 
+			$this->ArchiveReel->parseCriteria($this->passedArgs));		
+		$this->set('archiveRecords', $this->paginate());		
+    }
+
+/**
+ * find method
+ *
+ * @return void
+ */	
+	public function quality() {
+		if (empty($this->passedArgs['date_from'])) {
+			$this->passedArgs['date_from'] = '0000-00-00';	
+		}
+		if (empty($this->passedArgs['date_to'])) {
+			$this->passedArgs['date_to'] = '2032-12-31';	
+		}
+		if (empty($this->passedArgs['redox_from'])) {
+			$this->passedArgs['redox_from'] = '0000-00-00';	
+		}
+		if (empty($this->passedArgs['redox_to'])) {
+			$this->passedArgs['redox_to'] = '2032-12-31';	
+		}	
 		$this->Prg->commonProcess();		
 		$this->paginate = array('conditions' => 
 			$this->ArchiveReel->parseCriteria($this->passedArgs));		
