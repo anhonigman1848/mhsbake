@@ -1,0 +1,248 @@
+  body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #40040D;
+	background-color: #cc6600;
+	border-color: #40040D;
+	}
+
+  a {
+	color: #40040D;
+	}
+
+  #top {
+	font-size: 3em;
+	text-align: center;
+	color: #ffffcc;
+	background-image: url(../images/loft_1.jpg);
+	}
+
+  #mbs {
+	padding: .2em 0em;
+	}
+
+  #content {
+	background-color: #ffdd55;
+	padding: 3em 3em 0em;
+	}
+
+  #events {
+	padding: 2em;
+	}
+
+  #breadcrumbs {
+	font-size: 0.8em;
+	text-align: center;
+	}
+
+  .breadcrumbs {
+	font-size: 0.8em;
+	text-align: center;
+	}
+
+  #styleswitch {
+	font-size: 0.6em;
+	text-align: center;
+	padding-bottom: 0px;
+	}
+
+  #styleswitch a {
+	color: #40040d;
+	}
+
+  #gallery_list a {
+	color: #40040d;
+	}
+
+  #breadcrumbs a {
+	color: #40040d;
+	}
+
+  #gallery_list {
+	text-align: center;
+	}
+
+  #clock {
+	font-size: 0.9em;
+	font-style: italic;
+	text-align: center;
+	}
+
+  .image_cell {
+	text-align: center;
+	}
+
+  .main {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+
+  .year {
+	width: 8em;
+	font-weight: bolder;
+	}
+
+ img
+  {
+	border: 3px solid #40040D;
+ }
+
+ h2
+  {
+	text-align: center;
+	color: #40040D;
+ }
+
+ h3
+  {
+	color: #ffdd55;
+ }
+
+ h4
+  {
+	margin: 1em 0em 0em;
+	color: #40040D;
+ }
+
+ hr
+  {
+	color: #40040D;
+	height: 2px;
+	border-width: 0;
+	background-color: #40040D;
+	margin-top: 2em;
+	
+ }
+
+  .navbar {
+	font-size: 0.36em;
+	font-weight: bold;
+	text-align: center;
+	color: #ffffcc;
+	}
+  .navtab {
+	width: 5.5em;
+	}
+
+  .navtab a {
+	text-decoration: none;
+	color: #ffffcc;
+	display: block;
+	}
+
+  .navtab:hover {
+	background-color: #40040D;
+	background-image: none;
+	}
+
+  form {
+	padding: 8px;
+	}
+  fieldset {
+	margin: 8px;
+	border: 0;
+	}
+  legend {
+	padding: 4px;
+	font-weight: bolder;
+	}
+  input {
+	padding: 4px;
+	margin: 4px;
+	border: 1px solid #40040d;
+	background-color: #ffdd55;
+	color: #40040d;
+	}
+  .required {
+	border: 1px solid #cc6600;
+	}
+  .completed {
+	border-left: 1px solid white;
+	border-top: 1px solid white;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	}
+  strong {
+	display: none;
+	color: #40040d;
+	position: absolute;
+	}
+  select {
+	padding: 4px;
+	margin: 4px;
+	border: 1px solid #40040d;
+	background-color: #ffdd55;
+	color: #40040d;
+	}
+  option {
+	text-indent: 2em;
+	}
+  optgroup {
+	color: #40040d;
+	font-weight: bold;
+	}
+  .buttons {
+	width: 30em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	}
+  .activebuttons {
+	width: 30em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	}
+  .button {
+	width: 4em;
+	color: #40040d;
+	border-left: 1px solid #ffffcc;
+	border-top: 1px solid #ffffcc;
+	border-right: 1px solid #40040d;
+	border-bottom: 1px solid #40040d;
+	}
+   .information
+  {
+	display: table;
+ }
+   .row
+  {
+	display: table-row;
+ }
+   .buttons:hover strong
+  {
+	display: inline;
+	font-weight: bolder;
+ }
+   .button:hover strong
+  {
+	display: none;
+ }
+   .activebuttons:hover strong
+  {
+	display: none;
+ }
+   .row:hover strong:hover
+  {
+	display: none;
+ }
+   .lcell
+  {
+	display: table-cell;
+	width: 14em;
+	text-align: right;
+ }
+   .rcell
+  {
+	display: table-cell;
+ }
+   .submit
+  {
+	width: 4em;
+	color: #ffdd55;
+	border-left: 1px solid #ffffcc;
+	border-top: 1px solid #ffffcc;
+ 	border-right: 1px solid #40040d;
+	border-bottom: 1px solid #40040d;
+}

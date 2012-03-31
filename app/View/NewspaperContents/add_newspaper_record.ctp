@@ -9,8 +9,8 @@
 		echo $this->Form->input('Newspaper.county');
 		echo $this->Form->input('Newspaper.title_control');
 		echo $this->Form->input('Newspaper.aleph_number');
-		echo $this->Form->input('NewspaperContent.begin_date', $options = array('empty' => true));
-		echo $this->Form->input('NewspaperContent.end_date', $options = array('empty' => true));
+		echo $this->Form->input('NewspaperContent.begin_date', array('default' => '0000-00-00'));
+		echo $this->Form->input('NewspaperContent.end_date', array('default' => '0000-00-00'));
 		echo $this->Form->input('NewspaperContent.reel_control');
 		echo $this->Form->input('NewspaperContent.gaps');
 		echo $this->Form->input('NewspaperContent.comments');

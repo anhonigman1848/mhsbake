@@ -12,8 +12,8 @@
 		echo $this->Form->input('Archive.city');
 		echo $this->Form->input('Archive.aleph_number');
 		echo $this->Form->input('ArchiveContent.reel_number');
-		echo $this->Form->input('ArchiveContent.begin_date');		
-		echo $this->Form->input('ArchiveContent.end_date');		
+		echo $this->Form->input('ArchiveContent.begin_date', array('default' => '0000-00-00'));		
+		echo $this->Form->input('ArchiveContent.end_date', array('default' => '0000-00-00'));		
 		echo $this->Form->input('ArchiveContent.contents');
 		echo $this->Form->input('ArchiveContent.comments');
 		echo $this->Form->input('ArchiveContent.usage_rights');
@@ -32,7 +32,7 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
@@ -41,3 +41,4 @@
 		<li><?php echo $this->Html->link(__('New Archive Content'), array('controller' => 'archive_contents', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+-->

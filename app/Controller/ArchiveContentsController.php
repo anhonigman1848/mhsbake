@@ -136,11 +136,11 @@ class ArchiveContentsController extends AppController {
 	}
 
 /**
- * addWithAssociated method
+ * addArchiveRecord method
  *
  * @return void
  */
-	public function addWithAssociated() {
+	public function addArchiveRecord() {
 		if ($this->request->is('post')) {
 			$this->ArchiveContent->create();
 			// saveAssociated() saves into related tables
