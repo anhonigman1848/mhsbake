@@ -12,6 +12,36 @@
 			<?php echo $this->Html->link($archiveContent['Archive']['title'], array('controller' => 'archives', 'action' => 'view', $archiveContent['Archive']['archive_id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Series'); ?></dt>
+		<dd>
+			<?php echo h($archiveContent['Archive']['series']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Series Number'); ?></dt>
+		<dd>
+			<?php echo h($archiveContent['Archive']['series_number']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Author Citation'); ?></dt>
+		<dd>
+			<?php echo h($archiveContent['Archive']['author_citation']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('City'); ?></dt>
+		<dd>
+			<?php echo h($archiveContent['Archive']['city']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('County'); ?></dt>
+		<dd>
+			<?php echo h($archiveContent['Archive']['county']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Aleph Number'); ?></dt>
+		<dd>
+			<?php echo h($archiveContent['Archive']['aleph_number']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Reel Number'); ?></dt>
 		<dd>
 			<?php echo h($archiveContent['ArchiveContent']['reel_number']); ?>

@@ -45,7 +45,7 @@ echo $scripts_for_layout;
 <body>
 <div id="container">
 <div id="header">
-<h1><?php echo $this->Html->link('Sitemap', '/'); ?></h1>
+<!--<h1><?php echo $this->Html->link('Sitemap', '/'); ?></h1>-->
 <h1>
 	<?php
 		// [Erik]: I'm going to add a help button here, later
@@ -60,7 +60,26 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
 <?php echo $this->Html->link(__('Login'), array('controller'=>'users', 'action'=>'login')); ?>
 <?php endif; ?>
 </div>
+<table id= "top" cellspacing="0" border="0">
 
+<tr>
+	<td id="mhc" >&nbsp;</td>
+
+</tr>
+
+</table>
+
+<table id="navigation">
+<tr class= "navbar">
+	<td class= "navtab"><a href="/mhsbake/newspaper_reels/expanded">Newspaper Records</a></td>
+	<td class= "navtab"><a href="/mhsbake/newspaper_reels/find">Search Newspapers</a></td>
+	<td class= "navtab"><a href="/mhsbake/newspaper_reels/quality">Newspaper Qual Srch</a></td>
+	<td class= "navtab"><a href="/mhsbake/archive_reels/expanded">Archive Records</a></td>
+	<td class= "navtab"><a href="/mhsbake/archive_reels/find">Search Archives</a></td>
+	<td class= "navtab"><a href="/mhsbake/archive_reels/quality">Archive Qual Srch</a></td>
+	<td class= "navtab"><a href="/mhsbake/users/index">Users</a></td>
+</tr>
+</table>
 <?php echo $this->Session->flash(); ?>
 <?php echo $this->Session->flash('auth'); ?>
 
@@ -76,6 +95,6 @@ array('target' => '_blank', 'escape' => false)
 ?-->
 </div>
 </div>
-<?php echo $this->element('sql_dump'); ?>
+<!--<?php echo $this->element('sql_dump'); ?>-->
 </body>
 </html>

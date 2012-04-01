@@ -80,6 +80,52 @@ p {
 #header{
 	padding: 10px 20px;
 }
+  #top {
+	background-image: url(../img/history_center.jpg);
+	margin-bottom: 0px;
+	}
+	
+  #mhc {
+	padding-bottom: 200px;
+	}
+
+  #navigation {
+	margin-bottom: 0px;
+	}
+	
+  #nullrow {
+	padding: 0;
+	border: none;
+	}
+
+  .navbar {
+	font-size: 1em;
+	font-weight: normal;
+	text-align: center;
+	color: #000;
+	border: none;
+	}
+
+  .navtab {
+	width: 5.5em;
+	border: none;
+	}
+
+  .navtab a {
+	text-decoration: none;
+	text-align: center;
+	color: #000;
+	display: block;
+	}
+
+  .navtab:hover {
+	background-color: #003d4c;
+	}
+
+  .navtab:hover a {
+	color: #fff;
+	}
+
 #header h1 {
 	line-height:20px;
 	background: #003d4c /*url('../img/cake.icon.png') no-repeat left*/;
@@ -124,7 +170,7 @@ div.view {
 }
 div.actions {
 	float:left;
-	width:0px;
+	width:20em;
 	padding:10px 1.5%;
 }
 div.actions h3 {
@@ -247,7 +293,7 @@ table td.actions a {
 dl {
 	line-height: 2em;
 	margin: 0em 0em;
-	width: 60%;
+	width: 80%;
 }
 dl dd:nth-child(4n+2),
 dl dt:nth-child(4n+1) {
@@ -258,10 +304,10 @@ dt {
 	font-weight: bold;
 	padding-left: 4px;
 	vertical-align: top;
-	width: 10em;
+	width: 20em;
 }
 dd {
-	margin-left: 10em;
+	margin-left: 20em;
 	margin-top: -2em;
 	vertical-align: top;
 }
