@@ -62,6 +62,7 @@ echo $this->Form->end(); ?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('selected');?></th>
+			<th class="actions"><?php echo __('Actions');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.title', 'Title');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.county', 'County');?></th>
@@ -79,12 +80,16 @@ echo $this->Form->end(); ?>
                         <th><?php echo $this->Paginator->sort('archive_reel_id');?></th>
 			<th><?php echo $this->Paginator->sort('checked_out');?></th>
 			
-			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 	foreach ($archiveRecords as $archiveRecord): ?>
 	<tr>		
 		<td><?php echo $this->Form->checkbox('selected') ?>&nbsp;</td>
+		<td class="actions">
+			<?php echo $this->Html->link(__('View'), array('action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
+		</td>
 		<td><?php echo h($archiveRecord['Archive']['title']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['city']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['county']); ?>&nbsp;</td>
@@ -102,11 +107,6 @@ echo $this->Form->end(); ?>
 		<td><?php echo h($archiveRecord['ArchiveReel']['archive_reel_id']); ?>&nbsp;</td>		
 		<td><?php echo h($archiveRecord['ArchiveReel']['checked_out']); ?>&nbsp;</td>
 		
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
