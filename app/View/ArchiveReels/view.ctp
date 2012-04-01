@@ -79,7 +79,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Archive Reel'), array('action' => 'edit', $archiveReel['ArchiveReel']['archive_reel_id'])); ?> </li>
@@ -91,3 +91,4 @@
 		<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 	</ul>
 </div>
+-->
