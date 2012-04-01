@@ -4,6 +4,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php if($this->Access->cat('selected')){ echo $this->Paginator->sort('selected');} ?></th>
+			<th class="actions"><?php echo __('Actions');?></th>
 			<th><?php if($this->Access->cat('newspaper_reel_id')){ echo $this->Paginator->sort('newspaper_reel_id');}?></th>
                         <th><?php if($this->Access->cat('title')){ echo $this->Paginator->sort('title');}?></th>
                         <th><?php if($this->Access->cat('city')){ echo $this->Paginator->sort('city');}?></th>
@@ -30,12 +31,32 @@
 			<th><?php if($this->Access->cat('created')){ echo $this->Paginator->sort('created');}?></th>
 			<th><?php if($this->Access->cat('modified')){ echo $this->Paginator->sort('modified');}?></th>
 			<th><?php if($this->Access->cat('deleted')){ echo $this->Paginator->sort('deleted');}?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php 
 	foreach ($newspaperRecords as $newspaperRecord): ?>
 	<tr>
 		<td><?php if($this->Access->cat('selected')){ echo $this->Form->checkbox('selected');} ?>&nbsp;</td>
+		<td class="actions">
+			<?php echo $this->Html->link(__('View'), array('controller' => 'newspaper_reels', 'action' => 'record', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
+			<?php if($this->Access->cat('edit')){
+				echo $this->Html->link(__('Edit'), array('action' => 'edit',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
+			<?php if($this->Access->cat('deleted')){
+				echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']), null,
+					__('Are you sure you want to delete # %s?',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
+			<?php if($this->Access->cat('soft_delete')){
+				echo $this->Form->postLink(__('Delete'), array('action' => 'softdelete',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']), null,
+					__('Are you sure you want to delete # %s?',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
+			<?php if($this->Access->cat('deleted')){
+				echo $this->Form->postLink(__('Restore'), array('action' => 'restore',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']), null,
+					__('Are you sure you want to restore # %s?',
+					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
+		</td>
 		<td><?php if($this->Access->cat('newspaper_reel_id')){ echo h($newspaperRecord['NewspaperReel']['newspaper_reel_id']);} ?>&nbsp;</td>
                 <td><?php if($this->Access->cat('title')){ echo h($newspaperRecord['Newspaper']['title']);}?>&nbsp;</td>
                 <td><?php if($this->Access->cat('city')){ echo h($newspaperRecord['Newspaper']['city']);}?>&nbsp;</td>
@@ -62,27 +83,6 @@
 		<td><?php if($this->Access->cat('created')){ echo h($newspaperRecord['NewspaperReel']['created']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('modified')){ echo h($newspaperRecord['NewspaperReel']['modified']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('deleted')){ echo h($newspaperRecord['NewspaperReel']['deleted']);} ?>&nbsp;</td>		
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('controller' => 'newspaper_reels', 'action' => 'record', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
-			<?php if($this->Access->cat('edit')){
-				echo $this->Html->link(__('Edit'), array('action' => 'edit',
-					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
-			<?php if($this->Access->cat('deleted')){
-				echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete',
-					$newspaperRecord['NewspaperReel']['newspaper_reel_id']), null,
-					__('Are you sure you want to delete # %s?',
-					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
-			<?php if($this->Access->cat('soft_delete')){
-				echo $this->Form->postLink(__('Delete'), array('action' => 'softdelete',
-					$newspaperRecord['NewspaperReel']['newspaper_reel_id']), null,
-					__('Are you sure you want to delete # %s?',
-					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
-			<?php if($this->Access->cat('deleted')){
-				echo $this->Form->postLink(__('Restore'), array('action' => 'restore',
-					$newspaperRecord['NewspaperReel']['newspaper_reel_id']), null,
-					__('Are you sure you want to restore # %s?',
-					$newspaperRecord['NewspaperReel']['newspaper_reel_id']));} ?>
-		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
@@ -102,7 +102,7 @@
 	</div>
 </div>
 
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Newspaper Reel'), array('action' => 'add')); ?></li>
@@ -111,4 +111,4 @@
 		<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 	</ul>
 </div>
-
+-->

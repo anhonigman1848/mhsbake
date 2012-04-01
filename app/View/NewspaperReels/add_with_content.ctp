@@ -54,7 +54,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
@@ -62,7 +62,7 @@
 		<li><?php echo $this->Html->link(__('List Newspaper Contents'), array('controller' => 'newspaper_contents', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Newspaper Content'), array('controller' => 'newspaper_contents', 'action' => 'add')); ?> </li>
 	</ul>
-</div>
+</div>-->
 <div class="newspaperReels form">
 <?php echo $this->Form->create('NewspaperReel');?>
 	<fieldset>
