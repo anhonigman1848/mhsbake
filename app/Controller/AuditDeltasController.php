@@ -10,7 +10,9 @@ class AuditDeltasController extends AppController {
 	 * Include these helpers for the views
 	 */
 	public $helpers = array('Access');
-	
+
+	public $paginate = array(
+		'order' => array('Audit.created' => 'desc' ));			
 
 /**
  * index method

@@ -54,7 +54,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Newspaper Content'), array('action' => 'edit', $newspaperContent['NewspaperContent']['newspaper_content_id'])); ?> </li>
@@ -66,12 +66,13 @@
 		<li><?php echo $this->Html->link(__('List Newspaper Reels'), array('controller' => 'newspaper_reels', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Newspaper Reel'), array('controller' => 'newspaper_reels', 'action' => 'add')); ?> </li>
 	</ul>
-</div>
+</div>-->
 <div class="related">
 	<h3><?php echo __('Related Newspaper Reels');?></h3>
 	<?php if (!empty($newspaperContent['NewspaperReel'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
+		<th class="actions"><?php echo __('Actions');?></th>
 		<th><?php echo __('Newspaper Reel Id'); ?></th>
 		<th><?php echo __('Newspaper Content Id'); ?></th>
 		<th><?php echo __('Reel Polarity'); ?></th>
@@ -88,12 +89,16 @@
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th><?php echo __('Deleted'); ?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
 		foreach ($newspaperContent['NewspaperReel'] as $newspaperReel): ?>
 		<tr>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'newspaper_reels', 'action' => 'view', $newspaperReel['newspaper_reel_id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'newspaper_reels', 'action' => 'edit', $newspaperReel['newspaper_reel_id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'newspaper_reels', 'action' => 'delete', $newspaperReel['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperReel['newspaper_reel_id'])); ?>
+			</td>
 			<td><?php echo $newspaperReel['newspaper_reel_id'];?></td>
 			<td><?php echo $newspaperReel['newspaper_content_id'];?></td>
 			<td><?php echo $newspaperReel['reel_polarity'];?></td>
@@ -110,21 +115,16 @@
 			<td><?php echo $newspaperReel['created'];?></td>
 			<td><?php echo $newspaperReel['modified'];?></td>
 			<td><?php echo $newspaperReel['deleted'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'newspaper_reels', 'action' => 'view', $newspaperReel['newspaper_reel_id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'newspaper_reels', 'action' => 'edit', $newspaperReel['newspaper_reel_id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'newspaper_reels', 'action' => 'delete', $newspaperReel['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperReel['newspaper_reel_id'])); ?>
-			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
+<!--	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Newspaper Reel'), array('controller' => 'newspaper_reels', 'action' => 'add'));?> </li>
 			<li><?php echo $this->Html->link(__('New Reel with This Content'), array('controller' => 'newspaper_reels', 'action' => 'addWithContent', $newspaperContent['NewspaperContent']['newspaper_content_id']));?> </li>
 			<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
 		</ul>
-	</div>
+	</div>-->
 </div>

@@ -3,6 +3,7 @@
 	<h2><?php echo __('Newspapers');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
+			<th class="actions"><?php echo __('Actions');?></th>
 			<th><?php echo $this->Paginator->sort('newspaper_id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
 			<th><?php echo $this->Paginator->sort('city');?></th>
@@ -11,11 +12,15 @@
 			<th><?php echo $this->Paginator->sort('aleph_number');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 	foreach ($newspapers as $newspaper): ?>
 	<tr>
+		<td class="actions">
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $newspaper['Newspaper']['newspaper_id'])); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $newspaper['Newspaper']['newspaper_id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $newspaper['Newspaper']['newspaper_id']), null, __('Are you sure you want to delete # %s?', $newspaper['Newspaper']['newspaper_id'])); ?>
+		</td>
 		<td><?php echo h($newspaper['Newspaper']['newspaper_id']); ?>&nbsp;</td>
 		<td><?php echo h($newspaper['Newspaper']['title']); ?>&nbsp;</td>
 		<td><?php echo h($newspaper['Newspaper']['city']); ?>&nbsp;</td>
@@ -24,11 +29,6 @@
 		<td><?php echo h($newspaper['Newspaper']['aleph_number']); ?>&nbsp;</td>
 		<td><?php echo h($newspaper['Newspaper']['created']); ?>&nbsp;</td>
 		<td><?php echo h($newspaper['Newspaper']['modified']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $newspaper['Newspaper']['newspaper_id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $newspaper['Newspaper']['newspaper_id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $newspaper['Newspaper']['newspaper_id']), null, __('Are you sure you want to delete # %s?', $newspaper['Newspaper']['newspaper_id'])); ?>
-		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
@@ -47,7 +47,7 @@
 	?>
 	</div>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Newspaper'), array('action' => 'add')); ?></li>
@@ -55,5 +55,6 @@
 		<li><?php echo $this->Html->link(__('List Newspaper Contents'), array('controller' => 'newspaper_contents', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Newspaper Content'), array('controller' => 'newspaper_contents', 'action' => 'add')); ?> </li>
                 <li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
-	</ul>
+2	</ul>
 </div>
+-->
