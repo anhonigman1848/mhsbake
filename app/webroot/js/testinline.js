@@ -17,5 +17,5 @@ $(document).ready(function() {
          submit    : 'Save',
          indicator : 'Saving...',
          tooltip   : 'Click to edit the last name'
-    });
+    });    
 });

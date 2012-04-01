@@ -85,10 +85,10 @@ class NewspaperReelsController extends AppController {
 		array('field' => 'city', 'type' => 'value'),
 		array('field' => 'county', 'type' => 'value'),
 		array('field' => 'aleph_number', 'type' => 'value'),
-		array('field' => 'date_from', 'type' => 'expression'),
-		array('field' => 'date_to', 'type' => 'expression'),
-		array('field' => 'redox_from', 'type' => 'expression'),
-		array('field' => 'redox_to', 'type' => 'expression'),
+		array('field' => 'date_from', 'type' => 'value'),
+		array('field' => 'date_to', 'type' => 'value'),
+		array('field' => 'redox_from', 'type' => 'value'),
+		array('field' => 'redox_to', 'type' => 'value'),
 		array('field' => 'redox_quality_present', 'type' => 'value'),
 		array('field' => 'checked_out', 'type' => 'value')
         );
@@ -119,7 +119,10 @@ class NewspaperReelsController extends AppController {
 		
 		$this->paginate = array('conditions' => 
 			$this->NewspaperReel->parseCriteria($this->passedArgs));		
-		$this->set('newspaperRecords', $this->paginate());		
+		$this->set('newspaperRecords', $this->paginate());
+		
+		
+		$this->set('data', $this->passedArgs);
     }	
 	
 /**
@@ -145,7 +148,9 @@ class NewspaperReelsController extends AppController {
 		
 		$this->paginate = array('conditions' => 
 			$this->NewspaperReel->parseCriteria($this->passedArgs));		
-		$this->set('newspaperRecords', $this->paginate());		
+		$this->set('newspaperRecords', $this->paginate());
+		
+		$this->set('data', $this->passedArgs);
     }
 	
 /**

@@ -98,7 +98,8 @@ class UsersController extends AppController {
 	 * @returns new value of first name 
 	 */
 	public function updateFirstName() {
-		if ($this->request->is['Post']) { // only change if came params came from Post
+		
+		if ($this->request->is('post')) { // only change if came params came from Post
 			// App::import('Core', 'sanitize'); // Learn Later
 			// $title = Sanitize::clean($this->data['User']['first_name']); // Learn Later
 		

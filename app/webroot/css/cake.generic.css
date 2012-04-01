@@ -131,7 +131,17 @@ div.actions h3 {
 	padding-top:0;
 	color:#777;
 }
-
+div.flash-message-success {
+  color: white;
+  background: none repeat scroll 0 0 #66cc66;
+  clear: both;
+  font-size: 140%;
+  font-weight: bold;
+  width: 630px;
+  margin: 0 0 1em 6px;
+  padding: 5px;
+  padding-left: 0.4em;
+}
 
 /** Tables **/
 table {

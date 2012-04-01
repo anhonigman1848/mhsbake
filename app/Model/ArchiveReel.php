@@ -83,6 +83,8 @@ class ArchiveReel extends AppModel {
             array('name' => 'county', 'type' => 'like', 'field' => 'Archive.author_citation'),
             array('name' => 'aleph_number', 'type' => 'like', 'field' => 'Archive.aleph_number'),
             array('name' => 'reel_number', 'type' => 'value', 'field' => 'ArchiveContent.reel_number'),
+            array('name' => 'series', 'type' => 'like', 'field' => 'Archive.series'),
+            array('name' => 'series_number', 'type' => 'like', 'field' => 'Archive.series_number'),
             array('name' => 'date_from',                  
                   'type' => 'expression',
                   'method' => 'makeRangeCondition',
