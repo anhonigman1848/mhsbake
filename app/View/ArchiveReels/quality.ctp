@@ -11,6 +11,7 @@ $( "#datepicker2" ).datepicker({changeYear: true,
 			       yearRange: '1800:2032',
 			       dateFormat: 'yy-mm-dd'});
 });
+$(function() {
 $( "#datepicker3" ).datepicker({changeYear: true,
 			       changeMonth: true,
 			       yearRange: '1800:2032',

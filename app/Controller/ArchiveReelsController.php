@@ -90,14 +90,12 @@ class ArchiveReelsController extends AppController {
 		array('field' => 'aleph_number', 'type' => 'value'),
 		array('field' => 'series', 'type' => 'value'),
 		array('field' => 'series_number', 'type' => 'value'),
-		array('field' => 'author_citation', 'type' => 'value'),
-		
-		array('field' => 'reel_number', 'type' => 'value'),
-		
-		array('field' => 'date_from', 'type' => 'expression'),
-		array('field' => 'date_to', 'type' => 'expression'),
-		array('field' => 'redox_from', 'type' => 'expression'),
-		array('field' => 'redox_to', 'type' => 'expression'),
+		array('field' => 'author_citation', 'type' => 'value'),		
+		array('field' => 'reel_number', 'type' => 'value'),		
+		array('field' => 'date_from', 'type' => 'value'),
+		array('field' => 'date_to', 'type' => 'value'),
+		array('field' => 'redox_from', 'type' => 'value'),
+		array('field' => 'redox_to', 'type' => 'value'),
 		array('field' => 'redox_quality_present', 'type' => 'value'),
 		array('field' => 'checked_out', 'type' => 'value')
         );
@@ -127,11 +125,13 @@ class ArchiveReelsController extends AppController {
 		$this->Prg->commonProcess();		
 		$this->paginate = array('conditions' => 
 			$this->ArchiveReel->parseCriteria($this->passedArgs));		
-		$this->set('archiveRecords', $this->paginate());		
+		$this->set('archiveRecords', $this->paginate());
+		
+		$this->set('data', $this->passedArgs);
     }
 
 /**
- * find method
+ * qualitiy seardh method
  *
  * @return void
  */	
@@ -151,7 +151,9 @@ class ArchiveReelsController extends AppController {
 		$this->Prg->commonProcess();		
 		$this->paginate = array('conditions' => 
 			$this->ArchiveReel->parseCriteria($this->passedArgs));		
-		$this->set('archiveRecords', $this->paginate());		
+		$this->set('archiveRecords', $this->paginate());
+		
+		$this->set('data', $this->passedArgs);
     }	
 	
 

@@ -14,6 +14,7 @@ $( "#datepicker2" ).datepicker({changeYear: true,
 </script>
 <div class="newspaperReels form">
 	<h2><?php echo __('Newspaper Records Search');?></h2>
+
 <?php $this->Access->setRole($current_user['role']);
 
 echo $this->Form->create('NewspaperReel', array(
@@ -32,6 +33,7 @@ echo $this->Form->input('date_to', array('id'=>'datepicker2',
 					 'label' => 'Content Date To',					
 					 'div' => false,					 					 
 					 ));
+echo $this->Form->input('checked_out', array('div' => false));
 echo $this->Form->submit(__('Search', true), array('div' => false));
 echo $this->Form->end(); ?>	
 	
