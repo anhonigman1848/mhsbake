@@ -60,7 +60,7 @@ echo $this->Form->end(); ?>
 	<?php
 	foreach ($newspaperRecords as $newspaperRecord): ?>
 	<tr>
-		<td><?php echo $this->Form->checkbox('selected') ?>&nbsp;</td>
+		
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'record', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
