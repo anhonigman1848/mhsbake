@@ -26,5 +26,10 @@
 <br />
 <br />
 <?php echo $this->Html->link('Users', array('controller' => 'users')); ?>
+<br />
+<br />
+<?php echo $this->Html->link('Audits', array('controller' => 'audits')); ?>
+<br />
+<?php echo $this->Html->link('Audit Deltas', array('controller' => 'audit_deltas')); ?>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />	
 </body><link rel="stylesheet" type="text/css" href="data:text/css,"></html>
