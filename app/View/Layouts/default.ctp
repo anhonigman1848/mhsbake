@@ -37,7 +37,7 @@ echo $this->Html->css('jquery-ui-1.8.4.custom.css');
 echo $this->Html->script('jquery.js');
 echo $this->Html->script('jquery.jeditable.js');
 echo $this->Html->script('jquery.ui.js');
-echo $this->Html->script('testinline.js');
+echo $this->Html->script('functions.js');
 
 echo $scripts_for_layout;
 ?>

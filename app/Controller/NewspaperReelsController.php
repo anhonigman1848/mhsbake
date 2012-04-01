@@ -123,7 +123,48 @@ class NewspaperReelsController extends AppController {
 		
 		
 		$this->set('data', $this->passedArgs);
-    }	
+    }
+/**
+ * checkBox method writes the reel_id of a checked row to Session variable
+ *
+ * @return void
+ */
+	public function checkBox() {
+		
+		$this->autoRender = false;
+		
+		if ($this->Session->check('nr_selected')) {
+			$selectedRows = $this->Session->read('nr_selected.selectedRows');			
+		}
+		
+		$reel_id = $_POST['reel_id'];
+		$checked = $_POST['checked'];
+		if ($checked == 1) {
+			$selectedRows[$reel_id] = $reel_id;
+		} else {
+			unset($selectedRows[$reel_id]);			
+		}
+		$this->Session->write('nr_selected.selectedRows', $selectedRows);		
+	}
+/**
+ * display method retrieves a list of selected reel_ids and sends the assembled
+ * record object to the view
+ *
+ * @return void
+ */
+	public function display() {		
+		
+		if ($this->Session->check('nr_selected')) {
+			$reel_ids = $this->Session->read('nr_selected.selectedRows');			
+		} else {
+			return;
+		}
+		$selectedRecords = $this->NewspaperReel->find('all', array(
+			'conditions' => array('NewspaperReel.newspaper_reel_id' => $reel_ids)
+		));
+		$this->set('newspaperRecords', $selectedRecords);
+	}
+
 	
 /**
  * quality search method sets default dates for empty date fields

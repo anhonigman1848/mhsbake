@@ -60,7 +60,9 @@ echo $this->Form->end(); ?>
 	<?php
 	foreach ($newspaperRecords as $newspaperRecord): ?>
 	<tr>		
-		<td><?php echo $this->Form->checkbox('selected') ?>&nbsp;</td>
+		<td><input type="checkbox" class="ncheckbox" name="selected[]"
+			id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"/></td>
+		
 		<td><?php echo h($newspaperRecord['Newspaper']['title']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['Newspaper']['city']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['Newspaper']['county']); ?>&nbsp;</td>
@@ -94,4 +96,11 @@ echo $this->Form->end(); ?>
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display')); ?></li>
+		
+	</ul>
 </div>
