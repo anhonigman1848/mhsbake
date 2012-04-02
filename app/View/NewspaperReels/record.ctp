@@ -135,10 +135,14 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h2><?php echo __('Available Actions'); ?></h2>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Newspaper Record'), array('action' => 'edit', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Newspaper Record'), array('action' => 'delete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Newspaper'), array('controller' => 'newspapers', 'action' => 'edit', $newspaperRecord['Newspaper']['newspaper_id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Newspaper Content'), array('controller' => 'newspaper_contents', 'action' => 'edit', $newspaperRecord['NewspaperContent']['newspaper_content_id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Copy This Record'), array('action' => 'addWithContent', $newspaperRecord['NewspaperContent']['newspaper_content_id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('New Record for This Newspaper'), array('controller' => 'newspaper_contents', 'action' => 'addWithNewspaper', $newspaperRecord['Newspaper']['newspaper_id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('New Newspaper Record'), array('action' => 'add')); ?> </li>
 	</ul>
 </div>

@@ -53,6 +53,9 @@ echo $scripts_for_layout;
 </h1>
 </div>
 <div id="content">
+<h2>Minnesota Historical Society Microfilm Database Application</h2>
+
+
 <div style="text-align: right;">
 <?php if ($logged_in): ?>
 Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(__('Logout'), array('controller'=>'users', 'action'=>'logout')); ?>

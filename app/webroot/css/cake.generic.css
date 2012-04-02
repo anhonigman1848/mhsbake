@@ -23,7 +23,7 @@
 
 /** General Style Info **/
 body {
-	background: #003d4c;
+	background: #606289;/*#003d4c;*/
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:9pt;
@@ -52,7 +52,7 @@ h1 {
 }
 h2 {
 	background:#fff;
-	color: #e32;
+	color: #a8162b;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 190%;
 }
@@ -114,12 +114,12 @@ p {
   .navtab a {
 	text-decoration: none;
 	text-align: center;
-	color: #000;
+	color: #2F334E;
 	display: block;
 	}
 
   .navtab:hover {
-	background-color: #003d4c;
+	background-color: #606289;
 	}
 
   .navtab:hover a {
@@ -221,7 +221,7 @@ table tr td {
 	border-bottom:1px solid #ddd;
 }
 table tr:nth-child(even) {
-	background: #f9f9f9;
+	background: #c3c7ea;
 }
 td.actions {
 	text-align: center;
@@ -297,7 +297,7 @@ dl {
 }
 dl dd:nth-child(4n+2),
 dl dt:nth-child(4n+1) {
-	background: #f4f4f4;
+	background: #c3c7ea;
 }
 
 dt {
@@ -321,12 +321,12 @@ form {
 }
 fieldset {
 	border: none;
-	margin-bottom: 1em;
 	padding: 16px 10px;
 }
 fieldset legend {
-	color: #e32;
-	font-size: 160%;
+	color: #a8162b;
+	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
+	font-size: 190%;
 	font-weight: bold;
 }
 fieldset fieldset {
@@ -343,8 +343,7 @@ fieldset fieldset div {
 }
 form div {
 	clear: both;
-	margin-bottom: 1em;
-	padding: .5em;
+	padding: .25em;
 	vertical-align: text-top;
 }
 form .input {
@@ -362,18 +361,18 @@ form .required label:after {
 form div.submit {
 	border: 0;
 	clear: both;
-	margin-top: 10px;
 }
 label {
 	display: block;
 	font-size: 110%;
+	margin-top: 3px;
 	margin-bottom:3px;
 }
 input, textarea {
 	clear: both;
 	font-size: 100%;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
-	padding: 1%;
+	padding: .5%;
 	width:98%;
 }
 select {
@@ -391,7 +390,7 @@ option {
 input[type=checkbox] {
 	clear: left;
 	float: left;
-	margin: 0px 6px 7px 2px;
+	margin: 6px 6px 3px 3px;
 	width: auto;
 }
 div.checkbox label {
@@ -411,6 +410,7 @@ input[type=radio] {
 input[type=submit] {
 	display: inline;
 	font-size: 110%;
+	margin: 6px;
 	width: auto;
 }
 form .submit input[type=submit] {
@@ -461,7 +461,6 @@ form .error-message {
 	color: #fff;
 	font-size: 140%;
 	font-weight: bold;
-	margin: 0 0 1em 0;
 	padding: 5px;
 }
 

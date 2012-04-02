@@ -58,15 +58,27 @@
 <div class="newspaperContents form">
 <?php echo $this->Form->create('NewspaperContent');?>
 	<fieldset>
-		<legend><?php echo __('Add Newspaper Content for Newspaper ID '.$newspaper['Newspaper']['newspaper_id']); ?></legend>
+		<legend><?php echo __('Add Record for Newspaper ID '.$newspaper['Newspaper']['newspaper_id']); ?></legend>
 	<?php
-		echo $this->Form->hidden('newspaper_id', array('default' => $newspaper['Newspaper']['newspaper_id']));
-		echo $this->Form->input('begin_date', $options = array('empty' => true));
-		echo $this->Form->input('end_date', $options = array('empty' => true));
-		echo $this->Form->input('reel_control');
-		echo $this->Form->input('gaps');
-		echo $this->Form->input('comments');
-		echo $this->Form->input('usage_rights');
+		echo $this->Form->hidden('NewspaperContent.newspaper_id', array('default' => $newspaper['Newspaper']['newspaper_id']));
+		echo $this->Form->input('NewspaperContent.begin_date', array('default' => '0000-00-00'));
+		echo $this->Form->input('NewspaperContent.end_date', array('default' => '0000-00-00'));
+		echo $this->Form->input('NewspaperContent.reel_control');
+		echo $this->Form->input('NewspaperContent.gaps');
+		echo $this->Form->input('NewspaperContent.comments');
+		echo $this->Form->input('NewspaperContent.usage_rights');
+		echo $this->Form->input('NewspaperReel.0.reel_polarity');
+		echo $this->Form->input('NewspaperReel.0.generation');
+		echo $this->Form->input('NewspaperReel.0.redox_quality_date', $options = array('empty' => true));
+		echo $this->Form->input('NewspaperReel.0.redox_quality_present');
+		echo $this->Form->input('NewspaperReel.0.scratches');
+		echo $this->Form->input('NewspaperReel.0.quality_in');
+		echo $this->Form->input('NewspaperReel.0.sdn_number');
+		echo $this->Form->input('NewspaperReel.0.shipping_box');
+		echo $this->Form->input('NewspaperReel.0.date_of_last_access', $options = array('empty' => true));
+		echo $this->Form->input('NewspaperReel.0.date_of_microfilm', $options = array('empty' => true));
+		echo $this->Form->input('NewspaperReel.0.checked_out');
+		echo $this->Form->input('NewspaperReel.0.deleted');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
