@@ -5,7 +5,6 @@
 		Home	</title>
 <body>
 <br />	
-<h2>Minnesota Historical Society Microfilm Database Application</h2>
 
 <br />
 <hr />

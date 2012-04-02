@@ -126,11 +126,13 @@ class ArchiveContentsController extends AppController {
 		$this->set('archive', $this->Archive->read());
 		if ($this->request->is('post')) {
 			$this->ArchiveContent->create();
-			if ($this->ArchiveContent->save($this->request->data)) {
-				$this->Session->setFlash(__('The archive content has been saved'));
-				$this->redirect(array('controller' => 'archives', 'action' => 'view', $id));
+			// saveAssociated() saves into related tables
+			if ($this->ArchiveContent->saveAssociated($this->request->data, $options = array('deep' => true))) {
+				$this->Session->setFlash(__('The archive record has been saved'));
+				$this->redirect(array('controller' => 'archive_reels', 'action' => 'record',
+						      $this->ArchiveContent->ArchiveReel->id)); // display the new record
 			} else {
-				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The archive record could not be saved. Please try again.'));
 			}
 		}
 	}
@@ -149,7 +151,7 @@ class ArchiveContentsController extends AppController {
 				$this->redirect(array('controller' => 'archive_reels', 'action' => 'record',
 						      $this->ArchiveContent->ArchiveReel->id)); // display the new record
 			} else {
-				$this->Session->setFlash(__('The archive record could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The archive record could not be saved. Please try again.'));
 			}
 		}
 	}

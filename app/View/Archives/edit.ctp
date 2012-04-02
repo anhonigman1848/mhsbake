@@ -2,7 +2,7 @@
 <div class="archives form">
 <?php echo $this->Form->create('Archive');?>
 	<fieldset>
-		<legend><?php echo __('Edit Archive'); ?></legend>
+		<legend><?php echo __('Edit Archive (this will alter all related contents and reels)'); ?></legend>
 	<?php
 		echo $this->Form->input('archive_id');
 		echo $this->Form->input('series');

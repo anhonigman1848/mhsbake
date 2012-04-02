@@ -18,6 +18,8 @@ $(document).ready(function() {
          indicator : 'Saving...',
          tooltip   : 'Click to edit the last name'
     });
+    
+    // checkbox functions send reel_id and checked values to server
     $('.ncheckbox').change(function() { 
             if($(this).is(":checked")) { 
                 $.ajax({
@@ -28,6 +30,21 @@ $(document).ready(function() {
             } else {
                 $.ajax({
                     url: '/mhsbake/newspaper_reels/checkBox',
+                    type: 'POST',
+                    data: { reel_id:$(this).attr("id"), checked:"0" }
+                });
+            }
+        });
+    $('.acheckbox').change(function() { 
+            if($(this).is(":checked")) { 
+                $.ajax({
+                    url: '/mhsbake/archive_reels/checkBox',
+                    type: 'POST',
+                    data: { reel_id:$(this).attr("id"), checked:"1" }
+                });
+            } else {
+                $.ajax({
+                    url: '/mhsbake/archive_reels/checkBox',
                     type: 'POST',
                     data: { reel_id:$(this).attr("id"), checked:"0" }
                 });

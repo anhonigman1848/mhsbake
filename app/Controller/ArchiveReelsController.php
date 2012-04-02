@@ -154,7 +154,64 @@ class ArchiveReelsController extends AppController {
 		$this->set('archiveRecords', $this->paginate());
 		
 		$this->set('data', $this->passedArgs);
-    }	
+    }
+    
+/**
+ * checkBox method writes the reel_id of a checked row to Session variable
+ *
+ * @return void
+ */
+	public function checkBox() {
+		
+		$this->autoRender = false;
+		
+		if ($this->Session->check('ar_selected')) {
+			$selectedRows = $this->Session->read('ar_selected.selectedRows');			
+		}
+		
+		$reel_id = $_POST['reel_id'];
+		$checked = $_POST['checked'];
+		if ($checked == 1) {
+			$selectedRows[$reel_id] = $reel_id;
+		} else {
+			unset($selectedRows[$reel_id]);			
+		}
+		$this->Session->write('ar_selected.selectedRows', $selectedRows);		
+	}
+/**
+ * display method retrieves a list of selected reel_ids and sends the assembled
+ * record object to the view
+ *
+ * @return void
+ */
+	public function display() {		
+		
+		if ($this->Session->check('ar_selected')) {
+			$reel_ids = $this->Session->read('ar_selected.selectedRows');			
+		} else {
+			return;
+		}
+		$selectedRecords = $this->paginate( 'ArchiveReel', array('ArchiveReel.archive_reel_id' => $reel_ids));
+		$this->set('archiveRecords', $selectedRecords);
+	}
+	
+/**
+ * display_quality method retrieves a list of selected reel_ids and sends the assembled
+ * record object to the view
+ *
+ * @return void
+ */
+	public function display_quality() {		
+		
+		if ($this->Session->check('ar_selected')) {
+			$reel_ids = $this->Session->read('ar_selected.selectedRows');			
+		} else {
+			return;
+		}
+		
+		$selectedRecords = $this->paginate( 'ArchiveReel', array('ArchiveReel.archive_reel_id' => $reel_ids));
+		$this->set('archiveRecords', $selectedRecords);
+	}
 	
 
 /**
@@ -245,6 +302,7 @@ class ArchiveReelsController extends AppController {
 		if (!$this->ArchiveReel->exists()) {
 			throw new NotFoundException(__('Invalid archive reel'));
 		}
+		$this->set('archiveReel', $this->ArchiveReel->read());
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->ArchiveReel->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive reel has been saved'));

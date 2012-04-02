@@ -61,9 +61,9 @@ echo $this->Form->end(); ?>
 	
 
 	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('selected');?></th>
+	<tr>			
 			<th class="actions"><?php echo __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('selected');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.title', 'Title');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.county', 'County');?></th>
@@ -85,12 +85,13 @@ echo $this->Form->end(); ?>
 	<?php
 	foreach ($archiveRecords as $archiveRecord): ?>
 	<tr>		
-		<td><?php echo $this->Form->checkbox('selected') ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 		</td>
+		<td><input type="checkbox" class="acheckbox" name="selected[]"
+			id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>
 		<td><?php echo h($archiveRecord['Archive']['title']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['city']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['county']); ?>&nbsp;</td>
@@ -125,4 +126,11 @@ echo $this->Form->end(); ?>
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'archive_reels','action' => 'display_quality')); ?></li>
+		
+	</ul>
 </div>
