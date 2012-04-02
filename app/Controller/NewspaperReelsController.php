@@ -159,9 +159,25 @@ class NewspaperReelsController extends AppController {
 		} else {
 			return;
 		}
-		$selectedRecords = $this->NewspaperReel->find('all', array(
-			'conditions' => array('NewspaperReel.newspaper_reel_id' => $reel_ids)
-		));
+		$selectedRecords = $this->paginate( 'NewspaperReel', array('NewspaperReel.newspaper_reel_id' => $reel_ids));
+		$this->set('newspaperRecords', $selectedRecords);
+	}
+	
+/**
+ * display_quality method retrieves a list of selected reel_ids and sends the assembled
+ * record object to the view
+ *
+ * @return void
+ */
+	public function display_quality() {		
+		
+		if ($this->Session->check('nr_selected')) {
+			$reel_ids = $this->Session->read('nr_selected.selectedRows');			
+		} else {
+			return;
+		}
+		
+		$selectedRecords = $this->paginate( 'NewspaperReel', array('NewspaperReel.newspaper_reel_id' => $reel_ids));
 		$this->set('newspaperRecords', $selectedRecords);
 	}
 
