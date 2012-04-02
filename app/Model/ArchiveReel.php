@@ -18,6 +18,15 @@ class ArchiveReel extends AppModel {
  * @var string
  */
 	public $primaryKey = 'archive_reel_id';
+	
+/* attempt at placing current user method in individual models	 */
+/*
+	public function current_user() {
+		$user = $this->Auth->user();
+		return $user[$this->Auth->userModel]; // return the complete user array
+	}
+*/
+	
 /**
  * Validation rules
  *

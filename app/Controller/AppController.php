@@ -58,6 +58,12 @@ class AppController extends Controller {
     public function beforeFilter() {
         // Authorization functionality
         $this->set('logged_in', $this->Auth->loggedIn());
-        $this->set('current_user', $this->Auth->user());        
+        $this->set('current_user', $this->Auth->user());  
+/* attempt to get the current user to the model for the behavior to document the source */
+/*
+        if( !empty( $this->data ) && empty( $this->data[$this->Auth->userModel] ) ) {
+			$this->data[$this->Auth->userModel] = $this->current_user();
+		}      
+*/
     }
 }
