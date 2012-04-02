@@ -39,9 +39,9 @@ echo $this->Form->end(); ?>
 	
 
 	<table cellpadding="0" cellspacing="0">
-	<tr>			
-			<th><?php echo $this->Paginator->sort('selected');?></th>
+	<tr>		
 			<th class="actions"><?php echo __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('selected');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.title','Title');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.county', 'County');?></th>
