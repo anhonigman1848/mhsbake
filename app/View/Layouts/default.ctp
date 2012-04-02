@@ -74,13 +74,12 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
 
 <table id="navigation">
 <tr class= "navbar">
-	<td class= "navtab"><a href="/mhsbake/newspaper_reels/expanded">Newspaper Records</a></td>
 	<td class= "navtab"><a href="/mhsbake/newspaper_reels/find">Search Newspapers</a></td>
-	<td class= "navtab"><a href="/mhsbake/newspaper_reels/quality">Newspaper Qual Srch</a></td>
-	<td class= "navtab"><a href="/mhsbake/archive_reels/expanded">Archive Records</a></td>
+	<td class= "navtab"><a href="/mhsbake/newspaper_reels/quality">Newspaper Quality Search</a></td>
 	<td class= "navtab"><a href="/mhsbake/archive_reels/find">Search Archives</a></td>
-	<td class= "navtab"><a href="/mhsbake/archive_reels/quality">Archive Qual Srch</a></td>
+	<td class= "navtab"><a href="/mhsbake/archive_reels/quality">Archive Quality Search</a></td>
 	<td class= "navtab"><a href="/mhsbake/users/index">Users</a></td>
+	<td class= "navtab"><a href="/mhsbake/audits/index">Audit Log</a></td>
 </tr>
 </table>
 <?php echo $this->Session->flash(); ?>
