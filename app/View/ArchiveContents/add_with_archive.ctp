@@ -68,15 +68,26 @@
 --><div class="archiveContents form">
 <?php echo $this->Form->create('ArchiveContent');?>
 	<fieldset>
-		<legend><?php echo __('Add Archive Content for Archive ID '.$archive['Archive']['archive_id']); ?></legend>
+		<legend><?php echo __('Add Record for Archive ID '.$archive['Archive']['archive_id']); ?></legend>
 	<?php
-		echo $this->Form->hidden('archive_id', array('default' => $archive['Archive']['archive_id']));
-		echo $this->Form->input('reel_number');
-		echo $this->Form->input('begin_date', array('default' => '0000-00-00'));		
-		echo $this->Form->input('end_date', array('default' => '0000-00-00'));		
-		echo $this->Form->input('contents');
-		echo $this->Form->input('comments');
-		echo $this->Form->input('usage_rights');
+		echo $this->Form->hidden('ArchiveContent.archive_id', array('default' => $archive['Archive']['archive_id']));
+		echo $this->Form->input('ArchiveContent.reel_number');
+		echo $this->Form->input('ArchiveContent.begin_date', array('default' => '0000-00-00'));		
+		echo $this->Form->input('ArchiveContent.end_date', array('default' => '0000-00-00'));		
+		echo $this->Form->input('ArchiveContent.contents');
+		echo $this->Form->input('ArchiveContent.comments');
+		echo $this->Form->input('ArchiveContent.usage_rights');
+		echo $this->Form->input('ArchiveReel.0.reel_polarity');
+		echo $this->Form->input('ArchiveReel.0.generation');
+		echo $this->Form->input('ArchiveReel.0.redox_quality_date', $options = array('empty' => true));
+		echo $this->Form->input('ArchiveReel.0.redox_quality_present');
+		echo $this->Form->input('ArchiveReel.0.scratches');
+		echo $this->Form->input('ArchiveReel.0.quality_in');
+		echo $this->Form->input('ArchiveReel.0.sdn_number');
+		echo $this->Form->input('ArchiveReel.0.shipping_box');
+		echo $this->Form->input('ArchiveReel.0.date_of_last_access', $options = array('empty' => true));
+		echo $this->Form->input('ArchiveReel.0.checked_out');
+		echo $this->Form->input('ArchiveReel.0.deleted');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

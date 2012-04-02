@@ -302,6 +302,7 @@ class ArchiveReelsController extends AppController {
 		if (!$this->ArchiveReel->exists()) {
 			throw new NotFoundException(__('Invalid archive reel'));
 		}
+		$this->set('archiveReel', $this->ArchiveReel->read());
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->ArchiveReel->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive reel has been saved'));

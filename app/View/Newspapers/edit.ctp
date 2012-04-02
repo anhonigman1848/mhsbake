@@ -2,7 +2,7 @@
 <div class="newspapers form">
 <?php echo $this->Form->create('Newspaper');?>
 	<fieldset>
-		<legend><?php echo __('Edit Newspaper'); ?></legend>
+		<legend><?php echo __('Edit Newspaper (this will alter all related contents and reels)'); ?></legend>
 	<?php
 		echo $this->Form->input('newspaper_id');
 		echo $this->Form->input('title');

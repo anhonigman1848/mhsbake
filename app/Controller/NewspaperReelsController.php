@@ -260,7 +260,7 @@ class NewspaperReelsController extends AppController {
 				$this->Session->setFlash(__('The newspaper reel has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The newspaper reel could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The newspaper reel could not be saved. Please try again.'));
 			}
 		}
 		$newspaperContents = $this->NewspaperReel->NewspaperContent->find('list');
@@ -298,12 +298,13 @@ class NewspaperReelsController extends AppController {
 		if (!$this->NewspaperReel->exists()) {
 			throw new NotFoundException(__('Invalid newspaper reel'));
 		}
+		$this->set('newspaperReel', $this->NewspaperReel->read());
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->NewspaperReel->save($this->request->data)) {
 				$this->Session->setFlash(__('The newspaper reel has been saved'));
 				$this->redirect(array('action' => 'view', $id));
 			} else {
-				$this->Session->setFlash(__('The newspaper reel could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The newspaper reel could not be saved. Please try again.'));
 			}
 		} else {
 			$this->request->data = $this->NewspaperReel->read(null, $id);
