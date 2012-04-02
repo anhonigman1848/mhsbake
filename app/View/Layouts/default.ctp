@@ -80,6 +80,7 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
 	<td class= "navtab"><a href="/mhsbake/archive_reels/quality">Archive Quality Search</a></td>
 	<td class= "navtab"><a href="/mhsbake/users/index">Users</a></td>
 	<td class= "navtab"><a href="/mhsbake/audits/index">Audit Log</a></td>
+	<td class= "navtab"><a href="/mhsbake/helps/view">Help</a></td>
 </tr>
 </table>
 <?php echo $this->Session->flash(); ?>
