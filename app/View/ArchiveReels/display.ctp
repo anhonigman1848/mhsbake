@@ -13,7 +13,7 @@ $( "#datepicker2" ).datepicker({changeYear: true,
 });
 </script>
 <div class="archiveReels form">
-	<h2><?php echo __('Archive Records Search');?></h2>
+	<h2><?php echo __('Display Selected Archive Records & Search');?></h2>
 <?php $this->Access->setRole($current_user['role']);
 
 echo $this->Form->create('ArchiveReel', array(
