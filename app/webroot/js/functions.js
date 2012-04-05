@@ -1,5 +1,6 @@
-// app/webroot/js/testinline.js
+// app/webroot/js/functions.js
 $(document).ready(function() {
+    // inline-edit functionality for users
     $('.editfirstname').editable('/mhsbake/users/updateFirstName', {
          id        : 'id',
          name      : 'first_name',
@@ -17,6 +18,53 @@ $(document).ready(function() {
          submit    : 'Save',
          indicator : 'Saving...',
          tooltip   : 'Click to edit the last name'
+    });
+    
+    // inline-edit functionality for newspapers
+    $('.editntitle').editable('/mhsbake/newspapers/updateNTitle', {
+         id        : 'id',
+         name      : 'title',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper title'
+    });
+    $('.editncity').editable('/mhsbake/newspapers/updateNCity', {
+         id        : 'id',
+         name      : 'city',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper city'
+    });
+    $('.editncounty').editable('/mhsbake/newspapers/updateNCounty', {
+         id        : 'id',
+         name      : 'county',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper county'
+    });
+    $('.editntitlecontrol').editable('/mhsbake/newspapers/updateNTitleControl', {
+         id        : 'id',
+         name      : 'title_control',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper title control'
+    });
+    $('.editnalephnumber').editable('/mhsbake/newspapers/updateNAlephNumber', {
+         id        : 'id',
+         name      : 'aleph_number',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper aleph number'
     });
     
     // checkbox functions send reel_id and checked values to server

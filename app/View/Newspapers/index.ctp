@@ -22,13 +22,13 @@
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $newspaper['Newspaper']['newspaper_id']), null, __('Are you sure you want to delete # %s?', $newspaper['Newspaper']['newspaper_id'])); ?>
 		</td>
 		<td><?php echo h($newspaper['Newspaper']['newspaper_id']); ?>&nbsp;</td>
-		<td><?php echo h($newspaper['Newspaper']['title']); ?>&nbsp;</td>
-		<td><?php echo h($newspaper['Newspaper']['city']); ?>&nbsp;</td>
-		<td><?php echo h($newspaper['Newspaper']['county']); ?>&nbsp;</td>
-		<td><?php echo h($newspaper['Newspaper']['title_control']); ?>&nbsp;</td>
-		<td><?php echo h($newspaper['Newspaper']['aleph_number']); ?>&nbsp;</td>
-		<td><?php echo h($newspaper['Newspaper']['created']); ?>&nbsp;</td>
-		<td><?php echo h($newspaper['Newspaper']['modified']); ?>&nbsp;</td>
+		<td class="editntitle" id="<?php echo $newspaper['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaper['Newspaper']['title']); ?></td>
+		<td class="editncity" id="<?php echo $newspaper['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaper['Newspaper']['city']); ?></td>
+		<td class="editncounty" id="<?php echo $newspaper['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaper['Newspaper']['county']); ?></td>
+		<td class="editntitlecontrol" id="<?php echo $newspaper['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaper['Newspaper']['title_control']); ?></td>
+		<td class="editnalephnumber" id="<?php echo $newspaper['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaper['Newspaper']['aleph_number']); ?></td>
+		<td><?php echo h($newspaper['Newspaper']['created']); ?></td>
+		<td><?php echo h($newspaper['Newspaper']['modified']); ?></td>
 	</tr>
 <?php endforeach; ?>
 	</table>

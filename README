@@ -1,9 +1,3 @@
-The "soft delete" action has been added to newspaperreelscontroller
-and archivereelscontroller.  Now, the delete button as viewed from the
-expanded views, will soft delete a record.  The admin has two additional
-buttons, "Delete Permanently" and "Restore."  Actions for these buttons
-has been added to the two controllers, also.
-
-You will find that records that have been "soft" deleted will still be showing
-up.  This is because we need to incorporate a condition (deleted=false) in the
-search query.
+Updated with more inline-edit functionality.
+Now, inline edit works for what appears from the newspaperreels find view.
+The inline edit works for only the newspaper portion, though, not newspaper content or newspaper reel.
