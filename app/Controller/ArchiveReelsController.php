@@ -131,6 +131,60 @@ class ArchiveReelsController extends AppController {
     }
 
 /**
+ * checkBox method writes the reel_id of a checked row to Session variable
+ *
+ * @return void
+ */
+	public function checkBox() {
+		
+		$this->autoRender = false;
+		
+		if ($this->Session->check('ar_selected')) {
+			$selectedRows = $this->Session->read('ar_selected.selectedRows');			
+		}
+		
+		$reel_id = $_POST['reel_id'];
+		$checked = $_POST['checked'];
+		if ($checked == 1) {
+			$selectedRows[$reel_id] = $reel_id;
+		} else {
+			unset($selectedRows[$reel_id]);			
+		}
+		$this->Session->write('ar_selected.selectedRows', $selectedRows);		
+	}
+	
+/**
+ * checkBoxes method writes the reel_ids of multiple checked rows to Session variable
+ *
+ * @return void
+ */
+	public function checkBoxes() {
+		
+		$this->autoRender = false;
+		if (!($this->Session->check('ar_selected'))) {
+			$this->Session->write('ar_selected.selectedRows', array());		
+		}
+		
+		$selectedRows = $this->Session->read('ar_selected.selectedRows');
+		
+		$reel_ids = array();
+		$reel_ids = $_POST['areel_ids'];				
+		$checked = $_POST['checked'];
+		
+		if ($checked == 1) {
+			for ($i = 0; $i < sizeof($reel_ids); $i++){
+				$selectedRows[$reel_ids[$i]] = $reel_ids[$i];
+			}
+		} else {
+			for ($i = 0; $i < sizeof($reel_ids); $i++){
+				unset($selectedRows[$reel_ids[$i]]);
+			}
+		}
+		
+		$this->Session->write('ar_selected.selectedRows', $selectedRows);		
+	}
+	
+/**
  * qualitiy seardh method
  *
  * @return void
@@ -156,28 +210,7 @@ class ArchiveReelsController extends AppController {
 		$this->set('data', $this->passedArgs);
     }
     
-/**
- * checkBox method writes the reel_id of a checked row to Session variable
- *
- * @return void
- */
-	public function checkBox() {
-		
-		$this->autoRender = false;
-		
-		if ($this->Session->check('ar_selected')) {
-			$selectedRows = $this->Session->read('ar_selected.selectedRows');			
-		}
-		
-		$reel_id = $_POST['reel_id'];
-		$checked = $_POST['checked'];
-		if ($checked == 1) {
-			$selectedRows[$reel_id] = $reel_id;
-		} else {
-			unset($selectedRows[$reel_id]);			
-		}
-		$this->Session->write('ar_selected.selectedRows', $selectedRows);		
-	}
+
 /**
  * display method retrieves a list of selected reel_ids and sends the assembled
  * record object to the view
@@ -186,11 +219,11 @@ class ArchiveReelsController extends AppController {
  */
 	public function display() {		
 		
-		if ($this->Session->check('ar_selected')) {
-			$reel_ids = $this->Session->read('ar_selected.selectedRows');			
-		} else {
-			return;
+		if (!($this->Session->check('ar_selected'))) {
+			$this->Session->write('ar_selected.selectedRows', array());		
 		}
+		
+		$reel_ids = $this->Session->read('ar_selected.selectedRows');		
 		$selectedRecords = $this->paginate( 'ArchiveReel', array('ArchiveReel.archive_reel_id' => $reel_ids));
 		$this->set('archiveRecords', $selectedRecords);
 	}
@@ -203,17 +236,43 @@ class ArchiveReelsController extends AppController {
  */
 	public function display_quality() {		
 		
-		if ($this->Session->check('ar_selected')) {
-			$reel_ids = $this->Session->read('ar_selected.selectedRows');			
-		} else {
-			return;
+		if (!($this->Session->check('ar_selected'))) {
+			$this->Session->write('ar_selected.selectedRows', array());		
 		}
 		
+		$reel_ids = $this->Session->read('ar_selected.selectedRows');		
 		$selectedRecords = $this->paginate( 'ArchiveReel', array('ArchiveReel.archive_reel_id' => $reel_ids));
 		$this->set('archiveRecords', $selectedRecords);
 	}
-	
 
+/**
+ * 
+ * exposes array of checked boxes to be read by ajax call
+ *
+ * @return void
+ */
+	public function get_check_boxes() {		
+		$this->autoRender = false;
+		if (!($this->Session->check('ar_selected'))) {
+			$this->Session->write('ar_selected.selectedRows', array());		
+		}
+		$reel_ids = $this->Session->read('ar_selected.selectedRows');
+		$reel_ids = json_encode($reel_ids);
+		$this->response->body($reel_ids);		
+	}	
+
+/** 
+ * clears all selected Archive Record checkboxes
+ *
+ * @return void
+ */
+	public function clear_all_check_boxes($action) {		
+		$this->autoRender = false;
+		$this->Session->delete('ar_selected');
+		$this->Session->write('ar_selected.selectedRows', array());
+		$this->redirect(array('action' => $action));
+	}
+	
 /**
  * expanded method
  *
@@ -315,6 +374,30 @@ class ArchiveReelsController extends AppController {
 		}
 		$archiveContents = $this->ArchiveReel->ArchiveContent->find('list');
 		$this->set(compact('archiveContents'));
+	}
+
+/**
+ * editArchiveRecord method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function editArchiveRecord($id = null) {
+		$this->ArchiveReel->id = $id;
+		if (!$this->ArchiveReel->exists()) {
+			throw new NotFoundException(__('Invalid archive content'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			// saveAssociated() saves into related tables
+			if ($this->ArchiveReel->saveAssociated($this->request->data, $options = array('deep' => true))) {
+				$this->Session->setFlash(__('The archive record has been saved'));
+				$this->redirect(array('action' => 'record', $id)); // display the new record
+			} else {
+				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
+			}
+		} else {
+			$this->request->data = $this->ArchiveReel->read(null, $id);
+		}
 	}
 
 /**

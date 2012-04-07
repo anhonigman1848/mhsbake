@@ -146,6 +146,37 @@ class NewspaperReelsController extends AppController {
 		}
 		$this->Session->write('nr_selected.selectedRows', $selectedRows);		
 	}
+	
+/**
+ * checkBoxes method writes the reel_ids of multiple checked rows to Session variable
+ *
+ * @return void
+ */
+	public function checkBoxes() {
+		
+		$this->autoRender = false;
+		if (!($this->Session->check('nr_selected'))) {
+			$this->Session->write('nr_selected.selectedRows', array());		
+		}
+		
+		$selectedRows = $this->Session->read('nr_selected.selectedRows');
+		
+		$reel_ids = array();
+		$reel_ids = $_POST['nreel_ids'];				
+		$checked = $_POST['checked'];
+		
+		if ($checked == 1) {
+			for ($i = 0; $i < sizeof($reel_ids); $i++){
+				$selectedRows[$reel_ids[$i]] = $reel_ids[$i];
+			}
+		} else {
+			for ($i = 0; $i < sizeof($reel_ids); $i++){
+				unset($selectedRows[$reel_ids[$i]]);
+			}
+		}
+		
+		$this->Session->write('nr_selected.selectedRows', $selectedRows);		
+	}
 /**
  * display method retrieves a list of selected reel_ids and sends the assembled
  * record object to the view
@@ -154,11 +185,11 @@ class NewspaperReelsController extends AppController {
  */
 	public function display() {		
 		
-		if ($this->Session->check('nr_selected')) {
-			$reel_ids = $this->Session->read('nr_selected.selectedRows');			
-		} else {
-			return;
+		if (!($this->Session->check('nr_selected'))) {
+			$this->Session->write('nr_selected.selectedRows', array());		
 		}
+		
+		$reel_ids = $this->Session->read('nr_selected.selectedRows');		
 		$selectedRecords = $this->paginate( 'NewspaperReel', array('NewspaperReel.newspaper_reel_id' => $reel_ids));
 		$this->set('newspaperRecords', $selectedRecords);
 	}
@@ -171,15 +202,43 @@ class NewspaperReelsController extends AppController {
  */
 	public function display_quality() {		
 		
-		if ($this->Session->check('nr_selected')) {
-			$reel_ids = $this->Session->read('nr_selected.selectedRows');			
-		} else {
-			return;
+		if (!($this->Session->check('nr_selected'))) {
+			$this->Session->write('nr_selected.selectedRows', array());		
 		}
 		
+		$reel_ids = $this->Session->read('nr_selected.selectedRows');		
 		$selectedRecords = $this->paginate( 'NewspaperReel', array('NewspaperReel.newspaper_reel_id' => $reel_ids));
 		$this->set('newspaperRecords', $selectedRecords);
 	}
+
+/**
+ * 
+ * exposes array of checked boxes to be read by ajax call
+ *
+ * @return void
+ */
+	public function get_check_boxes() {		
+		$this->autoRender = false;
+		if (!($this->Session->check('nr_selected'))) {
+			$this->Session->write('nr_selected.selectedRows', array());		
+		}
+		$reel_ids = $this->Session->read('nr_selected.selectedRows');
+		$reel_ids = json_encode($reel_ids);
+		$this->response->body($reel_ids);		
+	}
+	
+/** 
+ * clears all selected Newspaper Record checkboxes
+ *
+ * @return void
+ */
+	public function clear_all_check_boxes($action) {		
+		$this->autoRender = false;
+		$this->Session->delete('nr_selected');
+		$this->Session->write('nr_selected.selectedRows', array());
+		$this->redirect(array('action' => $action));
+	}
+
 
 	
 /**

@@ -145,12 +145,12 @@
 <div class="actions">
 	<h2><?php echo __('Available Actions'); ?></h2>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Archive Record'), array('action' => 'edit', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Archive Record'), array('action' => 'editArchiveRecord', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Archive Record'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit Archive'), array('controller' => 'archives', 'action' => 'edit', $archiveRecord['Archive']['archive_id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Edit Archive Content'), array('controller' => 'archive_contents', 'action' => 'edit', $archiveRecord['ArchiveContent']['archive_content_id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Archive Content'), array('action' => 'edit', $archiveRecord['ArchiveContent']['archive_content_id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Copy This Record'), array('action' => 'addWithContent', $archiveRecord['ArchiveContent']['archive_content_id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('New Record for This Archive'), array('controller' => 'archive_contents', 'action' => 'addWithArchive', $archiveRecord['Archive']['archive_id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archive Record'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Archive Record'), array('controller' => 'archive_contents', 'action' => 'addArchiveRecord')); ?> </li>
 	</ul>
 </div>
