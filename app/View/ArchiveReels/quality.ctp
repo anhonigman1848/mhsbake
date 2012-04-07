@@ -87,7 +87,7 @@ echo $this->Form->end(); ?>
 	<tr id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>">		
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'editArchiveRecord', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 		</td>
 		<td><input type="checkbox" class="acheckbox" id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>

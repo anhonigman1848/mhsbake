@@ -90,7 +90,7 @@ p {
 	}
 
   #navigation {
-	margin-bottom: 0px;
+	margin: 0px;
 	}
 	
   #nullrow {
@@ -109,12 +109,14 @@ p {
   .navtab {
 	width: 5.5em;
 	border: none;
+	background-color: #606289;
+	margin: 0px;
 	}
 
   .navtab a {
 	text-decoration: none;
 	text-align: center;
-	color: #2F334E;
+	color: #fff/*#2F334E*/;
 	display: block;
 	}
 
