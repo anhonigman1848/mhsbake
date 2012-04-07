@@ -9,7 +9,7 @@
 			<th><?php echo $this->Paginator->sort('event');?></th>
 			<th><?php echo $this->Paginator->sort('model');?></th>
 			<th><?php echo $this->Paginator->sort('entity_id');?></th>
-			<th><?php echo $this->Paginator->sort('json_object');?></th>
+			<th><?php echo $this->Paginator->sort('audit.json_object', 'Attribute:Value Pairs');?></th>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
 	</tr>
