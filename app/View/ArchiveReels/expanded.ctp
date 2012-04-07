@@ -40,7 +40,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('controller' => 'archive_reels', 'action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 			<?php if($this->Access->cat('edit')){
-				echo $this->Html->link(__('Edit'), array('action' => 'edit',
+				echo $this->Html->link(__('Edit'), array('action' => 'editArchiveRecord',
 					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
 			<?php if($this->Access->cat('deleted')){
 				echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete',

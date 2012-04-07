@@ -35,8 +35,9 @@ class AppModel extends Model {
 
 /*
 	public function current_user() {
-		$user = $this->Auth->user();
-		return $user[$this->Auth->userModel]; // return the complete user array
+		debug($_SESSION['Auth']['User']);
+		$user = $_SESSION['Auth']['User'];
+		return $user[$_SESSION['Auth']['User']]; // return the complete user array
 	}
 */
 }
