@@ -105,13 +105,22 @@ $(document).ready(function() {
                     type: 'POST',
                     data: { reel_id:$(this).attr("id"), checked:"1" }
                 });
+				var checked = 1;
+                $('.acheckbox').each(function() {
+                    if ($(this).attr('checked') == false) {
+                        checked = 0;                    
+                    }                
+                });
+                if (checked == 1) {
+                        $('#aselectall').attr('checked', true);
+                }
             } else {
                 $.ajax({
                     url: '/mhsbake/archive_reels/checkBox',
                     type: 'POST',
                     data: { reel_id:$(this).attr("id"), checked:"0" }
                 });
-                $('#aselectall').attr('checked', false);
+                $('#aselectall').attr('checked', false);				
             }
         });
     
