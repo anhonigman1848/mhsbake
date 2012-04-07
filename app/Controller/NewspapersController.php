@@ -8,9 +8,11 @@ App::uses('AppController', 'Controller');
 class NewspapersController extends AppController {
 
 /*
- * Include the Search component
+ * Include these components:
+ * The Search component
+ * The Request handler catches and coordinates ajax requests
  */	
-	public $components = array('Search.Prg');
+	public $components = array('Search.Prg', 'RequestHandler');
 	//Debugger::dump($components); 
 	
 /*
@@ -181,5 +183,115 @@ class NewspapersController extends AppController {
 		}
 		$this->Session->setFlash(__('Newspaper was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	/*
+	 * This function changes a particular newspaper's title based on an ajax
+	 * call
+	 * @param Needs an id and title passed as key:value pairs through Post
+	 * @returns new value of title 
+	 */
+	public function updateNTitle() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Newspaper->id = $_POST['id']; // prepare newspaper model to change data for particular newspaper
+			if (!$this->Newspaper->exists()) {
+				throw new NotFoundException('Invalid newspaper');
+			}
+
+			$this->Newspaper->saveField('title', $_POST['title'], true); // save new title
+			$this->set('posttitle', $_POST['title']); // create variable for passing title to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	/*
+	 * This function changes a particular newspaper's city based on an ajax
+	 * call
+	 * @param Needs an id and city passed as key:value pairs through Post
+	 * @returns new value of city 
+	 */
+	public function updateNCity() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Newspaper->id = $_POST['id']; // prepare newspaper model to change data for particular newspaper
+			if (!$this->Newspaper->exists()) {
+				throw new NotFoundException('Invalid newspaper');
+			}
+
+			$this->Newspaper->saveField('city', $_POST['city'], true); // save new city
+			$this->set('postcity', $_POST['city']); // create variable for passing city to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	/*
+	 * This function changes a particular newspaper's county based on an ajax
+	 * call
+	 * @param Needs an id and county passed as key:value pairs through Post
+	 * @returns new value of county 
+	 */
+	public function updateNCounty() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Newspaper->id = $_POST['id']; // prepare newspaper model to change data for particular newspaper
+			if (!$this->Newspaper->exists()) {
+				throw new NotFoundException('Invalid newspaper');
+			}
+
+			$this->Newspaper->saveField('county', $_POST['county'], true); // save new county
+			$this->set('postcounty', $_POST['county']); // create variable for passing county to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	/*
+	 * This function changes a particular newspaper's title control based on an ajax
+	 * call
+	 * @param Needs an id and title control passed as key:value pairs through Post
+	 * @returns new value of title control 
+	 */
+	public function updateNTitleControl() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Newspaper->id = $_POST['id']; // prepare newspaper model to change data for particular newspaper
+			if (!$this->Newspaper->exists()) {
+				throw new NotFoundException('Invalid newspaper');
+			}
+
+			$this->Newspaper->saveField('title_control', $_POST['title_control'], true); // save title control name
+			$this->set('posttitlecontol', $_POST['title_control']); // create variable for passing title control to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	/*
+	 * This function changes a particular newspaper's aleph number based on an ajax
+	 * call
+	 * @param Needs an id and aleph number passed as key:value pairs through Post
+	 * @returns new value of aleph number 
+	 */
+	public function updateNAlephNumber() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Newspaper->id = $_POST['id']; // prepare newspaper model to change data for particular newspaper
+			if (!$this->Newspaper->exists()) {
+				throw new NotFoundException('Invalid newspaper');
+			}
+
+			$this->Newspaper->saveField('aleph_number', $_POST['aleph_number'], true); // save new aleph number
+			$this->set('postalephnumber', $_POST['aleph_number']); // create variable for passing aleph number to view
+		} else {
+			// some sort of error...
+		}
 	}
 }

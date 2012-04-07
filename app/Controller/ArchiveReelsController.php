@@ -377,6 +377,30 @@ class ArchiveReelsController extends AppController {
 	}
 
 /**
+ * editArchiveRecord method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function editArchiveRecord($id = null) {
+		$this->ArchiveReel->id = $id;
+		if (!$this->ArchiveReel->exists()) {
+			throw new NotFoundException(__('Invalid archive content'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			// saveAssociated() saves into related tables
+			if ($this->ArchiveReel->saveAssociated($this->request->data, $options = array('deep' => true))) {
+				$this->Session->setFlash(__('The archive record has been saved'));
+				$this->redirect(array('action' => 'record', $id)); // display the new record
+			} else {
+				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
+			}
+		} else {
+			$this->request->data = $this->ArchiveReel->read(null, $id);
+		}
+	}
+
+/**
  * delete method
  *
  * @param string $id
