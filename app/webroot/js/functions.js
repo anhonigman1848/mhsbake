@@ -80,6 +80,15 @@ $(document).ready(function() {
                     type: 'POST',
                     data: { reel_id:$(this).attr("id"), checked:"1" }
                 });
+                var checked = 1;
+                $('.ncheckbox').each(function() {
+                    if ($(this).attr('checked') == false) {
+                        checked = 0;                    
+                    }                
+                });
+                if (checked == 1) {
+                        $('#nselectall').attr('checked', true);
+                }
             } else {
                 $.ajax({
                     url: '/mhsbake/newspaper_reels/checkBox',
