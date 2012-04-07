@@ -326,7 +326,7 @@ class ArchiveReelsController extends AppController {
 	public function editArchiveRecord($id = null) {
 		$this->ArchiveReel->id = $id;
 		if (!$this->ArchiveReel->exists()) {
-			throw new NotFoundException(__('Invalid archive content'));
+			throw new NotFoundException(__('Invalid archive record'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			// saveAssociated() saves into related tables
@@ -334,7 +334,7 @@ class ArchiveReelsController extends AppController {
 				$this->Session->setFlash(__('The archive record has been saved'));
 				$this->redirect(array('action' => 'record', $id)); // display the new record
 			} else {
-				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The archive record could not be saved. Please, try again.'));
 			}
 		} else {
 			$this->request->data = $this->ArchiveReel->read(null, $id);

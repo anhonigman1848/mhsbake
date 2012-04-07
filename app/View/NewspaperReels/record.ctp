@@ -137,7 +137,7 @@
 <div class="actions">
 	<h2><?php echo __('Available Actions'); ?></h2>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Newspaper Record'), array('action' => 'edit', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Newspaper Record'), array('action' => 'editNewspaperRecord', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Newspaper Record'), array('action' => 'delete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit Newspaper'), array('controller' => 'newspapers', 'action' => 'edit', $newspaperRecord['Newspaper']['newspaper_id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit Newspaper Content'), array('controller' => 'newspaper_contents', 'action' => 'edit', $newspaperRecord['NewspaperContent']['newspaper_content_id'])); ?> </li>
