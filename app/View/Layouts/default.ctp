@@ -34,10 +34,14 @@ echo $this->Html->css('cake.generic');
 
 echo $this->Html->css('jquery-ui-1.8.4.custom.css');
 
+echo $this->Html->css('horz_menu.css');
+
 echo $this->Html->script('jquery.js');
 echo $this->Html->script('jquery.jeditable.js');
 echo $this->Html->script('jquery.ui.js');
 echo $this->Html->script('functions.js');
+echo $this->Html->script('superfish.js');
+echo $this->Html->script('dropmenu.js');
 
 echo $scripts_for_layout;
 ?>
@@ -68,11 +72,8 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
 <tr>
 	<td id="nopad"><a href="/mhsbake/" id="mhc" >Link</a></td>
 
-</tr>
-
-</table>
-
-<table id="navigation">
+</tr>	
+<!--<table id="navigation">
 <tr class= "navbar">
 	<td class= "navtab"><a href="/mhsbake/newspaper_reels/find">Search Newspapers</a></td>
 	<td class= "navtab"><a href="/mhsbake/newspaper_reels/quality">Newspaper Quality Search</a></td>
@@ -82,7 +83,33 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
 	<td class= "navtab"><a href="/mhsbake/audits/index">Audit Log</a></td>
 	<td class= "navtab"><a href="/mhsbake/helps/view">Help</a></td>
 </tr>
+</table>-->
+
+<tr><td id="nopad">
+  <ul class="nav">
+    <li><a href="/mhsbake/">Home</a></li>
+ <li><a>Search Newspapers</a>
+      <ul>
+        <li><a href="/mhsbake/newspaper_reels/find">Standard Search</a></li> 
+        <li><a href="/mhsbake/newspaper_reels/quality">Quality Search</a></li>
+      </ul>
+    </li>
+ <li><a>Search Archives</a>
+      <ul>
+        <li><a href="/mhsbake/archive_reels/find">Standard Search</a></li>
+        <li><a href="/mhsbake/archive_reels/quality">Quality Search</a></li>
+      </ul>
+    </li>
+    <li><a href="/mhsbake/users/index">Users</a></li> 
+    <li><a href="/mhsbake/audits/index">Audit Log</a></li> 
+    <li><a href="/mhsbake/helps/view">Help</a></li> 
+    </ul>
+</div>
+</td>
+</tr>
+
 </table>
+
 <?php echo $this->Session->flash(); ?>
 <?php echo $this->Session->flash('auth'); ?>
 
