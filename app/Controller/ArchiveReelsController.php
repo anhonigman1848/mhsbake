@@ -246,6 +246,37 @@ class ArchiveReelsController extends AppController {
 	}
 
 /**
+ * export_selected method retrieves a list of selected reel_ids and sends the assembled
+ * record object to the view
+ *
+ * @return void
+ */
+	public function export_selected() {		
+		
+		if (!($this->Session->check('ar_selected'))) {
+			$this->Session->write('ar_selected.selectedRows', array());		
+		}
+		$reel_ids = $this->Session->read('ar_selected.selectedRows');		
+		$selectedRecords = $this->paginate( 'ArchiveReel', array('ArchiveReel.archive_reel_id' => $reel_ids));
+		$this->set('archiveRecords', $selectedRecords);
+/* 		debug($selectedRecords); */
+/* need more information on paginate array to order reels by polarity ('order' => array('ArchiveReel.reel_polarity' => 'desc' )) */
+	}
+	
+/**
+ * export method prompts download of csv formatted file containing all 
+ * records in the Model's underlying database table. 
+ *
+ */
+ 	public function export() {
+	    $this->autoRender = false;
+	    $modelClass = $this->modelClass;
+	    $this->response->type('Content-Type: text/csv');
+	    $this->response->download( strtolower( Inflector::pluralize( $modelClass ) ) . '.csv' );
+	    $this->response->body( $this->$modelClass->exportCSV() );
+	}	
+
+/**
  * 
  * exposes array of checked boxes to be read by ajax call
  *
