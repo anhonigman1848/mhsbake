@@ -35,18 +35,18 @@ echo $this->Form->input('date_to', array('id'=>'datepicker2',
 					 'div' => false,					 					 
 					 ));
 echo $this->Form->input('checked_out', array('div' => false));
-echo $this->Form->submit(__('Search', true), array('div' => false));
+echo $this->Form->submit(__('Search', true)/*, array('div' => false)*/);
 echo $this->Form->end(); ?>	
 	
 
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th class="actions"><?php echo __('Actions');?></th>
-			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>
+<!--			<th class="actions"><?php echo __('Actions');?></th>
+-->			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>
 			<th><?php echo $this->Paginator->sort('Archive.title', 'Title');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.county', 'County');?></th>
-			<th><?php echo $this->Paginator->sort('Archive.aleph_number', 'aleph_number');?></th>
+			<th><?php echo $this->Paginator->sort('Archive.aleph_number', 'Aleph Number');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.series', 'Series');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.series_number', 'Series Number');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.author_citation', 'Author Citation');?></th>
@@ -61,12 +61,12 @@ echo $this->Form->end(); ?>
 	<?php
 	foreach ($archiveRecords as $archiveRecord): ?>
 	<tr id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>">		
-		<td class="actions">
+<!--		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'editArchiveRecord', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 		</td>
-		<td><input type="checkbox" class="acheckbox" id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>		
+-->		<td><input type="checkbox" class="acheckbox" id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>		
 		<td><?php echo h($archiveRecord['Archive']['title']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['city']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['county']); ?>&nbsp;</td>
