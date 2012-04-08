@@ -53,7 +53,7 @@ echo $scripts_for_layout;
 </h1>
 </div>
 <div id="content">
-<h2>Minnesota Historical Society Microfilm Database Application</h2>
+<h2><a href="/mhsbake/">Minnesota Historical Society Microfilm Database Application</a></h2>
 
 
 <div style="text-align: right;">
@@ -66,7 +66,7 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
 <table id= "top" cellspacing="0" border="0">
 
 <tr>
-	<td id="mhc" >&nbsp;</td>
+	<td id="nopad"><a href="/mhsbake/" id="mhc" >Link</a></td>
 
 </tr>
 
