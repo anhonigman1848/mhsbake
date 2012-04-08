@@ -26,7 +26,7 @@ body {
 	background: #606289;/*#003d4c;*/
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-	font-size:9pt;
+	font-size:10pt;
 	margin: 0;
 }
 a {
@@ -56,6 +56,11 @@ h2 {
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 190%;
 }
+h2 a {
+	color: #a8162b;
+	text-decoration:none;
+	
+}
 h3 {
 	color: #2c6877;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
@@ -81,12 +86,20 @@ p {
 	padding: 10px 20px;
 }
   #top {
-	background-image: url(../img/history_center.jpg);
 	margin-bottom: 0px;
 	}
 	
+  #nopad {
+	padding: 0px;
+	}
+	
   #mhc {
-	padding-bottom: 200px;
+	background-image: url(../img/mhc2.jpg);
+	display: block;
+	height: 40px;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
 	}
 
   #navigation {
@@ -116,6 +129,8 @@ p {
   .navtab a {
 	text-decoration: none;
 	text-align: center;
+	width: 100%;
+	height: 100%;
 	color: #fff/*#2F334E*/;
 	display: block;
 	}
@@ -411,9 +426,10 @@ input[type=radio] {
 }
 input[type=submit] {
 	display: inline;
-	font-size: 110%;
-	margin: 6px;
-	width: auto;
+	font-size: 1.25em;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 15em;
 }
 form .submit input[type=submit] {
 	background:#62af56;

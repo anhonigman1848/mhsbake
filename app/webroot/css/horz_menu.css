@@ -1,0 +1,67 @@
+body {
+ -moz-opacity: .999; //to defeat firefox redraw problem with fade effect
+}
+
+/* link styles */
+.nav a {
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	padding: 1em;
+	color: #fff;
+	width: 11.6em;
+	font-weight: bold;
+	border: 1px solid #FFF;
+	background-color: #606289;
+	margin: 0px;
+}
+
+.nav li li a {
+  /* style for links on pop-up menus */
+}
+
+.nav li li li a {
+	/* style for second level menu links */
+}
+
+.nav a:hover{
+	background-color: #c3c7ea;
+	color: #000;
+}
+
+/* main nav bar */
+.nav {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+/* all list items */
+.nav  li {
+	margin:0 !important;
+	padding:0 !important;
+	list-style: none; /* remove bullets */
+	float: left; /* place buttons side by side */
+	position: relative;
+}
+
+
+/* pop-up subnav */
+.nav ul {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+  left: 0;
+  top: 3em; /* change when you change height of links */
+	display: none;
+}
+
+
+/* list items in pop-up subnav */
+.nav ul li {
+	float: none; /* so links line up one above the other for drop-downs */
+}
+
+.nav ul ul li {
+	z-index: 100;
+}
