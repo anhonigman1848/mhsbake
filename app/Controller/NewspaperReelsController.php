@@ -373,30 +373,6 @@ class NewspaperReelsController extends AppController {
 	}
 
 /**
- * editNewspaperRecord method
- *
- * @param string $id
- * @return void
- */
-	public function editNewspaperRecord($id = null) {
-		$this->NewspaperReel->id = $id;
-		if (!$this->NewspaperReel->exists()) {
-			throw new NotFoundException(__('Invalid newspaper record'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			// saveAssociated() saves into related tables
-			if ($this->NewspaperReel->saveAssociated($this->request->data, $options = array('deep' => true))) {
-				$this->Session->setFlash(__('The newspaper record has been saved'));
-				$this->redirect(array('action' => 'record', $id)); // display the new record
-			} else {
-				$this->Session->setFlash(__('The newspaper record could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->NewspaperReel->read(null, $id);
-		}
-	}
-
-/**
  * delete method
  *
  * @param string $id
