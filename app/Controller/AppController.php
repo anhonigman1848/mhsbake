@@ -59,10 +59,15 @@ class AppController extends Controller {
         // Authorization functionality
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('current_user', $this->Auth->user());  
+        
+/*  4/7 try using something like line 257 from ArchiveReelsController
+			$this->Session->write('ar_selected.selectedRows', array());	    */
+/*         debug($this->Auth->user()); */
 /* attempt to get the current user to the model for the behavior to document the source */
 /*
         if( !empty( $this->data ) && empty( $this->data[$this->Auth->userModel] ) ) {
-			$this->data[$this->Auth->userModel] = $this->current_user();
+			$this->data[$this->Auth->userModel] = $this->Auth->user();
+			        debug($this->data[$this->Auth->userModel]);
 		}      
 */
     }

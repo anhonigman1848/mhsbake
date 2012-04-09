@@ -22,7 +22,7 @@
 			<?php echo h($audit['Audit']['entity_id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Json Object'); ?></dt>
+		<dt><?php echo __('Attribute:Value Pairs'); ?></dt>
 		<dd>
 			<?php echo h($audit['Audit']['json_object']); ?>
 			&nbsp;

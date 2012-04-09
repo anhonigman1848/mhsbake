@@ -34,10 +34,14 @@ echo $this->Html->css('cake.generic');
 
 echo $this->Html->css('jquery-ui-1.8.4.custom.css');
 
+echo $this->Html->css('horz_menu.css');
+
 echo $this->Html->script('jquery.js');
 echo $this->Html->script('jquery.jeditable.js');
 echo $this->Html->script('jquery.ui.js');
 echo $this->Html->script('functions.js');
+echo $this->Html->script('superfish.js');
+echo $this->Html->script('dropmenu.js');
 
 echo $scripts_for_layout;
 ?>
@@ -48,7 +52,7 @@ echo $scripts_for_layout;
 <!--<h1><?php echo $this->Html->link('Sitemap', '/'); ?></h1>-->
 </div>
 <div id="content">
-<h2>Minnesota Historical Society Microfilm Database Application</h2>
+<h2><a href="/mhsbake/">Minnesota Historical Society Microfilm Database Application</a></h2>
 
 
 <div style="text-align: right;">
@@ -61,23 +65,36 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
 <table id= "top" cellspacing="0" border="0">
 
 <tr>
-	<td id="mhc" >&nbsp;</td>
+	<td id="nopad"><a href="/mhsbake/" id="mhc" >Link</a></td>
 
+</tr>	
+
+<tr><td id="nopad">
+  <ul class="nav">
+    <li><a href="/mhsbake/">Home</a></li>
+ <li><a>Newspapers</a>
+      <ul>
+        <li><a href="/mhsbake/newspaper_reels/find">Standard Search</a></li> 
+        <li><a href="/mhsbake/newspaper_reels/quality">Quality Search</a></li>
+        <li><a href="/mhsbake/newspaper_contents/addNewspaperRecord">New Newspaper</a></li>
+      </ul>
+    </li>
+ <li><a>Archives</a>
+      <ul>
+        <li><a href="/mhsbake/archive_reels/find">Standard Search</a></li>
+        <li><a href="/mhsbake/archive_reels/quality">Quality Search</a></li>
+        <li><a href="/mhsbake/archive_contents/addArchiveRecord">New Archive</a></li>
+      </ul>
+    </li>
+    <li><a href="/mhsbake/users/index">Users</a></li> 
+    <li><a href="/mhsbake/audits/index">Audit Log</a></li> 
+    <li><a href="/mhsbake/helps/view">Help</a></li> 
+    </ul>
+</td>
 </tr>
 
 </table>
 
-<table id="navigation">
-<tr class= "navbar">
-	<td class= "navtab"><a href="/mhsbake/newspaper_reels/find">Search Newspapers</a></td>
-	<td class= "navtab"><a href="/mhsbake/newspaper_reels/quality">Newspaper Quality Search</a></td>
-	<td class= "navtab"><a href="/mhsbake/archive_reels/find">Search Archives</a></td>
-	<td class= "navtab"><a href="/mhsbake/archive_reels/quality">Archive Quality Search</a></td>
-	<td class= "navtab"><a href="/mhsbake/users/index">Users</a></td>
-	<td class= "navtab"><a href="/mhsbake/audits/index">Audit Log</a></td>
-	<td class= "navtab"><a href="/mhsbake/helps/view">Help</a></td>
-</tr>
-</table>
 <?php echo $this->Session->flash(); ?>
 <?php echo $this->Session->flash('auth'); ?>
 

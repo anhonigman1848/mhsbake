@@ -2,14 +2,29 @@
 <div class="newspaperContents view">
 <h2><?php  echo __('Newspaper Content');?></h2>
 	<dl>
-		<dt><?php echo __('Newspaper Content Id'); ?></dt>
+		<dt><?php echo __('Title'); ?></dt>
 		<dd>
-			<?php echo h($newspaperContent['NewspaperContent']['newspaper_content_id']); ?>
+			<?php echo h($newspaperContent['Newspaper']['title']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Newspaper'); ?></dt>
+		<dt><?php echo __('City'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($newspaperContent['Newspaper']['title'], array('controller' => 'newspapers', 'action' => 'view', $newspaperContent['Newspaper']['newspaper_id'])); ?>
+			<?php echo h($newspaperContent['Newspaper']['city']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('County'); ?></dt>
+		<dd>
+			<?php echo h($newspaperContent['Newspaper']['county']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Title Control'); ?></dt>
+		<dd>
+			<?php echo h($newspaperContent['Newspaper']['title_control']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Aleph Number'); ?></dt>
+		<dd>
+			<?php echo h($newspaperContent['Newspaper']['aleph_number']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Begin Date'); ?></dt>

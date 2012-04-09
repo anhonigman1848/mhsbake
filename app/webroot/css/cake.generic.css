@@ -26,7 +26,7 @@ body {
 	background: #606289;/*#003d4c;*/
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-	font-size:9pt;
+	font-size:10pt;
 	margin: 0;
 }
 a {
@@ -44,6 +44,7 @@ a img {
 h1, h2, h3, h4 {
 	font-weight: normal;
 	margin-bottom:0.5em;
+	margin-top:0.5em;
 }
 h1 {
 	background:#fff;
@@ -55,6 +56,11 @@ h2 {
 	color: #a8162b;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 190%;
+}
+h2 a {
+	color: #a8162b;
+	text-decoration:none;
+	
 }
 h3 {
 	color: #2c6877;
@@ -81,16 +87,24 @@ p {
 	padding: 10px 20px;
 }
   #top {
-	background-image: url(../img/history_center.jpg);
 	margin-bottom: 0px;
 	}
 	
+  #nopad {
+	padding: 0px;
+	}
+	
   #mhc {
-	padding-bottom: 200px;
+	background-image: url(../img/mhc2.jpg);
+	display: block;
+	height: 40px;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
 	}
 
   #navigation {
-	margin-bottom: 0px;
+	margin: 0px;
 	}
 	
   #nullrow {
@@ -109,12 +123,16 @@ p {
   .navtab {
 	width: 5.5em;
 	border: none;
+	background-color: #606289;
+	margin: 0px;
 	}
 
   .navtab a {
 	text-decoration: none;
 	text-align: center;
-	color: #2F334E;
+	width: 100%;
+	height: 100%;
+	color: #fff/*#2F334E*/;
 	display: block;
 	}
 
@@ -164,13 +182,18 @@ p {
 div.form,
 div.index,
 div.view {
-	float:center;
-	width:1000px;
+	float:none;
+	width:80%;
 	padding:10px 2%;
 }
+div.viewFloatRight {
+	float:right;
+	width:80%;
+	padding:10px;
+}
 div.actions {
-	float:left;
-	width:20em;
+	float:none;
+	width:20%;
 	padding:10px 1.5%;
 }
 div.actions h3 {
@@ -293,7 +316,7 @@ table td.actions a {
 dl {
 	line-height: 2em;
 	margin: 0em 0em;
-	width: 80%;
+	width: 100%;
 }
 dl dd:nth-child(4n+2),
 dl dt:nth-child(4n+1) {
@@ -409,9 +432,10 @@ input[type=radio] {
 }
 input[type=submit] {
 	display: inline;
-	font-size: 110%;
-	margin: 6px;
-	width: auto;
+	font-size: 1.25em;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 15em;
 }
 form .submit input[type=submit] {
 	background:#62af56;
