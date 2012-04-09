@@ -60,8 +60,68 @@ body {
 /* list items in pop-up subnav */
 .nav ul li {
 	float: none; /* so links line up one above the other for drop-downs */
+	z-index: 100;
 }
 
 .nav ul ul li {
 	z-index: 100;
+}
+
+div.subnav {
+	float:left;
+	width:15%;
+	padding:10px 1.5%;
+}
+.subnav a {
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	padding: 1em 0;
+	color: #fff;
+	width: 100%;
+	font-weight: bold;
+	border: 1px solid #FFF;
+	background-color: #a8162b;
+	margin: 0px;
+}
+
+.subnav a:hover{
+	background-color: #F2C1BC;
+	color: #000;
+}
+
+/* main nav bar */
+.subnav {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+/* all list items */
+.subnav  li {
+	margin:0 !important;
+	padding:0 !important;
+	list-style: none; /* remove bullets */
+	float: none;
+	position: relative;
+}
+
+/* list items in pop-up subnav */
+.subnav ul li {
+	margin:0 !important;
+	float: none; 
+	z-index: 100;
+}
+
+.subnav ul {
+	margin:0;
+}
+
+.subnav ul ul li {
+	float: none; 
+	z-index: 100;
+}
+
+.actionheader {
+	text-align: left;
 }

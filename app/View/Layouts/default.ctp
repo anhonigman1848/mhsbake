@@ -73,38 +73,28 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
 	<td id="nopad"><a href="/mhsbake/" id="mhc" >Link</a></td>
 
 </tr>	
-<!--<table id="navigation">
-<tr class= "navbar">
-	<td class= "navtab"><a href="/mhsbake/newspaper_reels/find">Search Newspapers</a></td>
-	<td class= "navtab"><a href="/mhsbake/newspaper_reels/quality">Newspaper Quality Search</a></td>
-	<td class= "navtab"><a href="/mhsbake/archive_reels/find">Search Archives</a></td>
-	<td class= "navtab"><a href="/mhsbake/archive_reels/quality">Archive Quality Search</a></td>
-	<td class= "navtab"><a href="/mhsbake/users/index">Users</a></td>
-	<td class= "navtab"><a href="/mhsbake/audits/index">Audit Log</a></td>
-	<td class= "navtab"><a href="/mhsbake/helps/view">Help</a></td>
-</tr>
-</table>-->
 
 <tr><td id="nopad">
   <ul class="nav">
     <li><a href="/mhsbake/">Home</a></li>
- <li><a>Search Newspapers</a>
+ <li><a>Newspapers</a>
       <ul>
         <li><a href="/mhsbake/newspaper_reels/find">Standard Search</a></li> 
         <li><a href="/mhsbake/newspaper_reels/quality">Quality Search</a></li>
+        <li><a href="/mhsbake/newspaper_contents/addNewspaperRecord">New Newspaper</a></li>
       </ul>
     </li>
- <li><a>Search Archives</a>
+ <li><a>Archives</a>
       <ul>
         <li><a href="/mhsbake/archive_reels/find">Standard Search</a></li>
         <li><a href="/mhsbake/archive_reels/quality">Quality Search</a></li>
+        <li><a href="/mhsbake/archive_contents/addArchiveRecord">New Archive</a></li>
       </ul>
     </li>
     <li><a href="/mhsbake/users/index">Users</a></li> 
     <li><a href="/mhsbake/audits/index">Audit Log</a></li> 
     <li><a href="/mhsbake/helps/view">Help</a></li> 
     </ul>
-</div>
 </td>
 </tr>
 
