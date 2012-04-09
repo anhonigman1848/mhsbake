@@ -86,7 +86,7 @@ $(document).ready(function() {
          cancel    : 'Cancel',
          submit    : 'Save',
          indicator : 'Saving...',
-         tooltip   : 'Click to edit the newspaper title'
+         tooltip   : 'Click to edit the newspaper begin date'
     });
     $('.editncenddate').editable('/mhsbake/newspapercontents/updateNCEndDate', {
          id        : 'id',
@@ -95,7 +95,7 @@ $(document).ready(function() {
          cancel    : 'Cancel',
          submit    : 'Save',
          indicator : 'Saving...',
-         tooltip   : 'Click to edit the newspaper title'
+         tooltip   : 'Click to edit the newspaper end date'
     });
     $('.editncreelcontrol').editable('/mhsbake/newspapercontents/updateNCReelControl', {
          id        : 'id',
@@ -104,7 +104,7 @@ $(document).ready(function() {
          cancel    : 'Cancel',
          submit    : 'Save',
          indicator : 'Saving...',
-         tooltip   : 'Click to edit the newspaper title'
+         tooltip   : 'Click to edit the newspaper reel control'
     });
     $('.editncgaps').editable('/mhsbake/newspapercontents/updateNCGaps', {
          id        : 'id',
@@ -122,7 +122,7 @@ $(document).ready(function() {
          cancel    : 'Cancel',
          submit    : 'Save',
          indicator : 'Saving...',
-         tooltip   : 'Click to edit the newspaper title'
+         tooltip   : 'Click to edit the newspaper comments'
     });
     $('.editncusagerights').editable('/mhsbake/newspapercontents/updateNCUsageRights', {
          id        : 'id',
@@ -131,7 +131,7 @@ $(document).ready(function() {
          cancel    : 'Cancel',
          submit    : 'Save',
          indicator : 'Saving...',
-         tooltip   : 'Click to edit the newspaper title'
+         tooltip   : 'Click to edit the newspaper usage rights'
     });
     
     // inline-edit functionality for newspaper reel
@@ -142,7 +142,97 @@ $(document).ready(function() {
          cancel    : 'Cancel',
          submit    : 'Save',
          indicator : 'Saving...',
-         tooltip   : 'Click to edit the newspaper title'
+         tooltip   : 'Click to edit the newspaper reel polarity'
+    });
+    $('.editnrgeneration').editable('/mhsbake/newspaperreels/updateNRGeneration', {
+         id        : 'id',
+         name      : 'generation',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper generation'
+    });
+    $('.editnrredoxqualitydate').editable('/mhsbake/newspaperreels/updateNRRedoxQualityDate', {
+         id        : 'id',
+         name      : 'redox_quality_date',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper redox quality date'
+    });
+    $('.editnrredoxqualitypresent').editable('/mhsbake/newspaperreels/updateNRRedoxQualityPresent', {
+         id        : 'id',
+         name      : 'redox_quality_present',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper redox quality present'
+    });
+    $('.editnrscratches').editable('/mhsbake/newspaperreels/updateNRScratches', {
+         id        : 'id',
+         name      : 'scratches',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper scratches'
+    });
+    $('.editnrqualityin').editable('/mhsbake/newspaperreels/updateNRQualityIn', {
+         id        : 'id',
+         name      : 'quality_in',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper quality in'
+    });
+    $('.editnrsdnnumber').editable('/mhsbake/newspaperreels/updateNRSdnNumber', {
+         id        : 'id',
+         name      : 'sdn_number',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper sdn number'
+    });
+    $('.editnrshippingbox').editable('/mhsbake/newspaperreels/updateNRShippingBox', {
+         id        : 'id',
+         name      : 'shipping_box',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper shipping box'
+    });
+    $('.editnrdateoflastaccess').editable('/mhsbake/newspaperreels/updateNRDateOfLastAccess', {
+         id        : 'id',
+         name      : 'date_of_last_access',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper date of last access'
+    });
+    $('.editnrdateofmicrofilm').editable('/mhsbake/newspaperreels/updateNRDateOfMicrofilm', {
+         id        : 'id',
+         name      : 'date_of_microfilm',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper date of microfilm'
+    });
+    $('.editnrcheckedout').editable('/mhsbake/newspaperreels/updateNRCheckedOut', {
+         id        : 'id',
+         name      : 'checked_out',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper checked out'
     });
     
     // checkbox functions send reel_id and checked values to server
