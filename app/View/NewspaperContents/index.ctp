@@ -27,12 +27,12 @@
 		<td>
 			<?php echo $this->Html->link($newspaperContent['Newspaper']['title'], array('controller' => 'newspapers', 'action' => 'view', $newspaperContent['Newspaper']['newspaper_id'])); ?>
 		</td>
-		<td><?php echo h($newspaperContent['NewspaperContent']['begin_date']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperContent['NewspaperContent']['end_date']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperContent['NewspaperContent']['reel_control']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperContent['NewspaperContent']['gaps']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperContent['NewspaperContent']['comments']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperContent['NewspaperContent']['usage_rights']); ?>&nbsp;</td>
+		<td class="editncbegindate" id="<?php echo $newspaperContent['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperContent['NewspaperContent']['begin_date']); ?></td>
+		<td class="editncenddate" id="<?php echo $newspaperContent['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperContent['NewspaperContent']['end_date']); ?></td>
+		<td class="editncreelcontrol" id="<?php echo $newspaperContent['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperContent['NewspaperContent']['reel_control']); ?></td>
+		<td class="editncgaps" id="<?php echo $newspaperContent['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperContent['NewspaperContent']['gaps']); ?></td>
+		<td class="editnccomments" id="<?php echo $newspaperContent['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperContent['NewspaperContent']['comments']); ?></td>
+		<td class="editncusagerights" id="<?php echo $newspaperContent['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperContent['NewspaperContent']['usage_rights']); ?></td>
 		<td><?php echo h($newspaperContent['NewspaperContent']['created']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperContent['NewspaperContent']['modified']); ?>&nbsp;</td>
                 

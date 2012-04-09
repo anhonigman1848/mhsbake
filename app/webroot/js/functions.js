@@ -1,5 +1,16 @@
 // app/webroot/js/functions.js
+
+
+
+
+
 $(document).ready(function() {
+    // This creates a new type so that inline edits of the date/time is constrained
+    $.editable.addInputType('time', {
+        // Work on code here later...
+        // check with http://www.appelsiini.net/2008/2/creating-inline-timepicker-with-javascript for help
+    });
+    
     // inline-edit functionality for users
     $('.editfirstname').editable('/mhsbake/users/updateFirstName', {
          id        : 'id',
@@ -65,6 +76,73 @@ $(document).ready(function() {
          submit    : 'Save',
          indicator : 'Saving...',
          tooltip   : 'Click to edit the newspaper aleph number'
+    });
+    
+    // inline-edit functionality for newspaper content
+    $('.editncbegindate').editable('/mhsbake/newspapercontents/updateNCBeginDate', {
+         id        : 'id',
+         name      : 'begin_date',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper title'
+    });
+    $('.editncenddate').editable('/mhsbake/newspapercontents/updateNCEndDate', {
+         id        : 'id',
+         name      : 'end_date',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper title'
+    });
+    $('.editncreelcontrol').editable('/mhsbake/newspapercontents/updateNCReelControl', {
+         id        : 'id',
+         name      : 'reel_control',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper title'
+    });
+    $('.editncgaps').editable('/mhsbake/newspapercontents/updateNCGaps', {
+         id        : 'id',
+         name      : 'gaps',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper gaps'
+    });
+    $('.editnccomments').editable('/mhsbake/newspapercontents/updateNCComments', {
+         id        : 'id',
+         name      : 'comments',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper title'
+    });
+    $('.editncusagerights').editable('/mhsbake/newspapercontents/updateNCUsageRights', {
+         id        : 'id',
+         name      : 'usage_rights',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper title'
+    });
+    
+    // inline-edit functionality for newspaper reel
+    $('.editnrreelpolarity').editable('/mhsbake/newspaperreels/updateNRReelPolarity', {
+         id        : 'id',
+         name      : 'reel_polarity',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the newspaper title'
     });
     
     // checkbox functions send reel_id and checked values to server

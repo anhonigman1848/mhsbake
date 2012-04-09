@@ -46,11 +46,6 @@ echo $scripts_for_layout;
 <div id="container">
 <div id="header">
 <!--<h1><?php echo $this->Html->link('Sitemap', '/'); ?></h1>-->
-<h1>
-	<?php
-		// [Erik]: I'm going to add a help button here, later
-	?>
-</h1>
 </div>
 <div id="content">
 <h2>Minnesota Historical Society Microfilm Database Application</h2>
