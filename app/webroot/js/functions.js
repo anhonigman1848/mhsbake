@@ -1,12 +1,7 @@
 // app/webroot/js/functions.js
 
-<<<<<<< HEAD
-
-
-=======
 // disable cache or ajax .get won't work right in IE
 $.ajaxSetup({cache:false});
->>>>>>> b664cbb3a6afc7b757a243fd7f0a0859aa0d37cd
 
 
 $(document).ready(function() {

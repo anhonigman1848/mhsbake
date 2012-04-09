@@ -73,14 +73,10 @@ echo $this->Form->end(); ?>
 		<td class="editncity" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['city']); ?></td>
 		<td class="editncounty" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['county']); ?></td>
 		<td class="editnalephnumber" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['aleph_number']); ?></td>
-<<<<<<< HEAD
 		<td class="editncbegindate" id="<?php echo $newspaperRecord['NewspaperContent']['begin_date']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['begin_date']); ?></td>
 		<td class="editncenddate" id="<?php echo $newspaperRecord['NewspaperContent']['end_date']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['end_date']); ?></td>		
-=======
-
 		<td><?php echo h($newspaperRecord['NewspaperContent']['begin_date']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperRecord['NewspaperContent']['end_date']); ?>&nbsp;</td>		
->>>>>>> b664cbb3a6afc7b757a243fd7f0a0859aa0d37cd
+		<td><?php echo h($newspaperRecord['NewspaperContent']['end_date']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['newspaper_reel_id']); ?>&nbsp;</td>		
 		<td><?php echo h($newspaperRecord['NewspaperReel']['checked_out']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['created']); ?>&nbsp;</td>
