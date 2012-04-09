@@ -32,16 +32,16 @@
 		<td>
 			<?php echo $this->Html->link($archiveReel['ArchiveContent']['archive_content_id'], array('controller' => 'archive_contents', 'action' => 'view', $archiveReel['ArchiveContent']['archive_content_id'])); ?>
 		</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['reel_polarity']); ?>&nbsp;</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['generation']); ?>&nbsp;</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['redox_quality_date']); ?>&nbsp;</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['redox_quality_present']); ?>&nbsp;</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['scratches']); ?>&nbsp;</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['quality_in']); ?>&nbsp;</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['sdn_number']); ?>&nbsp;</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['shipping_box']); ?>&nbsp;</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['date_of_last_access']); ?>&nbsp;</td>
-		<td><?php echo h($archiveReel['ArchiveReel']['checked_out']); ?>&nbsp;</td>
+		<td class="editarreelpolarity" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['reel_polarity']); ?></td>
+		<td class="editargeneration" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['generation']); ?></td>
+		<td class="editarredoxqualitydate" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['redox_quality_date']); ?></td>
+		<td class="editarredoxqualitypresent" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['redox_quality_present']); ?></td>
+		<td class="editarscratches" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['scratches']); ?></td>
+		<td class="editarqualityin" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['quality_in']); ?></td>
+		<td class="editarsdnnumber" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['sdn_number']); ?></td>
+		<td class="editarshippingbox" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['shipping_box']); ?></td>
+		<td class="editardateoflastaccess" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['date_of_last_access']); ?></td>
+		<td class="editarcheckedout" id="<?php echo $archiveReel['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveReel['ArchiveReel']['checked_out']); ?></td>
 		<td><?php echo h($archiveReel['ArchiveReel']['created']); ?>&nbsp;</td>
 		<td><?php echo h($archiveReel['ArchiveReel']['modified']); ?>&nbsp;</td>
 		<td><?php echo h($archiveReel['ArchiveReel']['deleted']); ?>&nbsp;</td>

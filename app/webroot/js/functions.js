@@ -235,6 +235,107 @@ $(document).ready(function() {
          tooltip   : 'Click to edit the newspaper checked out'
     });
     
+    // inline-edit functionality for archive reel
+    $('.editarreelpolarity').editable('/mhsbake/archivereels/updateARReelPolarity', {
+         id        : 'id',
+         name      : 'reel_polarity',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive reel polarity'
+    });
+    $('.editargeneration').editable('/mhsbake/archivereels/updateARGeneration', {
+         id        : 'id',
+         name      : 'generation',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive generation'
+    });
+    $('.editarredoxqualitydate').editable('/mhsbake/archivereels/updateARRedoxQualityDate', {
+         id        : 'id',
+         name      : 'redox_quality_date',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive redox quality date'
+    });
+    $('.editarredoxqualitypresent').editable('/mhsbake/archivereels/updateARRedoxQualityPresent', {
+         id        : 'id',
+         name      : 'redox_quality_present',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive redox quality present'
+    });
+    $('.editarscratches').editable('/mhsbake/archivereels/updateARScratches', {
+         id        : 'id',
+         name      : 'scratches',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive scratches'
+    });
+    $('.editarqualityin').editable('/mhsbake/archivereels/updateARQualityIn', {
+         id        : 'id',
+         name      : 'quality_in',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive quality in'
+    });
+    $('.editarsdnnumber').editable('/mhsbake/archivereels/updateARSdnNumber', {
+         id        : 'id',
+         name      : 'sdn_number',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive sdn number'
+    });
+    $('.editarshippingbox').editable('/mhsbake/archivereels/updateARShippingBox', {
+         id        : 'id',
+         name      : 'shipping_box',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive shipping box'
+    });
+    $('.editardateoflastaccess').editable('/mhsbake/archivereels/updateARDateOfLastAccess', {
+         id        : 'id',
+         name      : 'date_of_last_access',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive date of last access'
+    });
+    $('.editardateofmicrofilm').editable('/mhsbake/archivereels/updateARDateOfMicrofilm', {
+         id        : 'id',
+         name      : 'date_of_microfilm',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive date of microfilm'
+    });
+    $('.editarcheckedout').editable('/mhsbake/archivereels/updateARCheckedOut', {
+         id        : 'id',
+         name      : 'checked_out',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive checked out'
+    });
+    
     // checkbox functions send reel_id and checked values to server
     $('.ncheckbox').change(function() { 
             if($(this).is(":checked")) { 
