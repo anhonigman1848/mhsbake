@@ -27,12 +27,12 @@
 		<td>
 			<?php echo $this->Html->link($archiveContent['Archive']['title'], array('controller' => 'archives', 'action' => 'view', $archiveContent['Archive']['archive_id'])); ?>
 		</td>
-		<td><?php echo h($archiveContent['ArchiveContent']['reel_number']); ?>&nbsp;</td>
-		<td><?php echo h($archiveContent['ArchiveContent']['begin_date']); ?>&nbsp;</td>		
-		<td><?php echo h($archiveContent['ArchiveContent']['end_date']); ?>&nbsp;</td>		
-		<td><?php echo h($archiveContent['ArchiveContent']['contents']); ?>&nbsp;</td>
-		<td><?php echo h($archiveContent['ArchiveContent']['comments']); ?>&nbsp;</td>
-		<td><?php echo h($archiveContent['ArchiveContent']['usage_rights']); ?>&nbsp;</td>
+		<td class="editacreelnumber" id="<?php echo $archiveContent['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveContent['ArchiveContent']['reel_number']); ?></td>
+		<td class="editacbegindate" id="<?php echo $archiveContent['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveContent['ArchiveContent']['begin_date']); ?></td>		
+		<td class="editacenddate" id="<?php echo $archiveContent['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveContent['ArchiveContent']['end_date']); ?></td>		
+		<td class="editaccontents" id="<?php echo $archiveContent['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveContent['ArchiveContent']['contents']); ?></td>
+		<td class="editaccomments" id="<?php echo $archiveContent['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveContent['ArchiveContent']['comments']); ?></td>
+		<td class="editacusagerights" id="<?php echo $archiveContent['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveContent['ArchiveContent']['usage_rights']); ?></td>
 		<td><?php echo h($archiveContent['ArchiveContent']['created']); ?>&nbsp;</td>
 		<td><?php echo h($archiveContent['ArchiveContent']['modified']); ?>&nbsp;</td>
 	</tr>

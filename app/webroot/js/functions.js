@@ -235,6 +235,127 @@ $(document).ready(function() {
          tooltip   : 'Click to edit the newspaper checked out'
     });
     
+    // inline-edit functionality for archives
+    $('.editatitle').editable('/mhsbake/archives/updateATitle', {
+         id        : 'id',
+         name      : 'title',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archives title'
+    });
+    $('.editaseries').editable('/mhsbake/archives/updateASeries', {
+         id        : 'id',
+         name      : 'series',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archives series'
+    });
+    $('.editaseriesnumber').editable('/mhsbake/archives/updateASeriesNumber', {
+         id        : 'id',
+         name      : 'series_number',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archives series number'
+    });
+    $('.editaauthorcitation').editable('/mhsbake/archives/updateAAuthorCitation', {
+         id        : 'id',
+         name      : 'author_citation',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archives author citation'
+    });
+    $('.editacity').editable('/mhsbake/archives/updateACity', {
+         id        : 'id',
+         name      : 'city',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archives city'
+    });
+    $('.editacounty').editable('/mhsbake/archives/updateACounty', {
+         id        : 'id',
+         name      : 'county',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archives county'
+    });
+    $('.editaalephnumber').editable('/mhsbake/archives/updateAAlephNumber', {
+         id        : 'id',
+         name      : 'aleph_number',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archives aleph number'
+    });
+    
+    // inline-edit functionality for archive content
+    $('.editacbegindate').editable('/mhsbake/archivecontents/updateACBeginDate', {
+         id        : 'id',
+         name      : 'begin_date',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive begin date'
+    });
+    $('.editacenddate').editable('/mhsbake/archivecontents/updateACEndDate', {
+         id        : 'id',
+         name      : 'end_date',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive end date'
+    });
+    $('.editacreelnumber').editable('/mhsbake/archivecontents/updateACReelNumber', {
+         id        : 'id',
+         name      : 'reel_number',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive reel number'
+    });
+    $('.editaccontents').editable('/mhsbake/archivecontents/updateACContents', {
+         id        : 'id',
+         name      : 'contents',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive contents'
+    });
+    $('.editaccomments').editable('/mhsbake/archivecontents/updateACComments', {
+         id        : 'id',
+         name      : 'comments',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive comments'
+    });
+    $('.editacusagerights').editable('/mhsbake/archivecontents/updateACUsageRights', {
+         id        : 'id',
+         name      : 'usage_rights',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the archive usage rights'
+    });
+        
     // inline-edit functionality for archive reel
     $('.editarreelpolarity').editable('/mhsbake/archivereels/updateARReelPolarity', {
          id        : 'id',
