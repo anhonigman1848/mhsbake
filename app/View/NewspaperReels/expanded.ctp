@@ -5,7 +5,7 @@
 	<tr>
 			<th><?php if($this->Access->cat('selected')){ echo $this->Paginator->sort('selected');} ?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
-			<th><?php if($this->Access->cat('newspaper_reel_id')){ echo $this->Paginator->sort('newspaper_reel_id');}?></th>
+			<th><?php if($this->Access->cat('newspaper_reel_id')){ echo $this->Paginator->sort('newspaper_reel_id') . " ID";}?></th>
                         <th><?php if($this->Access->cat('title')){ echo $this->Paginator->sort('title');}?></th>
                         <th><?php if($this->Access->cat('city')){ echo $this->Paginator->sort('city');}?></th>
                         <th><?php if($this->Access->cat('county')){ echo $this->Paginator->sort('county');}?></th>

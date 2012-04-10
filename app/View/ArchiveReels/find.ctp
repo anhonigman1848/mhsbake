@@ -42,7 +42,8 @@ echo $this->Form->end(); ?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 <!--			<th class="actions"><?php echo __('Actions');?></th>
--->			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>
+-->			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>			
+			<th><?php echo $this->Paginator->sort('archive_reel_id') . "ID";?></th>			
 			<th><?php echo $this->Paginator->sort('Archive.title', 'Title');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.county', 'County');?></th>
@@ -51,8 +52,7 @@ echo $this->Form->end(); ?>
 			<th><?php echo $this->Paginator->sort('Archive.series_number', 'Series Number');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.author_citation', 'Author Citation');?></th>
 			<th><?php echo $this->Paginator->sort('ArchiveContent.begin_date', 'Begin Date');?></th>
-			<th><?php echo $this->Paginator->sort('ArchiveContent.end_date', 'End Date');?></th>			
-			<th><?php echo $this->Paginator->sort('archive_reel_id');?></th>			
+			<th><?php echo $this->Paginator->sort('ArchiveContent.end_date', 'End Date');?></th>
 			<th><?php echo $this->Paginator->sort('checked_out');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
@@ -67,20 +67,20 @@ echo $this->Form->end(); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 		</td>
 -->		<td><input type="checkbox" class="acheckbox" id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>		
-		<td><?php echo h($archiveRecord['Archive']['title']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['city']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['county']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['aleph_number']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['series']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['series_number']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['author_citation']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['ArchiveContent']['begin_date']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['ArchiveContent']['end_date']); ?>&nbsp;</td>		
-		<td><?php echo h($archiveRecord['ArchiveReel']['archive_reel_id']); ?>&nbsp;</td>		
-		<td><?php echo h($archiveRecord['ArchiveReel']['checked_out']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['ArchiveReel']['created']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['ArchiveReel']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['ArchiveReel']['deleted']); ?>&nbsp;</td>
+		<td><?php echo h($archiveRecord['ArchiveReel']['archive_reel_id']); ?></td>	
+		<td class="editatitle" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['title']); ?></td>
+		<td class="editacity" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['city']); ?></td>
+		<td class="editacounty" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['county']); ?></td>
+		<td class="editaalephnumber" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['aleph_number']); ?></td>
+		<td class="editaseries" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['series']); ?></td>
+		<td class="editaseriesnumber" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['series_number']); ?></td>
+		<td class="editaauthorcitation" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['author_citation']); ?></td>
+		<td class="editacbegindate" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveRecord['ArchiveContent']['begin_date']); ?></td>
+		<td class="editacenddate" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveRecord['ArchiveContent']['end_date']); ?></td>			
+		<td class="editarcheckedout" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['ArchiveReel']['checked_out']); ?></td>
+		<td><?php echo h($archiveRecord['ArchiveReel']['created']); ?></td>
+		<td><?php echo h($archiveRecord['ArchiveReel']['modified']); ?></td>
+		<td><?php echo h($archiveRecord['ArchiveReel']['deleted']); ?></td>
 	</tr>
 <?php endforeach; ?>
 	</table>

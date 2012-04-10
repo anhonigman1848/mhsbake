@@ -61,7 +61,8 @@ echo $this->Form->end(); ?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>				
 <!--			<th class="actions"><?php echo __('Actions');?></th>-->
-			<th><input type="checkbox" id="nselectall" onclick="ntoggleChecked(this.checked)"></th>			
+			<th><input type="checkbox" id="nselectall" onclick="ntoggleChecked(this.checked)"></th>	
+			<th><?php echo $this->Paginator->sort('newspaper_reel_id');?> ID</th>		
 			<th><?php echo $this->Paginator->sort('Newspaper.title','Title');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.county', 'County');?></th>
@@ -73,7 +74,6 @@ echo $this->Form->end(); ?>
                         <th><?php echo $this->Paginator->sort('redox_quality_present');?></th>
                         			
 			<th><?php echo $this->Paginator->sort('checked_out');?></th>
-			<th><?php echo $this->Paginator->sort('newspaper_reel_id');?> ID</th>
 			
 	</tr>
 	<?php
@@ -85,6 +85,7 @@ echo $this->Form->end(); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>			
 		</td>-->
 		<td><input type="checkbox" class="ncheckbox" id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"/></td>
+		<td><?php echo h($newspaperRecord['NewspaperReel']['newspaper_reel_id']); ?></td>
 		<td class="editntitle" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['title']); ?></td>
 		<td class="editncity" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['city']); ?></td>
 		<td class="editncounty" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['county']); ?></td>
@@ -96,7 +97,6 @@ echo $this->Form->end(); ?>
                 <td class="editnrredoxqualitypresent" id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['redox_quality_present']); ?></td>
                 		
 		<td class="editnrcheckedout" id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['checked_out']); ?></td>
-		<td><?php echo h($newspaperRecord['NewspaperReel']['newspaper_reel_id']); ?></td>
 		
 	</tr>
 <?php endforeach; ?>

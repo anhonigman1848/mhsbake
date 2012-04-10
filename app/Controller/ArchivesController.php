@@ -224,7 +224,7 @@ class ArchivesController extends AppController {
 				throw new NotFoundException('Invalid archive');
 			}
 
-			$this->Archive->saveField('series_number', $_POST['series_number'], true); // save new series_number
+			$this->Archive->saveField('series_number', $_POST['series_number'], false); // save new series_number
 			$this->set('postseriesnumber', $_POST['series_number']); // create variable for passing series_number to view
 		} else {
 			// some sort of error...

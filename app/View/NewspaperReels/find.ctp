@@ -43,7 +43,7 @@ echo $this->Form->end(); ?>
 	<tr>		
 <!--			<th class="actions"><?php echo __('Actions');?></th>
 -->			<th><input type="checkbox" id="nselectall" onclick="ntoggleChecked(this.checked)"></th>
-			<th><?php echo $this->Paginator->sort('newspaper_reel_id');?></th>
+			<th><?php echo $this->Paginator->sort('newspaper_reel_id');?>ID</th>
 			<th><?php echo $this->Paginator->sort('Newspaper.title','Title');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.county', 'County');?></th>
