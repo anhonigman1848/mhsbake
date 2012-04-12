@@ -12,6 +12,13 @@ class NewspaperContentsController extends AppController {
 	 */
 	public $helpers = array('Access');
 	
+    /*
+     * Include these components:
+     * The Search component
+     * The Request handler catches and coordinates ajax requests
+     */	
+    public $components = array('RequestHandler');
+	
 	/*
 	 *	beforeFilter() runs before its internal script before
 	 *	the action function (such as add, delete, or index) starts.
@@ -205,4 +212,136 @@ class NewspaperContentsController extends AppController {
 		$this->Session->setFlash(__('Newspaper content was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+    
+    /*
+     * This function changes a particular newspaper content's begin date based on an ajax
+     * call
+     * @param Needs an id and begin date passed as key:value pairs through Post
+     * @returns new value of begin date 
+     */
+    public function updateNCBeginDate() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperContent->id = $_POST['id']; // prepare newspaper content model to change data for particular newspaper
+	    if (!$this->NewspaperContent->exists()) {
+		throw new NotFoundException('Invalid newspaper content');
+	    }
+	    
+	    $this->NewspaperContent->saveField('begin_date', $_POST['begin_date'], true); // save new begin date
+	    $this->set('postbegindate', $_POST['begin_date']); // create variable for passing begin date to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper content's end date based on an ajax
+     * call
+     * @param Needs an id and end date passed as key:value pairs through Post
+     * @returns new value of end date 
+     */
+    public function updateNCEndDate() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperContent->id = $_POST['id']; // prepare newspaper content model to change data for particular newspaper
+	    if (!$this->NewspaperContent->exists()) {
+		throw new NotFoundException('Invalid newspaper content');
+	    }
+	    
+	    $this->NewspaperContent->saveField('end_date', $_POST['end_date'], true); // save new end_date
+	    $this->set('postenddate', $_POST['end_date']); // create variable for passing gaps to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper content's reel control based on an ajax
+     * call
+     * @param Needs an id and reel control passed as key:value pairs through Post
+     * @returns new value of reel control 
+     */
+    public function updateNCReelControl() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperContent->id = $_POST['id']; // prepare newspaper content model to change data for particular newspaper
+	    if (!$this->NewspaperContent->exists()) {
+		throw new NotFoundException('Invalid newspaper content');
+	    }
+	    
+	    $this->NewspaperContent->saveField('reel_control', $_POST['reel_control'], true); // save new reel control
+	    $this->set('postreelcontrol', $_POST['reel_control']); // create variable for passing reel control to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper content's gaps based on an ajax
+     * call
+     * @param Needs an id and gaps passed as key:value pairs through Post
+     * @returns new value of gaps 
+     */
+    public function updateNCGaps() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperContent->id = $_POST['id']; // prepare newspaper content model to change data for particular newspaper
+	    if (!$this->NewspaperContent->exists()) {
+		throw new NotFoundException('Invalid newspaper content');
+	    }
+	    
+	    $this->NewspaperContent->saveField('gaps', $_POST['gaps'], true); // save new gaps
+	    $this->set('postgaps', $_POST['gaps']); // create variable for passing gaps to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper content's comments based on an ajax
+     * call
+     * @param Needs an id and comments passed as key:value pairs through Post
+     * @returns new value of comments 
+     */
+    public function updateNCComments() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperContent->id = $_POST['id']; // prepare newspaper content model to change data for particular newspaper
+	    if (!$this->NewspaperContent->exists()) {
+		throw new NotFoundException('Invalid newspaper content');
+	    }
+	    
+	    $this->NewspaperContent->saveField('comments', $_POST['comments'], true); // save new comments
+	    $this->set('postcomments', $_POST['comments']); // create variable for passing comments to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper content's usage rights based on an ajax
+     * call
+     * @param Needs an id and usage rights passed as key:value pairs through Post
+     * @returns new value of usage rights 
+     */
+    public function updateNCUsageRights() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperContent->id = $_POST['id']; // prepare newspaper content model to change data for particular newspaper
+	    if (!$this->NewspaperContent->exists()) {
+		throw new NotFoundException('Invalid newspaper content');
+	    }
+	    
+	    $this->NewspaperContent->saveField('usage_rights', $_POST['usage_rights'], true); // save new usage_rights
+	    $this->set('postusagerights', $_POST['usage_rights']); // create variable for passing aleph number to view
+	} else {
+	    // some sort of error...
+	}
+    }
 }

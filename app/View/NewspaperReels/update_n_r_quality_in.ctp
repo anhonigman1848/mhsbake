@@ -1,0 +1,1 @@
+<?php echo $_POST['quality_in'];?>

@@ -1,0 +1,1 @@
+<?php echo $_POST['redox_quality_present'];?>

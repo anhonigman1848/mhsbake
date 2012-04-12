@@ -19,13 +19,13 @@
 	foreach ($archives as $archive): ?>
 	<tr>
 		<td><?php echo h($archive['Archive']['archive_id']); ?>&nbsp;</td>
-		<td><?php echo h($archive['Archive']['series']); ?>&nbsp;</td>
-		<td><?php echo h($archive['Archive']['series_number']); ?>&nbsp;</td>
-		<td><?php echo h($archive['Archive']['author_citation']); ?>&nbsp;</td>
-		<td><?php echo h($archive['Archive']['title']); ?>&nbsp;</td>
-		<td><?php echo h($archive['Archive']['county']); ?>&nbsp;</td>
-		<td><?php echo h($archive['Archive']['city']); ?>&nbsp;</td>
-		<td><?php echo h($archive['Archive']['aleph_number']); ?>&nbsp;</td>
+		<td class="editaseries" id="<?php echo $archive['Archive']['archive_id']; ?>"><?php echo h($archive['Archive']['series']); ?></td>
+		<td class="editaseriesnumber" id="<?php echo $archive['Archive']['archive_id']; ?>"><?php echo h($archive['Archive']['series_number']); ?></td>
+		<td class="editaauthorcitation" id="<?php echo $archive['Archive']['archive_id']; ?>"><?php echo h($archive['Archive']['author_citation']); ?></td>
+		<td class="editatitle" id="<?php echo $archive['Archive']['archive_id']; ?>"><?php echo h($archive['Archive']['title']); ?></td>
+		<td class="editacounty" id="<?php echo $archive['Archive']['archive_id']; ?>"><?php echo h($archive['Archive']['county']); ?></td>
+		<td class="editacity" id="<?php echo $archive['Archive']['archive_id']; ?>"><?php echo h($archive['Archive']['city']); ?></td>
+		<td class="editaalephnumber" id="<?php echo $archive['Archive']['archive_id']; ?>"><?php echo h($archive['Archive']['aleph_number']); ?></td>
 		<td><?php echo h($archive['Archive']['created']); ?>&nbsp;</td>
 		<td><?php echo h($archive['Archive']['modified']); ?>&nbsp;</td>
 		<td class="actions">

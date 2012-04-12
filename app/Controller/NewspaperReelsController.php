@@ -72,10 +72,13 @@ class NewspaperReelsController extends AppController {
 		
 		return false; // action request not authorized - unknown user 
 	}
-/*
- * Include the Search component
- */	
-	public $components = array('Search.Prg');
+
+    /*
+     * Include these components:
+     * The Search component
+     * The Request handler catches and coordinates ajax requests
+     */
+    public $components = array('Search.Prg', 'RequestHandler');
 	
 /**
  * presetVars are used by Search.Prg to pull values from models  
@@ -441,4 +444,236 @@ class NewspaperReelsController extends AppController {
 		$this->Session->setFlash(__('Newspaper reel was not restored'));
 		$this->redirect(array('action' => 'expanded'));
 	}
+    
+    /*
+     * This function changes a particular newspaper reels's reel polarity based on an ajax
+     * call
+     * @param Needs an id and reel polarity passed as key:value pairs through Post
+     * @returns new value of reel polarity 
+     */
+    public function updateNRReelPolarity() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('reel_polarity', $_POST['reel_polarity'], true); // save new reel_polarity
+	    $this->set('postreelpolarity', $_POST['reel_polarity']); // create variable for passing generation to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's generation based on an ajax
+     * call
+     * @param Needs an id and generation passed as key:value pairs through Post
+     * @returns new value of generation 
+     */
+    public function updateNRGeneration() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('generation', $_POST['generation'], true); // save new generation
+	    $this->set('postreelgeneration', $_POST['generation']); // create variable for passing generation to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's redox quality date based on an ajax
+     * call
+     * @param Needs an id and redox quality date passed as key:value pairs through Post
+     * @returns new value of redox quality date 
+     */
+    public function updateNRRedoxQualityDate() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('redox_quality_date', $_POST['redox_quality_date'], true); // save new redox quality date
+	    $this->set('postreelredoxqualitydate', $_POST['redox_quality_date']); // create variable for passing redox quality date to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's redox quality present based on an ajax
+     * call
+     * @param Needs an id and redox quality present passed as key:value pairs through Post
+     * @returns new value of redox quality present 
+     */
+    public function updateNRRedoxQualityPresent() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('redox_quality_present', $_POST['redox_quality_present'], true); // save new redox quality present
+	    $this->set('postreelredoxqualitypresent', $_POST['redox_quality_present']); // create variable for passing redox quality present to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's scratches based on an ajax
+     * call
+     * @param Needs an id and scratches passed as key:value pairs through Post
+     * @returns new value of scratches 
+     */
+    public function updateNRScratches() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('scratches', $_POST['scratches'], true); // save new scratches
+	    $this->set('postreelscratches', $_POST['scratches']); // create variable for passing scratches to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's quality in based on an ajax
+     * call
+     * @param Needs an id and quality in passed as key:value pairs through Post
+     * @returns new value of quality in 
+     */
+    public function updateNRQualityIn() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('quality_in', $_POST['quality_in'], true); // save new quality in
+	    $this->set('postreelqualityin', $_POST['quality_in']); // create variable for passing quality in to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's sdn number based on an ajax
+     * call
+     * @param Needs an id and sdn number passed as key:value pairs through Post
+     * @returns new value of sdn number 
+     */
+    public function updateNRSdnNumber() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('sdn_number', $_POST['sdn_number'], true); // save new sdn number
+	    $this->set('postreelsdnnumber', $_POST['sdn_number']); // create variable for passing sdn number to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's shipping box based on an ajax
+     * call
+     * @param Needs an id and shipping box passed as key:value pairs through Post
+     * @returns new value of shipping box 
+     */
+    public function updateNRShippingBox() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('shipping_box', $_POST['shipping_box'], true); // save new shipping box
+	    $this->set('postreelshippingbox', $_POST['shipping_box']); // create variable for passing shipping box to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's date of last access based on an ajax
+     * call
+     * @param Needs an id and date of last access passed as key:value pairs through Post
+     * @returns new value of date of last access 
+     */
+    public function updateNRDateOfLastAccess() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('date_of_last_access', $_POST['date_of_last_access'], true); // save new date of last access
+	    $this->set('postreeldateoflastaccess', $_POST['date_of_last_access']); // create variable for passing date of last access to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's date of microfilm based on an ajax
+     * call
+     * @param Needs an id and date of microfilm passed as key:value pairs through Post
+     * @returns new value of date of microfilm 
+     */
+    public function updateNRDateOfMicrofilm() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('date_of_microfilm', $_POST['date_of_microfilm'], true); // save new date of microfilm
+	    $this->set('postreeldateofmicrofilm', $_POST['date_of_microfilm']); // create variable for passing date of microfilm to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular newspaper reels's checked out based on an ajax
+     * call
+     * @param Needs an id and checked out passed as key:value pairs through Post
+     * @returns new value of checked out 
+     */
+    public function updateNRCheckedOut() {
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->NewspaperReel->id = $_POST['id']; // prepare newspaper reel model to change data for particular newspaper
+	    if (!$this->NewspaperReel->exists()) {
+		throw new NotFoundException('Invalid newspaper reel');
+	    }
+	    
+	    $this->NewspaperReel->saveField('checked_out', $_POST['checked_out'], true); // save new checked out
+	    $this->set('postreelcheckedout', $_POST['checked_out']); // create variable for passing checked out to view
+	} else {
+	    // some sort of error...
+	}
+    }
 }

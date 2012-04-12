@@ -64,6 +64,7 @@ echo $this->Form->end(); ?>
 	<tr>			
 <!--			<th class="actions"><?php echo __('Actions');?></th>
 -->			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>
+                        <th><?php echo $this->Paginator->sort('archive_reel_id') . " ID";?></th>
 			<th><?php echo $this->Paginator->sort('Archive.title', 'Title');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.county', 'County');?></th>
@@ -78,7 +79,6 @@ echo $this->Form->end(); ?>
                         <th><?php echo $this->Paginator->sort('redox_quality_date');?></th>
                         <th><?php echo $this->Paginator->sort('redox_quality_present');?></th>
                         
-                        <th><?php echo $this->Paginator->sort('archive_reel_id');?></th>
 			<th><?php echo $this->Paginator->sort('checked_out');?></th>
 			
 	</tr>
@@ -91,22 +91,22 @@ echo $this->Form->end(); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
 		</td>-->
 		<td><input type="checkbox" class="acheckbox" id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>
-		<td><?php echo h($archiveRecord['Archive']['title']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['city']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['county']); ?>&nbsp;</td>
+		<td><?php echo h($archiveRecord['ArchiveReel']['archive_reel_id']); ?></td>
+		<td class="editatitle" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['title']); ?></td>
+		<td class="editacity" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['city']); ?></td>
+		<td class="editacounty" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['county']); ?></td>
 		
-		<td><?php echo h($archiveRecord['Archive']['series']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['Archive']['series_number']); ?>&nbsp;</td>                
-		<td><?php echo h($archiveRecord['ArchiveContent']['reel_number']); ?>&nbsp;</td>
+		<td class="editaseries" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['series']); ?></td>
+		<td class="editaseriesnumber" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['series_number']); ?></td>                
+		<td class="editacreelnumber" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveRecord['ArchiveContent']['reel_number']); ?></td>
                 
-		<td><?php echo h($archiveRecord['ArchiveContent']['begin_date']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['ArchiveContent']['end_date']); ?>&nbsp;</td>
+		<td class="editacbegindate" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveRecord['ArchiveContent']['begin_date']); ?></td>
+		<td class="editacenddate" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveRecord['ArchiveContent']['end_date']); ?></td>
                 
-                <td><?php echo h($archiveRecord['ArchiveReel']['redox_quality_date']); ?>&nbsp;</td>
-                <td><?php echo h($archiveRecord['ArchiveReel']['redox_quality_present']); ?>&nbsp;</td>
-                
-		<td><?php echo h($archiveRecord['ArchiveReel']['archive_reel_id']); ?>&nbsp;</td>		
-		<td><?php echo h($archiveRecord['ArchiveReel']['checked_out']); ?>&nbsp;</td>
+                <td class="editarredoxqualitydate" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['ArchiveReel']['redox_quality_date']); ?></td>
+                <td class="editarredoxqualitypresent" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['ArchiveReel']['redox_quality_present']); ?></td>
+                		
+		<td class="editarcheckedout" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['ArchiveReel']['checked_out']); ?></td>
 		
 	</tr>
 <?php endforeach; ?>

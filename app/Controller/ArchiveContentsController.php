@@ -11,6 +11,14 @@ class ArchiveContentsController extends AppController {
 	 * Include these helpers for the views
 	 */
 	public $helpers = array('Access');
+
+	/*
+	 * Include these components:
+	 * The Search component
+	 * The Request handler catches and coordinates ajax requests
+	 */	
+	public $components = array('RequestHandler');
+
 	
 	/*
 	 *	beforeFilter() runs before its internal script before
@@ -202,4 +210,136 @@ class ArchiveContentsController extends AppController {
 		$this->Session->setFlash(__('Archive content was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+    /*
+     * This function changes a particular archive content's begin date based on an ajax
+     * call
+     * @param Needs an id and begin date passed as key:value pairs through Post
+     * @returns new value of begin date 
+     */
+    public function updateACBeginDate() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->ArchiveContent->id = $_POST['id']; // prepare archive content model to change data for particular archive
+	    if (!$this->ArchiveContent->exists()) {
+		throw new NotFoundException('Invalid archive content');
+	    }
+	    
+	    $this->ArchiveContent->saveField('begin_date', $_POST['begin_date'], true); // save new begin date
+	    $this->set('postbegindate', $_POST['begin_date']); // create variable for passing begin date to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular archive content's end date based on an ajax
+     * call
+     * @param Needs an id and end date passed as key:value pairs through Post
+     * @returns new value of end date 
+     */
+    public function updateACEndDate() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->ArchiveContent->id = $_POST['id']; // prepare archive content model to change data for particular archive
+	    if (!$this->ArchiveContent->exists()) {
+		throw new NotFoundException('Invalid archive content');
+	    }
+	    
+	    $this->ArchiveContent->saveField('end_date', $_POST['end_date'], true); // save new end_date
+	    $this->set('postenddate', $_POST['end_date']); // create variable for passing gaps to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular archive content's reel number based on an ajax
+     * call
+     * @param Needs an id and reel number passed as key:value pairs through Post
+     * @returns new value of reel number 
+     */
+    public function updateACReelNumber() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->ArchiveContent->id = $_POST['id']; // prepare archive content model to change data for particular archive
+	    if (!$this->ArchiveContent->exists()) {
+		throw new NotFoundException('Invalid archive content');
+	    }
+	    
+	    $this->ArchiveContent->saveField('reel_number', $_POST['reel_number'], true); // save new reel number
+	    $this->set('postreelnumber', $_POST['reel_number']); // create variable for passing reel number to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular archive content's contents based on an ajax
+     * call
+     * @param Needs an id and contents passed as key:value pairs through Post
+     * @returns new value of contents 
+     */
+    public function updateACContents() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->ArchiveContent->id = $_POST['id']; // prepare archive content model to change data for particular archive
+	    if (!$this->ArchiveContent->exists()) {
+		throw new NotFoundException('Invalid archive content');
+	    }
+	    
+	    $this->ArchiveContent->saveField('contents', $_POST['contents'], true); // save new contents
+	    $this->set('postcontents', $_POST['contents']); // create variable for passing contents to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular archive content's comments based on an ajax
+     * call
+     * @param Needs an id and comments passed as key:value pairs through Post
+     * @returns new value of comments 
+     */
+    public function updateACComments() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->ArchiveContent->id = $_POST['id']; // prepare archive content model to change data for particular archive
+	    if (!$this->ArchiveContent->exists()) {
+		throw new NotFoundException('Invalid archive content');
+	    }
+	    
+	    $this->ArchiveContent->saveField('comments', $_POST['comments'], true); // save new comments
+	    $this->set('postcomments', $_POST['comments']); // create variable for passing comments to view
+	} else {
+	    // some sort of error...
+	}
+    }
+    
+    /*
+     * This function changes a particular archive content's usage rights based on an ajax
+     * call
+     * @param Needs an id and usage rights passed as key:value pairs through Post
+     * @returns new value of usage rights 
+     */
+    public function updateACUsageRights() {
+
+	if ($this->request->is('post')) { // only change if came params came from Post
+	    
+	    $this->ArchiveContent->id = $_POST['id']; // prepare archive content model to change data for particular archive
+	    if (!$this->ArchiveContent->exists()) {
+		throw new NotFoundException('Invalid archive content');
+	    }
+	    
+	    $this->ArchiveContent->saveField('usage_rights', $_POST['usage_rights'], true); // save new usage_rights
+	    $this->set('postusagerights', $_POST['usage_rights']); // create variable for passing aleph number to view
+	} else {
+	    // some sort of error...
+	}
+    }
 }

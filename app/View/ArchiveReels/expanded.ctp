@@ -5,7 +5,7 @@
 	<tr>			
 			<th><?php if($this->Access->cat('selected')){ echo $this->Paginator->sort('selected');} ?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
-			<th><?php if($this->Access->cat('archive_reel_id')){ echo $this->Paginator->sort('archive_reel_id');} ?></th>
+			<th><?php if($this->Access->cat('archive_reel_id')){ echo $this->Paginator->sort('archive_reel_id') . " ID";} ?></th>
 			<th><?php if($this->Access->cat('title')){ echo $this->Paginator->sort('title');} ?></th>
                         <th><?php if($this->Access->cat('city')){ echo $this->Paginator->sort('city');} ?></th>
                         <th><?php if($this->Access->cat('county')){ echo $this->Paginator->sort('county');} ?></th>                        
@@ -59,29 +59,29 @@
 					$archiveRecord['ArchiveReel']['archive_reel_id']));} ?>
 		</td>
 		<td><?php if($this->Access->cat('archive_reel_id')){ echo h($archiveRecord['ArchiveReel']['archive_reel_id']);} ?>&nbsp;</td>		
-		<td><?php if($this->Access->cat('title')){ echo h($archiveRecord['Archive']['title']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('city')){ echo h($archiveRecord['Archive']['city']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('county')){ echo h($archiveRecord['Archive']['county']);} ?>&nbsp;</td>		
-		<td><?php if($this->Access->cat('aleph_number')){ echo h($archiveRecord['Archive']['aleph_number']);} ?>&nbsp;</td>		
-		<td><?php if($this->Access->cat('series')){ echo h($archiveRecord['Archive']['series']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('series_number')){ echo h($archiveRecord['Archive']['series_number']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('author_citation')){ echo h($archiveRecord['Archive']['author_citation']);} ?>&nbsp;</td>		
-		<td><?php if($this->Access->cat('reel_number')){ echo h($archiveRecord['ArchiveContent']['reel_number']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('begin_date')){ echo h($archiveRecord['ArchiveContent']['begin_date']);} ?>&nbsp;</td>		
-		<td><?php if($this->Access->cat('end_date')){ echo h($archiveRecord['ArchiveContent']['end_date']);} ?>&nbsp;</td>			
-		<td><?php if($this->Access->cat('contents')){ echo h($archiveRecord['ArchiveContent']['contents']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('comments')){ echo h($archiveRecord['ArchiveContent']['comments']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('usage_rights')){ echo h($archiveRecord['ArchiveContent']['usage_rights']);} ?>&nbsp;</td>		
-		<td><?php if($this->Access->cat('reel_polarity')){ echo h($archiveRecord['ArchiveReel']['reel_polarity']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('generation')){ echo h($archiveRecord['ArchiveReel']['generation']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('redox_quality_date')){ echo h($archiveRecord['ArchiveReel']['redox_quality_date']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('redox_quality_present')){ echo h($archiveRecord['ArchiveReel']['redox_quality_present']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('scratches')){ echo h($archiveRecord['ArchiveReel']['scratches']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('quality_in')){ echo h($archiveRecord['ArchiveReel']['quality_in']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('sdn_number')){ echo h($archiveRecord['ArchiveReel']['sdn_number']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('shipping_box')){ echo h($archiveRecord['ArchiveReel']['shipping_box']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('date_of_last_access')){ echo h($archiveRecord['ArchiveReel']['date_of_last_access']);} ?>&nbsp;</td>
-		<td><?php if($this->Access->cat('checked_out')){ echo h($archiveRecord['ArchiveReel']['checked_out']);} ?>&nbsp;</td>
+		<td class="editatitle" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php if($this->Access->cat('title')){ echo h($archiveRecord['Archive']['title']);} ?></td>
+		<td class="editacity" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php if($this->Access->cat('city')){ echo h($archiveRecord['Archive']['city']);} ?></td>
+		<td class="editacounty" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php if($this->Access->cat('county')){ echo h($archiveRecord['Archive']['county']);} ?></td>		
+		<td class="editaalephnumber" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php if($this->Access->cat('aleph_number')){ echo h($archiveRecord['Archive']['aleph_number']);} ?></td>		
+		<td class="editaseries" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php if($this->Access->cat('series')){ echo h($archiveRecord['Archive']['series']);} ?></td>
+		<td class="editaseriesnumber" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php if($this->Access->cat('series_number')){ echo h($archiveRecord['Archive']['series_number']);} ?></td>
+		<td class="editaauthorcitation" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php if($this->Access->cat('author_citation')){ echo h($archiveRecord['Archive']['author_citation']);} ?></td>		
+		<td class="editacreelnumber" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php if($this->Access->cat('reel_number')){ echo h($archiveRecord['ArchiveContent']['reel_number']);} ?></td>
+		<td class="editacbegindate" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php if($this->Access->cat('begin_date')){ echo h($archiveRecord['ArchiveContent']['begin_date']);} ?></td>		
+		<td class="editacenddate" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php if($this->Access->cat('end_date')){ echo h($archiveRecord['ArchiveContent']['end_date']);} ?></td>			
+		<td class="editaccontents" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php if($this->Access->cat('contents')){ echo h($archiveRecord['ArchiveContent']['contents']);} ?></td>
+		<td class="editaccomments" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php if($this->Access->cat('comments')){ echo h($archiveRecord['ArchiveContent']['comments']);} ?></td>
+		<td class="editacusagerights" id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php if($this->Access->cat('usage_rights')){ echo h($archiveRecord['ArchiveContent']['usage_rights']);} ?></td>		
+		<td class="editarreelpolarity" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('reel_polarity')){ echo h($archiveRecord['ArchiveReel']['reel_polarity']);} ?></td>
+		<td class="editargeneration" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('generation')){ echo h($archiveRecord['ArchiveReel']['generation']);} ?></td>
+		<td class="editarredoxqualitydate" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('redox_quality_date')){ echo h($archiveRecord['ArchiveReel']['redox_quality_date']);} ?></td>
+		<td class="editarredoxqualitypresent" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('redox_quality_present')){ echo h($archiveRecord['ArchiveReel']['redox_quality_present']);} ?></td>
+		<td class="editarscratches" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('scratches')){ echo h($archiveRecord['ArchiveReel']['scratches']);} ?></td>
+		<td class="editarqualityin" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('quality_in')){ echo h($archiveRecord['ArchiveReel']['quality_in']);} ?></td>
+		<td class="editarsdnnumber" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('sdn_number')){ echo h($archiveRecord['ArchiveReel']['sdn_number']);} ?></td>
+		<td class="editarshippingbox" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('shipping_box')){ echo h($archiveRecord['ArchiveReel']['shipping_box']);} ?></td>
+		<td class="editardateoflastaccess" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('date_of_last_access')){ echo h($archiveRecord['ArchiveReel']['date_of_last_access']);} ?></td>
+		<td class="editarcheckedout" id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php if($this->Access->cat('checked_out')){ echo h($archiveRecord['ArchiveReel']['checked_out']);} ?></td>
 		<td><?php if($this->Access->cat('created')){ echo h($archiveRecord['ArchiveReel']['created']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('modified')){ echo h($archiveRecord['ArchiveReel']['modified']);} ?>&nbsp;</td>
 		<td><?php if($this->Access->cat('deleted')){ echo h($archiveRecord['ArchiveReel']['deleted']);} ?>&nbsp;</td>

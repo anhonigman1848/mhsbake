@@ -26,7 +26,7 @@ body {
 	background: #606289;/*#003d4c;*/
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-	font-size:9pt;
+	font-size:10pt;
 	margin: 0;
 }
 a {
@@ -44,6 +44,7 @@ a img {
 h1, h2, h3, h4 {
 	font-weight: normal;
 	margin-bottom:0.5em;
+	margin-top:0.5em;
 }
 h1 {
 	background:#fff;
@@ -181,13 +182,18 @@ p {
 div.form,
 div.index,
 div.view {
-	float:center;
-	width:1000px;
+	float:none;
+	width:80%;
 	padding:10px 2%;
 }
+div.viewFloatRight {
+	float:right;
+	width:80%;
+	padding:10px;
+}
 div.actions {
-	float:left;
-	width:20em;
+	float:none;
+	width:20%;
 	padding:10px 1.5%;
 }
 div.actions h3 {
@@ -310,7 +316,7 @@ table td.actions a {
 dl {
 	line-height: 2em;
 	margin: 0em 0em;
-	width: 80%;
+	width: 100%;
 }
 dl dd:nth-child(4n+2),
 dl dt:nth-child(4n+1) {

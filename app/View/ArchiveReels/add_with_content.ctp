@@ -2,14 +2,9 @@
 <div class="archiveContents view">
 <h2><?php  echo __('Archive Content');?></h2>
 	<dl>
-		<dt><?php echo __('Archive Content Id'); ?></dt>
-		<dd>
-			<?php echo h($archiveContent['ArchiveContent']['archive_content_id']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Archive'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($archiveContent['Archive']['title'], array('controller' => 'archives', 'action' => 'view', $archiveContent['Archive']['archive_id'])); ?>
+			<?php echo h($archiveContent['Archive']['title']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Series'); ?></dt>
@@ -84,15 +79,7 @@
 		</dd>
 	</dl>
 </div>
-<!--<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
 
-		<li><?php echo $this->Html->link(__('List Archive Reels'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Archive Contents'), array('controller' => 'archive_contents', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archive Content'), array('controller' => 'archive_contents', 'action' => 'add')); ?> </li>
-	</ul>
-</div>-->
 <div class="archiveReels form">
 <?php echo $this->Form->create('ArchiveReel');?>
 	<fieldset>

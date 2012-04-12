@@ -35,17 +35,17 @@
 		<td>
 			<?php echo $this->Html->link($newspaperReel['NewspaperContent']['newspaper_content_id'], array('controller' => 'newspaper_contents', 'action' => 'view', $newspaperReel['NewspaperContent']['newspaper_content_id'])); ?>
 		</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['reel_polarity']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['generation']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['redox_quality_date']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['redox_quality_present']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['scratches']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['quality_in']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['sdn_number']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['shipping_box']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['date_of_last_access']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['date_of_microfilm']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperReel['NewspaperReel']['checked_out']); ?>&nbsp;</td>
+		<td class="editnrreelpolarity" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['reel_polarity']); ?></td>
+		<td class="editnrgeneration" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['generation']); ?></td>
+		<td class="editnrredoxqualitydate" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['redox_quality_date']); ?></td>
+		<td class="editnrredoxqualitypresent" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['redox_quality_present']); ?></td>
+		<td class="editnrscratches" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['scratches']); ?></td>
+		<td class="editnrqualityin" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['quality_in']); ?></td>
+		<td class="editnrsdnnumber" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['sdn_number']); ?></td>
+		<td class="editnrshippingbox" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['shipping_box']); ?></td>
+		<td class="editnrdateoflastaccess" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['date_of_last_access']); ?></td>
+		<td class="editnrdateofmicrofilm" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['date_of_microfilm']); ?></td>
+		<td class="editnrcheckedout" id="<?php echo $newspaperReel['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperReel['NewspaperReel']['checked_out']); ?></td>
 		<td><?php echo h($newspaperReel['NewspaperReel']['created']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperReel['NewspaperReel']['modified']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperReel['NewspaperReel']['deleted']); ?>&nbsp;</td>

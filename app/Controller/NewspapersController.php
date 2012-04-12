@@ -294,4 +294,6 @@ class NewspapersController extends AppController {
 			// some sort of error...
 		}
 	}
+	
+	
 }

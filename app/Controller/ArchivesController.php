@@ -6,6 +6,13 @@ App::uses('AppController', 'Controller');
  * @property Archive $Archive
  */
 class ArchivesController extends AppController {
+    
+    /*
+     * Include these components:
+     * The Search component
+     * The Request handler catches and coordinates ajax requests
+     */	
+    public $components = array('Search.Prg', 'RequestHandler');
 	
 	/*
 	 * Include these helpers for the views
@@ -156,5 +163,160 @@ class ArchivesController extends AppController {
 		}
 		$this->Session->setFlash(__('Archive was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+    
+	/*
+	 * This function changes a particular archive's title based on an ajax
+	 * call
+	 * @param Needs an id and title passed as key:value pairs through Post
+	 * @returns new value of title 
+	 */
+	public function updateATitle() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Archive->id = $_POST['id']; // prepare archive model to change data for particular archive
+			if (!$this->Archive->exists()) {
+				throw new NotFoundException('Invalid archive');
+			}
+
+			$this->Archive->saveField('title', $_POST['title'], true); // save new title
+			$this->set('posttitle', $_POST['title']); // create variable for passing title to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	/*
+	 * This function changes a particular archive's series based on an ajax
+	 * call
+	 * @param Needs an id and series passed as key:value pairs through Post
+	 * @returns new value of series 
+	 */
+	public function updateASeries() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Archive->id = $_POST['id']; // prepare archive model to change data for particular archive
+			if (!$this->Archive->exists()) {
+				throw new NotFoundException('Invalid archive');
+			}
+
+			$this->Archive->saveField('series', $_POST['series'], true); // save new series
+			$this->set('postseries', $_POST['series']); // create variable for passing series to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	/*
+	 * This function changes a particular archive's series number based on an ajax
+	 * call
+	 * @param Needs an id and series number passed as key:value pairs through Post
+	 * @returns new value of series number 
+	 */
+	public function updateASeriesNumber() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Archive->id = $_POST['id']; // prepare archive model to change data for particular archive
+			if (!$this->Archive->exists()) {
+				throw new NotFoundException('Invalid archive');
+			}
+
+			$this->Archive->saveField('series_number', $_POST['series_number'], false); // save new series_number
+			$this->set('postseriesnumber', $_POST['series_number']); // create variable for passing series_number to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	/*
+	 * This function changes a particular archive's author citation based on an ajax
+	 * call
+	 * @param Needs an id and author citation passed as key:value pairs through Post
+	 * @returns new value of author citation 
+	 */
+	public function updateAAuthorCitation() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Archive->id = $_POST['id']; // prepare archive model to change data for particular archive
+			if (!$this->Archive->exists()) {
+				throw new NotFoundException('Invalid archive');
+			}
+
+			$this->Archive->saveField('author_citation', $_POST['author_citation'], true); // save new author citation
+			$this->set('postauthorcitation', $_POST['author_citation']); // create variable for passing author citation to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	/*
+	 * This function changes a particular archive's city based on an ajax
+	 * call
+	 * @param Needs an id and city passed as key:value pairs through Post
+	 * @returns new value of city 
+	 */
+	public function updateACity() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Archive->id = $_POST['id']; // prepare archive model to change data for particular archive
+			if (!$this->Archive->exists()) {
+				throw new NotFoundException('Invalid archive');
+			}
+
+			$this->Archive->saveField('city', $_POST['city'], true); // save new city
+			$this->set('postcity', $_POST['city']); // create variable for passing city to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	/*
+	 * This function changes a particular archive's county based on an ajax
+	 * call
+	 * @param Needs an id and county passed as key:value pairs through Post
+	 * @returns new value of county 
+	 */
+	public function updateACounty() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Archive->id = $_POST['id']; // prepare archive model to change data for particular archive
+			if (!$this->Archive->exists()) {
+				throw new NotFoundException('Invalid archive');
+			}
+
+			$this->Archive->saveField('county', $_POST['county'], true); // save new county
+			$this->set('postcounty', $_POST['county']); // create variable for passing county to view
+		} else {
+			// some sort of error...
+		}
+	}
+	
+	
+	/*
+	 * This function changes a particular archive's aleph number based on an ajax
+	 * call
+	 * @param Needs an id and aleph number passed as key:value pairs through Post
+	 * @returns new value of aleph number 
+	 */
+	public function updateAAlephNumber() {
+
+		if ($this->request->is('post')) { // only change if came params came from Post
+
+			$this->Archive->id = $_POST['id']; // prepare archive model to change data for particular archive
+			if (!$this->Archive->exists()) {
+				throw new NotFoundException('Invalid archive');
+			}
+
+			$this->Archive->saveField('aleph_number', $_POST['aleph_number'], true); // save new aleph number
+			$this->set('postalephnumber', $_POST['aleph_number']); // create variable for passing aleph number to view
+		} else {
+			// some sort of error...
+		}
 	}
 }
