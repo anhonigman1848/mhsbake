@@ -188,7 +188,7 @@ class ArchiveReelsController extends AppController {
 	}
 	
 /**
- * qualitiy seardh method
+ * quality search method
  *
  * @return void
  */	
