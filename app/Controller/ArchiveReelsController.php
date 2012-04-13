@@ -99,7 +99,8 @@ class ArchiveReelsController extends AppController {
 		array('field' => 'redox_from', 'type' => 'value'),
 		array('field' => 'redox_to', 'type' => 'value'),
 		array('field' => 'redox_quality_present', 'type' => 'value'),
-		array('field' => 'checked_out', 'type' => 'value')
+		array('field' => 'checked_out', 'type' => 'value'),
+		array('field' => 'deleted', 'type' => 'value')
         );
 
 /**

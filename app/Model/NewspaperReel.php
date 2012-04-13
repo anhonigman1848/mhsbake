@@ -87,7 +87,8 @@ class NewspaperReel extends AppModel {
                   'method' => 'makeRedoxRangeCondition',
                   'field' => 'NewspaperReel.redox_quality_date BETWEEN ? AND ?'),
             array('name' => 'redox_quality_present', 'type' => 'value', 'field' => 'NewspaperReel.redox_quality_present'),
-            array('name' => 'checked_out', 'type' => 'value', 'field' => 'NewspaperReel.checked_out')
+            array('name' => 'checked_out', 'type' => 'value', 'field' => 'NewspaperReel.checked_out'),
+            array('name' => 'deleted', 'type' => 'value', 'field' => 'NewspaperReel.deleted')
         );
 
 /**

@@ -34,7 +34,7 @@ echo $this->Form->input('date_to', array('id'=>'datepicker2',
 					 'div' => false,					 					 
 					 ));
 echo $this->Form->input('checked_out', array('div' => false));
-echo $this->Form->hidden('deleted', array('default' => '0'));
+echo $this->Form->input('deleted', array('div' => 'false'));
 echo $this->Form->submit(__('Search', true)/*, array('div' => false)*/);
 echo $this->Form->end(); ?>	
 	

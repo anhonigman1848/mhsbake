@@ -101,5 +101,7 @@ echo $this->Form->end(); ?>
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'newspaper_reels','action' => 'clear_all_check_boxes', 'display')); ?></li>
+		<li><input type='button' onclick="goOffline()" value="Go offline" /></li>
+		
 	</ul>
 </div>

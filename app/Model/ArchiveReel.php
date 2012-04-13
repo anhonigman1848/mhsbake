@@ -106,7 +106,8 @@ class ArchiveReel extends AppModel {
                   'method' => 'makeRedoxRangeCondition',
                   'field' => 'ArchiveReel.redox_quality_date BETWEEN ? AND ?'),
             array('name' => 'redox_quality_present', 'type' => 'value', 'field' => 'ArchiveReel.redox_quality_present'),
-            array('name' => 'checked_out', 'type' => 'value', 'field' => 'ArchiveReel.checked_out')
+            array('name' => 'checked_out', 'type' => 'value', 'field' => 'ArchiveReel.checked_out'),
+            array('name' => 'deleted', 'type' => 'value', 'field' => 'ArchiveReel.deleted')
         );
 
 /**
