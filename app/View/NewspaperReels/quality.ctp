@@ -54,6 +54,7 @@ echo $this->Form->input('redox_to', array('id'=>'datepicker4',
 					 ));
 echo $this->Form->input('redox_quality_present', array('div' => false));
 echo $this->Form->input('checked_out', array('div' => false));
+echo $this->Form->input('deleted', array('div' => 'false'));
 echo $this->Form->submit(__('Search', true)/*, array('div' => false)*/);
 echo $this->Form->end(); ?>	
 	

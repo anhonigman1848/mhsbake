@@ -93,7 +93,8 @@ class NewspaperReelsController extends AppController {
 		array('field' => 'redox_from', 'type' => 'value'),
 		array('field' => 'redox_to', 'type' => 'value'),
 		array('field' => 'redox_quality_present', 'type' => 'value'),
-		array('field' => 'checked_out', 'type' => 'value')
+		array('field' => 'checked_out', 'type' => 'value'),
+		array('field' => 'deleted', 'type' => 'value')
         );
 
 /**
@@ -373,30 +374,6 @@ class NewspaperReelsController extends AppController {
 		}
 		$newspaperContents = $this->NewspaperReel->NewspaperContent->find('list');
 		$this->set(compact('newspaperContents'));
-	}
-
-/**
- * editNewspaperRecord method
- *
- * @param string $id
- * @return void
- */
-	public function editNewspaperRecord($id = null) {
-		$this->NewspaperReel->id = $id;
-		if (!$this->NewspaperReel->exists()) {
-			throw new NotFoundException(__('Invalid newspaper record'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			// saveAssociated() saves into related tables
-			if ($this->NewspaperReel->saveAssociated($this->request->data, $options = array('deep' => true))) {
-				$this->Session->setFlash(__('The newspaper record has been saved'));
-				$this->redirect(array('action' => 'record', $id)); // display the new record
-			} else {
-				$this->Session->setFlash(__('The newspaper record could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->NewspaperReel->read(null, $id);
-		}
 	}
 
 /**

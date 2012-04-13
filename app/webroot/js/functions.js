@@ -612,3 +612,8 @@ function atoggleChecked(status) {
                 traditional: true
             });         
     }
+
+function goOffline() {
+    console.log("Inside goOffline()");
+        window.location = '/mhsbake/test1.html'
+}
