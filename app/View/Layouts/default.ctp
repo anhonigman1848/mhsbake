@@ -86,8 +86,18 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
         <li><a href="/mhsbake/archive_contents/addArchiveRecord">New Archive</a></li>
       </ul>
     </li>
-    <li><a href="/mhsbake/users/index">Users</a></li> 
-    <li><a href="/mhsbake/audits/index">Audit Log</a></li> 
+    <li><a>Users</a>
+      <ul>
+        <li><a href="/mhsbake/users">List Users</a></li>
+        <li><a href="/mhsbake/users/add">New User</a></li>
+      </ul>
+    </li> 
+    <li><a>Audits</a>
+      <ul>
+        <li><a href="/mhsbake/audits/index">Audit Log</a></li>
+        <li><a href="/mhsbake/audit_deltas">Audit Deltas</a></li>
+      </ul>
+    </li> 
     <li><a href="/mhsbake/helps/view">Help</a></li> 
     </ul>
 </td>
