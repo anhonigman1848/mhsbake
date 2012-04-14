@@ -23,7 +23,7 @@
 			<td><?php echo $user['User']['id']; ?>&nbsp;</td>
 			<td class="editfirstname" id="<?php echo $user['User']['id']; ?>"><?php echo $user['User']['first_name']; ?></td>
 			<td class="editlastname" id="<?php echo $user['User']['id']; ?>"><?php echo $user['User']['last_name']; ?></td>
-			<td><?php echo $user['User']['username']; ?>&nbsp;</td>
+			<td class="editusername" id="<?php echo $user['User']['id']; ?>"><?php echo $user['User']['username']; ?></td>
 			<td><?php echo $user['User']['role']; ?>&nbsp;</td>
 			<td class="actions">
 				<?php echo $this->Html->link('View', array('action' => 'view', $user['User']['id'])); ?>
