@@ -65,7 +65,7 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
 <table id= "top" cellspacing="0" border="0">
 
 <tr>
-	<td id="nopad"><a href="/mhsbake/" id="mhc" >Link</a></td>
+	<td id="nopad"><a href="/mhsbake/" id="mhc" ></a></td>
 
 </tr>	
 
