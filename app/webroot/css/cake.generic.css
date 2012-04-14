@@ -103,6 +103,15 @@ p {
 	white-space: nowrap;
 	}
 
+  #mhcBig {
+	background-image: url(../img/history_center.jpg);
+	display: block;
+	height: 300px;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	}
+
   #navigation {
 	margin: 0px;
 	}
