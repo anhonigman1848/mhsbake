@@ -39,6 +39,9 @@ class AccessHelper extends AppHelper {
                             'created' => true,
                             'modified' => true,
                             'deleted' => true,
+                            'setusertypeadmin' => true, // new
+                            'setusertypestaff' => true, // new
+                            
                             'add' => true,
                             'view' => true,
                             'edit' => true,
@@ -94,6 +97,9 @@ class AccessHelper extends AppHelper {
                             'created' => true,
                             'modified' => true,
                             'deleted' => false,
+                            'setusertypeadmin' => false, // new
+                            'setusertypestaff' => true, // new
+                            
                             'add' => true,
                             'view' => true,
                             'edit' => true,
@@ -136,6 +142,9 @@ class AccessHelper extends AppHelper {
                             'created' => false,
                             'modified' => false,
                             'deleted' => false,
+                            'setusertypeadmin' => false, // new
+                            'setusertypestaff' => false, // new
+                            
                             'add' => false,
                             'view' => true,
                             'edit' => false,
@@ -180,11 +189,14 @@ class AccessHelper extends AppHelper {
                             'created' => false,
                             'modified' => false,
                             'deleted' => false,
+                            'setusertypeadmin' => false, // new
+                            'setusertypestaff' => false, // new
+                            
                             'add' => false,
                             'view' => false,
                             'edit' => false,
-                            'Delete' => false,
-                            'Soft_delete' => false,
+                            'delete' => false,
+                            'soft_delete' => false,
                             'changelog' => false,
                             'last_name' => false,
                             'first_name' => false);

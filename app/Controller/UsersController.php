@@ -54,8 +54,7 @@ class UsersController extends AppController {
 		if ($user['role'] == 'staff') {
 			if (in_array($this->action, array('login', 'logout',
 							  'index', 'view',
-							  'add', 'edit',
-							  'delete'))) {
+							  'add', 'edit'))) {
 				return true; // action request authorized
 			}
 			return false; // action request not authorized
@@ -64,7 +63,8 @@ class UsersController extends AppController {
 		// Basic permissions [see also the beforeFilter()]
 		if ($user['role'] == 'basic') {
 			if (in_array($this->action, array('login', 'logout',
-							  'index', 'view'))) {
+							  'index', 'view',
+							  'edit'))) {
 				return true; // action request authorized
 			}
 			return false; // action request not authorized
@@ -154,7 +154,7 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash('The user has been saved');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'login'));
 			} else {
 				$this->Session->setFlash('The user could not be saved. Please, try again.');
 			}

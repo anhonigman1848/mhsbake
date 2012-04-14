@@ -9,8 +9,15 @@
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
 		echo $this->Form->input('password_confirmation', array('type'=>'password'));
+		if($this->Access->cat('setusertypeadmin')) {
+			$user_type = array('admin' => 'admin', 'staff' => 'staff', 'basic' => 'basic');
+		} elseif ($this->Access->cat('setusertypestaff')) {
+			$user_type = array( 'staff' => 'staff', 'basic' => 'basic');
+		} else {
+			$user_type = array( 'basic' => 'basic');
+		}
 		echo $this->Form->input('role', array(
-			'options' => array('admin' => 'admin', 'staff' => 'staff', 'basic' => 'basic')
+			'options' => $user_type
 		));
 	?>
 	</fieldset>
