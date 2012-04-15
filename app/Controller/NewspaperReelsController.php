@@ -394,6 +394,29 @@ class NewspaperReelsController extends AppController {
 	}
 
 /**
+ * offlineEdit method
+ *
+ * @return void
+ */
+	public function offlineEdit() {
+		$this->autoRender = false;
+		$records = array();
+		$records = $_POST['records'];
+		$records = json_decode($records[0], true);
+		foreach ($records as $record) {
+			
+			debug($record);
+			
+			$this->NewspaperReel->saveAssociated($record, $options = array('deep' => true));
+		}
+		
+		//debug($records);
+		//$this->NewspaperReel->saveAssociated($record, $options = array('deep' => true));
+		//$this->ArchiveReel->saveAssociated($this->request->data, $options = array('deep' => true));
+	}
+
+
+/**
  * edit method
  *
  * @param string $id
