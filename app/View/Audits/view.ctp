@@ -45,7 +45,7 @@
 	</dl>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Audit Deltas');?></h3>
+	<h2><?php echo __('Related Audit Deltas');?></h2>
 	<?php if (!empty($audit['AuditDelta'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
