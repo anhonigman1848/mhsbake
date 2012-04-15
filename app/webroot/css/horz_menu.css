@@ -72,6 +72,7 @@ div.subnav {
 	width:15%;
 	padding:10px 1.5%;
 }
+
 .subnav a {
 	text-decoration: none;
 	text-align: center;
@@ -90,7 +91,6 @@ div.subnav {
 	color: #000;
 }
 
-/* main nav bar */
 .subnav {
 	margin: 0;
 	padding: 0;
@@ -125,3 +125,41 @@ div.subnav {
 .actionheader {
 	text-align: left;
 }
+
+div.bnav {
+	padding:10px 1.5%;
+}
+
+.bnav a {
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	padding: 1em 0;
+	color: #fff;
+	width: 100%;
+	font-weight: bold;
+	border: 1px solid #FFF;
+	background-color: #a8162b;
+	margin: 0px;
+}
+
+.bnav a:hover{
+	background-color: #F2C1BC;
+	color: #000;
+}
+
+.bnav {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+/* all list items */
+.bnav  li {
+	margin:0 !important;
+	padding:0 !important;
+	list-style: none; /* remove bullets */
+	float: left;
+	position: relative;
+}
+

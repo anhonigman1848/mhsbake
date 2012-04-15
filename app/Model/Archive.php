@@ -68,11 +68,11 @@ class Archive extends AppModel {
 				'rule'=>array('between', 1, 255),
 				'message'=>'Minimum 2 characters in length — field cannot be left empty.'
 			)
+/*
 		), 
 		'series_number'=>array(
 				'rule'=>'alphaNumeric',
 				'message'=>'Please enter numeric characters only.'
-/*
 		), 
 		'author_citation'=>array(
 				'rule'=>'notEmpty',

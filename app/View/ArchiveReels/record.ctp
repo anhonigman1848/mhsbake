@@ -3,7 +3,8 @@
 <h2>Actions</h2>
   <ul>
 	<li><?php echo $this->Html->link(__('Edit Record'), array('action' => 'editArchiveRecord', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?></li>
-	<li><?php echo $this->Form->postLink(__('Delete Record'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?></li>
+	<li><?php echo $this->Form->postLink(__('Delete Record'), array('action' => 'softdelete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?></li>
+	<li><?php echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to PERMANENTLY delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?></li>
 	<li><?php echo $this->Html->link(__('Copy Record'), array('action' => 'addWithContent', $archiveRecord['ArchiveContent']['archive_content_id'])); ?> </li>
 	<li><?php echo $this->Html->link(__('New Content'), array('controller' => 'archive_contents', 'action' => 'addWithArchive', $archiveRecord['Archive']['archive_id'])); ?> </li>
   </ul>

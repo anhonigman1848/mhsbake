@@ -188,7 +188,7 @@ class ArchiveReelsController extends AppController {
 	}
 	
 /**
- * qualitiy seardh method
+ * quality search method
  *
  * @return void
  */	
@@ -255,7 +255,7 @@ class ArchiveReelsController extends AppController {
  * @return void
  */
 	public function export_selected() {		
-		
+	    $this->autoLayout = false;				
 		if (!($this->Session->check('ar_selected'))) {
 			$this->Session->write('ar_selected.selectedRows', array());		
 		}
@@ -421,17 +421,33 @@ class ArchiveReelsController extends AppController {
 		if (!$this->ArchiveReel->exists()) {
 			throw new NotFoundException(__('Invalid archive content'));
 		}
+		$this->set('archiveReel', $this->ArchiveReel->read());
 		if ($this->request->is('post') || $this->request->is('put')) {
 			// saveAssociated() saves into related tables
 			if ($this->ArchiveReel->saveAssociated($this->request->data, $options = array('deep' => true))) {
 				$this->Session->setFlash(__('The archive record has been saved'));
-				$this->redirect(array('action' => 'record', $id)); // display the new record
+				$this->redirect(array('action' => 'record', $id)); // display the edited record
 			} else {
 				$this->Session->setFlash(__('The archive content could not be saved. Please, try again.'));
 			}
 		} else {
 			$this->request->data = $this->ArchiveReel->read(null, $id);
 		}
+	}
+
+/**
+ * cancel method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function cancel($id = null) {
+		$this->ArchiveReel->id = $id;
+		if (!$this->ArchiveReel->exists()) {
+			throw new NotFoundException(__('Invalid archive reel'));
+		}
+		$this->Session->setFlash(__('Edit cancelled. Changes not saved.'));
+		$this->redirect(array('action' => 'record', $id)); // display the unedited record
 	}
 
 /**
@@ -450,10 +466,10 @@ class ArchiveReelsController extends AppController {
 		}
 		if ($this->ArchiveReel->delete()) {
 			$this->Session->setFlash(__('Archive reel deleted'));
-			$this->redirect(array('action' => 'expanded'));
+			$this->redirect(array('action' => 'find'));
 		}
 		$this->Session->setFlash(__('Archive reel was not deleted'));
-		$this->redirect(array('action' => 'expanded'));
+		$this->redirect(array('action' => 'find'));
 	}
 
 

@@ -1,13 +1,18 @@
 <?php $this->Access->setRole($current_user['role']); ?>
 <div class="subnav">
-<h2>Actions</h2>
-  <ul>
-	<li><?php echo $this->Html->link(__('Edit Record'), array('action' => 'editNewspaperRecord', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?></li>
-	<li><?php echo $this->Form->postLink(__('Delete Record'), array('action' => 'delete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?></li>
-	<li><?php echo $this->Html->link(__('Copy Record'), array('action' => 'addWithContent', $newspaperRecord['NewspaperContent']['newspaper_content_id'])); ?> </li>
-	<li><?php echo $this->Html->link(__('New Content'), array('controller' => 'newspaper_contents', 'action' => 'addWithNewspaper', $newspaperRecord['Newspaper']['newspaper_id'])); ?> </li>
-  </ul>
-
+      <?php  if($this->Access->cat('edit')){ 
+        echo '<h2>Actions</h2>';
+        echo '<ul>';
+          echo '<li>'.$this->Html->link(__('Edit Record'), array('action' => 'editNewspaperRecord', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])).'</li>';
+	  echo '<li>'.$this->Form->postLink(__('Delete Record'), array('action' => 'softdelete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])).'</li>';
+	  if($this->Access->cat('delete')){
+	    echo '<li>'.$this->Form->postLink(__('Delete Forever'), array('action' => 'delete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to PERMANENTLY delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])).'</li>';
+	  }
+	  echo '<li>'.$this->Html->link(__('Copy Record'), array('action' => 'addWithContent', $newspaperRecord['NewspaperContent']['newspaper_content_id'])).'</li>';
+	  echo '<li>'.$this->Html->link(__('New Content'), array('controller' => 'newspaper_contents', 'action' => 'addWithNewspaper', $newspaperRecord['Newspaper']['newspaper_id'])).'</li>';
+        echo '</ul>';
+      }
+      ?>
 </div>
 <div class="newspaperReels viewFloatRight">
 <h2><?php  echo __('Newspaper Record');?></h2>

@@ -36,14 +36,13 @@ echo $this->Form->input('date_to', array('id'=>'datepicker2',
 					 ));
 echo $this->Form->input('checked_out', array('div' => false));
 echo $this->Form->input('deleted', array('div' => 'false'));
-echo $this->Form->submit(__('Search', true)/*, array('div' => false)*/);
+echo $this->Form->submit(__('Search', true));
 echo $this->Form->end(); ?>	
 	
-
+	<div id="results">
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-<!--			<th class="actions"><?php echo __('Actions');?></th>
--->			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>			
+			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>			
 			<th><?php echo $this->Paginator->sort('archive_reel_id') . "ID";?></th>			
 			<th><?php echo $this->Paginator->sort('Archive.title', 'Title');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.city', 'City');?></th>
@@ -62,12 +61,7 @@ echo $this->Form->end(); ?>
 	<?php
 	foreach ($archiveRecords as $archiveRecord): ?>
 	<tr id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>">		
-<!--		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-		</td>
--->		<td><input type="checkbox" class="acheckbox" id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>		
+		<td><input type="checkbox" class="acheckbox" id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>		
 		<td><?php echo h($archiveRecord['ArchiveReel']['archive_reel_id']); ?></td>	
 		<td class="editatitle" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['title']); ?></td>
 		<td class="editacity" id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['city']); ?></td>
@@ -85,6 +79,7 @@ echo $this->Form->end(); ?>
 	</tr>
 <?php endforeach; ?>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(

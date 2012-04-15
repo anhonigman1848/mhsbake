@@ -6,60 +6,6 @@ class AccessHelper extends AppHelper {
     
     private $role = '';
     
-    private $admin = array( 'selected' => true,
-                            'archive_reel_id' => true,
-                            'newspaper_reel_id' => true,
-                            'title' => true,
-                            'city' => true,
-                            'county' => true,
-                            'title_control' => true,
-                            'aleph_number' => true,
-                            'series' => true,
-                            'series_number' => true,
-                            'author_citation' => true,
-                            'reel_number' => true,
-                            'reel_control' => true,
-                            'begin_date' => true,
-                            'end_date' => true,                            
-                            'gaps' => true,
-                            'contents' => true,
-                            'comments' => true,
-                            'usage_rights' => true,
-                            'reel_polarity' => true,
-                            'generation' => true,
-                            'redox_quality_date' => true,
-                            'redox_quality_present' => true,
-                            'scratches' => true,
-                            'quality_in' => true,
-                            'sdn_number' => true,
-                            'shipping_box' => true,
-                            'date_of_last_access' => true,
-                            'date_of_microfilm' => true,
-                            'checked_out' => true,
-                            'created' => true,
-                            'modified' => true,
-                            'deleted' => true,
-                            'add' => true,
-                            'view' => true,
-                            'edit' => true,
-                            'delete' => true,
-                            'soft_delete' => true,
-                            'changelog' => true,
-                            'last_name' => true,
-                            'first_name' => true,
-                            'audits_id' => true,
-                            'event' => true,
-                            'model' => true,
-                            'entity_id' => true,
-                            'json_object' => true,
-                            'description' => true,
-                            'source_id' => true,
-                            'audits_created' => true,
-                            'audit_deltas_id' => true,
-                            'property_name' => true,
-                            'old_value' => true,
-                            'new_value' => true);
-    
     
     private $staff = array( 'selected' => true,
                             'archive_reel_id' => true,
@@ -94,6 +40,10 @@ class AccessHelper extends AppHelper {
                             'created' => true,
                             'modified' => true,
                             'deleted' => false,
+                            'setusertypeadmin' => false, // new
+                            'setusertypestaff' => true, // new
+                            'inlineedit' => true, // new
+                            
                             'add' => true,
                             'view' => true,
                             'edit' => true,
@@ -136,11 +86,15 @@ class AccessHelper extends AppHelper {
                             'created' => false,
                             'modified' => false,
                             'deleted' => false,
+                            'setusertypeadmin' => false, // new
+                            'setusertypestaff' => false, // new
+                            'inlineedit' => false, // new
+                            
                             'add' => false,
                             'view' => true,
                             'edit' => false,
                             'delete' => false,
-                            'soft_delete' => true,
+                            'soft_delete' => false,
                             'changelog' => false,
                             'last_name' => false,
                             'first_name' => false);
@@ -180,11 +134,15 @@ class AccessHelper extends AppHelper {
                             'created' => false,
                             'modified' => false,
                             'deleted' => false,
+                            'setusertypeadmin' => false, // new
+                            'setusertypestaff' => false, // new
+                            'inlineedit' => false, // new
+                            
                             'add' => false,
                             'view' => false,
                             'edit' => false,
-                            'Delete' => false,
-                            'Soft_delete' => false,
+                            'delete' => false,
+                            'soft_delete' => false,
                             'changelog' => false,
                             'last_name' => false,
                             'first_name' => false);
@@ -194,7 +152,7 @@ class AccessHelper extends AppHelper {
         // by current user role
         
         if($this->role == 'admin') {
-            return $this->admin[$attribute];
+            return true;
         }
         if($this->role == 'staff') {
             return $this->staff[$attribute];
@@ -211,52 +169,3 @@ class AccessHelper extends AppHelper {
         $this->role = $userRole;
     }
 }
-
-
-/*
- 
- 'archive_reel_id' => true,
- 'newspaper_reel_id' => true,
- 'title' => true,
- 'city' => true,
- 'county' => true,
- 'aleph_number' => true,
- 'series' => true,
- 'series_number' => true,
- 'author_citation' => true,
- 'reel_number' => true,
- 'reel_control' => true,
- 'begin_date' => true,
- 'end_date' => true,
- 'begin_year' => true,
- 'begin_month' => true,
- 'end_year' => true,
- 'end_month' => true,
- 'gaps' => true,
- 'contents' => true,
- 'comments' => true,
- 'usage_rights' => true,
- 'reel_polarity' => true,
- 'generation' => true,
- 'redox_quality_date' => true,
- 'redox_quality_present' => true,
- 'scratches' => true,
- 'quality_in' => true,
- 'sdn_number' => true,
- 'shipping_box' => true,
- 'date_of_last_access' => true,
- 'date_of_microfilm' => true,
- 'checked_out' => true,
- 'created' => true,
- 'modified' => true,
- 'deleted' => true,
- 'View' => true,
- 'Edit' => true,
- 'Delete' => true,
- 'Soft_delete' => true,
- 'changelog' => true,
- 'last_name' => true,
- 'first_name' => true
- 
- 
-*/
