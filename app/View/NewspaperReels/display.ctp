@@ -34,10 +34,10 @@ echo $this->Form->input('date_to', array('id'=>'datepicker2',
 					 'div' => false,					 					 
 					 ));
 echo $this->Form->input('checked_out', array('div' => false));
-echo $this->Form->submit(__('Search', true), array('div' => false));
+echo $this->Form->submit(__('Search', true));
 echo $this->Form->end(); ?>	
 	
-
+	<div id="results">
 	<table cellpadding="0" cellspacing="0">
 	<tr>		
 			<th><input type="checkbox" id="nselectall" onclick="ntoggleChecked(this.checked)"></th>
@@ -75,6 +75,7 @@ echo $this->Form->end(); ?>
 	</tr>
 <?php endforeach; ?>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -90,12 +91,15 @@ echo $this->Form->end(); ?>
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="bnav">
+<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'newspaper_reels','action' => 'clear_all_check_boxes', 'display')); ?></li>
 		<li><?php echo $this->Html->link(__('Export Selected for Labels'), array('controller' => 'newspaper_reels','action' => 'export_selected')); ?></li>		
-		<li><input type='button' onclick='goOfflineN(<?php echo json_encode($newspaperRecords); ?>)' value='Go offline' /></li>		
 	</ul>
+</div>
+
+<div class="offline">
+        <input type='button' onclick='goOfflineN(<?php echo json_encode($newspaperRecords); ?>)' value='Go offline' />	
+
 </div>
