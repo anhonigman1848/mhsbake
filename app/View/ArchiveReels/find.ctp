@@ -50,7 +50,7 @@ echo $this->Form->end(); ?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>			
-			<th><?php echo $this->Paginator->sort('archive_reel_id') . "ID";?></th>			
+			<th><?php echo $this->Paginator->sort('archive_reel_id', 'Archive Reel ID');?></th>			
 			<th><?php echo $this->Paginator->sort('Archive.title', 'Title');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.county', 'County');?></th>
