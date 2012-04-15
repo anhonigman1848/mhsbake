@@ -1,4 +1,3 @@
-<?php debug($newspaperReel['NewspaperReel']['newspaper_reel_id']); ?>
 <?php $this->Access->setRole($current_user['role']); ?>
 <div class="newspaperReels view">
 <h2><?php  echo __('Newspaper Reel');?></h2>
