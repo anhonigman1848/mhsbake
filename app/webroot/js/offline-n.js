@@ -53,10 +53,10 @@ function resetList() {
         //set flags for checkboxes
 	var redox_check = '';
 	var checked_out = '';
-	if (records[id].ArchiveReel.redox_quality_present) {
+	if (records[id].NewspaperReel.redox_quality_present) {
 	    redox_check = 'checked';
 	}
-	if (records[id].ArchiveReel.checked_out) {
+	if (records[id].NewspaperReel.checked_out) {
 	    checked_out = 'checked';
 	}
 	
