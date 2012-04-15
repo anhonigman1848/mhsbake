@@ -227,6 +227,37 @@ class NewspaperReelsController extends AppController {
 	}
 
 /**
+ * export_selected method retrieves a list of selected reel_ids and sends the assembled
+ * record object to the view
+ *
+ * @return void
+ */
+	public function export_selected() {		
+	    $this->autoLayout = false;		
+		if (!($this->Session->check('nr_selected'))) {
+			$this->Session->write('nr_selected.selectedRows', array());		
+		}
+		$reel_ids = $this->Session->read('nr_selected.selectedRows');		
+		$selectedRecords = $this->paginate( 'NewspaperReel', array('NewspaperReel.newspaper_reel_id' => $reel_ids));
+		$this->set('newspaperRecords', $selectedRecords);
+/* 		debug($selectedRecords); */
+/* need more information on paginate array to order reels by polarity ('order' => array('ArchiveReel.reel_polarity' => 'desc' )) */
+	}
+	
+/**
+ * export method prompts download of csv formatted file containing all 
+ * records in the Model's underlying database table. 
+ *
+ */
+ 	public function export() {
+	    $this->autoRender = false;
+	    $modelClass = $this->modelClass;
+	    $this->response->type('Content-Type: text/csv');
+	    $this->response->download( strtolower( Inflector::pluralize( $modelClass ) ) . '.csv' );
+	    $this->response->body( $this->$modelClass->exportCSV() );
+	}	
+
+/**
  * 
  * exposes array of checked boxes to be read by ajax call
  *

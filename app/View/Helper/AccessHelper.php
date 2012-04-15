@@ -94,7 +94,7 @@ class AccessHelper extends AppHelper {
                             'view' => true,
                             'edit' => false,
                             'delete' => false,
-                            'soft_delete' => true,
+                            'soft_delete' => false,
                             'changelog' => false,
                             'last_name' => false,
                             'first_name' => false);

@@ -1,6 +1,7 @@
 <?php $this->Access->setRole($current_user['role']); ?>
 <div class="audits index">
 	<h2><?php echo __('Audits');?></h2>
+	<div id="results">
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th class="actions"><?php echo __('Actions');?></th>
@@ -30,6 +31,7 @@
 	</tr>
 <?php endforeach; ?>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -44,11 +46,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('List Audit Deltas'), array('controller' => 'audit_deltas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
-	</ul>
 </div>
