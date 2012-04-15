@@ -1,8 +1,8 @@
 <div class="auditDeltas index">
 	<h2><?php echo __('Audit Deltas');?></h2>
+	<div id="results">
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th class="actions"><?php echo __('Actions');?></th>
 			<th><?php echo $this->Paginator->sort('property_name');?></th>
 			<th><?php echo $this->Paginator->sort('old_value');?></th>
 			<th><?php echo $this->Paginator->sort('new_value');?></th>
@@ -12,9 +12,6 @@
 	<?php
 	foreach ($auditDeltas as $auditDelta): ?>
 	<tr>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $auditDelta['AuditDelta']['id'])); ?>
-		</td>
 		<td><?php echo h($auditDelta['AuditDelta']['property_name']); ?>&nbsp;</td>
 		<td><?php echo h($auditDelta['AuditDelta']['old_value']); ?>&nbsp;</td>
 		<td><?php echo h($auditDelta['AuditDelta']['new_value']); ?>&nbsp;</td>
@@ -25,6 +22,7 @@
 	</tr>
 <?php endforeach; ?>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -39,11 +37,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('List Audits'), array('controller' => 'audits', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
-	</ul>
 </div>

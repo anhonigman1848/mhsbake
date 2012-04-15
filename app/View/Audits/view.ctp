@@ -22,11 +22,11 @@
 			<?php echo h($audit['Audit']['entity_id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Attribute:Value Pairs'); ?></dt>
+<!--		<dt><?php echo __('Attribute:Value Pairs'); ?></dt>
 		<dd>
 			<?php echo h($audit['Audit']['json_object']); ?>
 			&nbsp;
-		</dd>
+		</dd>-->
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
 			<?php echo h($audit['Audit']['description']); ?>
@@ -44,13 +44,6 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('List Audits'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Audit Deltas'), array('controller' => 'audit_deltas', 'action' => 'index')); ?> </li>
-	</ul>
-</div>
 <div class="related">
 	<h3><?php echo __('Related Audit Deltas');?></h3>
 	<?php if (!empty($audit['AuditDelta'])):?>
@@ -61,7 +54,6 @@
 		<th><?php echo __('Property Name'); ?></th>
 		<th><?php echo __('Old Value'); ?></th>
 		<th><?php echo __('New Value'); ?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
@@ -72,19 +64,9 @@
 			<td><?php echo $auditDelta['property_name'];?></td>
 			<td><?php echo $auditDelta['old_value'];?></td>
 			<td><?php echo $auditDelta['new_value'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'audit_deltas', 'action' => 'view', $auditDelta['id'])); ?>
-			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-		<li><?php echo $this->Html->link(__('List Audit Deltas'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Audits'), array('controller' => 'audits', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Home'), array('controller' => 'pages', 'action' => 'display')); ?> </li>
-		</ul>
-	</div>
 </div>
