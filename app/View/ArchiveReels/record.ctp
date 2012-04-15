@@ -1,13 +1,17 @@
 <?php $this->Access->setRole($current_user['role']); ?>
 <div class="subnav">
-<h2>Actions</h2>
-  <ul>
-	<li><?php echo $this->Html->link(__('Edit Record'), array('action' => 'editArchiveRecord', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?></li>
-	<li><?php echo $this->Form->postLink(__('Delete Record'), array('action' => 'softdelete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?></li>
-	<li><?php echo $this->Form->postLink(__('Delete Forever'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to PERMANENTLY delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?></li>
-	<li><?php echo $this->Html->link(__('Copy Record'), array('action' => 'addWithContent', $archiveRecord['ArchiveContent']['archive_content_id'])); ?> </li>
-	<li><?php echo $this->Html->link(__('New Content'), array('controller' => 'archive_contents', 'action' => 'addWithArchive', $archiveRecord['Archive']['archive_id'])); ?> </li>
-  </ul>
+      <?php  if($this->Access->cat('edit')){ 
+	    echo '<h2>Actions</h2>';
+	    echo '<ul>';
+	echo '<li>'.$this->Html->link(__('Edit Record'), array('action' => 'editArchiveRecord', $archiveRecord['ArchiveReel']['archive_reel_id'])).'</li>';
+	echo '<li>'.$this->Form->postLink(__('Delete Record'), array('action' => 'softdelete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])).'</li>';
+	if($this->Access->cat('delete')){
+	    echo '<li>'.$this->Form->postLink(__('Delete Forever'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to PERMANENTLY delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])).'</li>';
+	}
+	echo '<li>'.$this->Html->link(__('Copy Record'), array('action' => 'addWithContent', $archiveRecord['ArchiveContent']['archive_content_id'])).'</li>';
+	echo '<li>'.$this->Html->link(__('New Content'), array('controller' => 'archive_contents', 'action' => 'addWithArchive', $archiveRecord['Archive']['archive_id'])).'</li>';
+        echo '</ul>';
+      } ?>
 
 </div>
 <div class="archiveReels viewFloatRight">
@@ -146,10 +150,9 @@
 			<?php echo h($archiveRecord['ArchiveReel']['modified']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Deleted'); ?></dt>
+		<dt><?php if($this->Access->cat('deleted')){ echo __('Deleted'); } ?></dt>
 		<dd>
-			<?php echo h($archiveRecord['ArchiveReel']['deleted']); ?>
-			&nbsp;
+			<?php if($this->Access->cat('deleted')){ echo h($archiveRecord['ArchiveReel']['deleted']); } ?>
 		</dd>
 	</dl>
 </div>

@@ -63,7 +63,7 @@ class NewspaperReelsController extends AppController {
 							  'addWithNewspaper'))) {
 				return true; // action request authorized
 			}
-			return false; // action request not authorized
+			return true; // action request not authorized
 		}
 		
 		// Basic permissions [see also the beforeFilter()]

@@ -38,6 +38,7 @@ echo $this->Html->css('horz_menu.css');
 
 echo $this->Html->script('jquery.js');
 echo $this->Html->script('jquery.jeditable.js');
+echo $this->Html->script('jquery.jeditable.datepicker.js');
 echo $this->Html->script('jquery.ui.js');
 echo $this->Html->script('jquery.json-2.3.min.js');
 echo $this->Html->script('jstorage.min.js');

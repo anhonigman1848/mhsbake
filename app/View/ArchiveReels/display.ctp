@@ -42,7 +42,6 @@ echo $this->Form->end(); ?>
 	<div id="results">
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th class="actions"><?php echo __('Actions');?></th>
 			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>
 			<th><?php echo $this->Paginator->sort('Archive.title', 'Title');?></th>
 			<th><?php echo $this->Paginator->sort('Archive.city', 'City');?></th>
@@ -57,16 +56,10 @@ echo $this->Form->end(); ?>
 			<th><?php echo $this->Paginator->sort('checked_out');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th><?php echo $this->Paginator->sort('deleted');?></th>
 	</tr>
 	<?php
 	foreach ($archiveRecords as $archiveRecord): ?>
 	<tr id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>">		
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'record', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])); ?>
-		</td>
 		<td><input type="checkbox" class="acheckbox" id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>		
 		<td><?php echo h($archiveRecord['Archive']['title']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['Archive']['city']); ?>&nbsp;</td>
@@ -81,7 +74,6 @@ echo $this->Form->end(); ?>
 		<td><?php echo h($archiveRecord['ArchiveReel']['checked_out']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['ArchiveReel']['created']); ?>&nbsp;</td>
 		<td><?php echo h($archiveRecord['ArchiveReel']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($archiveRecord['ArchiveReel']['deleted']); ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
@@ -105,8 +97,8 @@ echo $this->Form->end(); ?>
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'archive_reels','action' => 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'archive_reels','action' => 'clear_all_check_boxes', 'display')); ?></li>
-		<li><?php echo $this->Html->link(__('Export Selected for Labels'), array('controller' => 'archive_reels','action' => 'export_selected')); ?></li>
-
-		<li><input type='button' onclick='goOfflineA(<?php echo json_encode($archiveRecords); ?>)' value='Go offline' />
-</li></ul>
+		<li><?php  if($this->Access->cat('inlineedit')){ echo $this->Html->link(__('Export Selected for Labels'), array('controller' => 'archive_reels','action' => 'export_selected')); } ?></li>
+		<li><?php if($this->Access->cat('inlineedit')){
+			       echo "<input type='button' onclick='goOfflineA(".json_encode($archiveRecords).")' value='Go offline' />"; } ?></li>
+	</ul>
 </div>

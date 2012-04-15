@@ -54,7 +54,15 @@ echo $this->Form->input('redox_to', array('id'=>'datepicker4',
 					 ));
 echo $this->Form->input('redox_quality_present', array('div' => false));
 echo $this->Form->input('checked_out', array('div' => false));
-echo $this->Form->input('deleted', array('div' => 'false'));
+
+if($this->Access->cat('deleted')){
+     echo $this->Form->input('deleted', array('div' => 'false'));
+} else {
+     echo '<div style="visibility:hidden" >';
+     echo $this->Form->input('deleted', array('div' => 'false'));
+     echo '</div>';
+}
+
 echo $this->Form->submit(__('Search', true));
 echo $this->Form->end(); ?>	
 	
@@ -82,17 +90,30 @@ echo $this->Form->end(); ?>
 	<tr id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>">			
 		<td><input type="checkbox" class="ncheckbox" id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"/></td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['newspaper_reel_id']); ?></td>
-		<td class="editntitle" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['title']); ?></td>
-		<td class="editncity" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['city']); ?></td>
-		<td class="editncounty" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['county']); ?></td>
 		
-		<td class="editncbegindate" id="<?php echo $newspaperRecord['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['begin_date']); ?></td>
-		<td class="editncenddate" id="<?php echo $newspaperRecord['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['end_date']); ?></td>
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editntitle"'; } ?>
+			       id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['title']); ?></td>
+		
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editncity"'; } ?>
+		    id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['city']); ?></td>
+		
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editncounty"'; } ?>
+		    id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['county']); ?></td>
+		
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editncbegindate"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['begin_date']); ?></td>
+		
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editncenddate"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperContent']['newspaper_content_id']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['end_date']); ?></td>
                 
-                <td class="editnrredoxqualitydate" id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['redox_quality_date']); ?></td>
-                <td class="editnrredoxqualitypresent" id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['redox_quality_present']); ?></td>
+                <td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnrredoxqualitydate"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['redox_quality_date']); ?></td>
+                
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnrredoxqualitypresent"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['redox_quality_present']); ?></td>
                 		
-		<td class="editnrcheckedout" id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['checked_out']); ?></td>
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnrcheckedout"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['checked_out']); ?></td>
 		
 	</tr>
 <?php endforeach; ?>
