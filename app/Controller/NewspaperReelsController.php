@@ -52,10 +52,15 @@ class NewspaperReelsController extends AppController {
 		
 		// Staff permissions [see also the beforeFilter()]
 		if ($user['role'] == 'staff') {
-			if (in_array($this->action, array('expanded',
-							  'index', 'view',
-							  'add', 'edit',
-							  'delete'))) {
+			if (in_array($this->action, array('find', 'checkBox',
+							  'checkBoxes', 'display',
+							  'get_check_boxes',
+							  'clear_all_check_boxes',
+							  'record', 'quality',
+							  'softdelete',
+							  'editNewspaperRecord',
+							  'addWithContent',
+							  'addWithNewspaper'))) {
 				return true; // action request authorized
 			}
 			return false; // action request not authorized
@@ -63,8 +68,11 @@ class NewspaperReelsController extends AppController {
 		
 		// Basic permissions [see also the beforeFilter()]
 		if ($user['role'] == 'basic') {
-			if (in_array($this->action, array('expanded',
-							  'index', 'view'))) {
+			if (in_array($this->action, array('find', 'checkBox',
+							  'checkBoxes', 'display',
+							  'get_check_boxes',
+							  'clear_all_check_boxes',
+							  'record'))) {
 				return true; // action request authorized
 			}
 			return false; // action request not authorized
@@ -83,7 +91,7 @@ class NewspaperReelsController extends AppController {
 /**
  * presetVars are used by Search.Prg to pull values from models  
  */	
-	public $presetVars = array(		
+	public $presetVars = array(
 		array('field' => 'title', 'type' => 'value'),
 		array('field' => 'city', 'type' => 'value'),
 		array('field' => 'county', 'type' => 'value'),
@@ -118,7 +126,10 @@ class NewspaperReelsController extends AppController {
 		}
 		if (empty($this->passedArgs['date_to'])) {
 			$this->passedArgs['date_to'] = '2032-12-31';	
-		}		
+		}
+		if (empty($this->passedArgs['deleted'])) {
+			$this->passedArgs['deleted'] = false;
+		}
 		$this->Prg->commonProcess();
 		
 		$this->paginate = array('conditions' => 
@@ -343,7 +354,8 @@ class NewspaperReelsController extends AppController {
 			$this->NewspaperReel->create();
 			if ($this->NewspaperReel->save($this->request->data)) {
 				$this->Session->setFlash(__('The newspaper reel has been saved'));
-				$this->redirect(array('controller' => 'newspaper_contents', 'action' => 'view', $id));
+				$this->redirect(array('controller' => 'newspaper_reels', 'action' => 'record',
+						      $this->NewspaperContent->NewspaperReel->id)); // display the new record
 			} else {
 				$this->Session->setFlash(__('The newspaper reel could not be saved. Please try again.'));
 			}
@@ -416,10 +428,10 @@ class NewspaperReelsController extends AppController {
 		}
 		if ($this->NewspaperReel->delete()) {
 			$this->Session->setFlash(__('Newspaper reel deleted'));
-			$this->redirect(array('action' => 'expanded'));
+			$this->redirect(array('action' => 'find'));
 		}
 		$this->Session->setFlash(__('Newspaper reel was not deleted'));
-		$this->redirect(array('action' => 'expanded'));
+		$this->redirect(array('action' => 'find'));
 	}
 	
 /**
@@ -439,10 +451,10 @@ class NewspaperReelsController extends AppController {
 		}
 		if ($this->NewspaperReel->saveField('deleted', true, false)) {
 			$this->Session->setFlash(__('Newspaper reel deleted'));
-			$this->redirect(array('action' => 'expanded'));
+			$this->redirect(array('action' => 'find'));
 		}
 		$this->Session->setFlash(__('Newspaper reel was not deleted'));
-		$this->redirect(array('action' => 'expanded'));
+		$this->redirect(array('action' => 'find'));
 	}
 
 
@@ -464,10 +476,10 @@ class NewspaperReelsController extends AppController {
 		}
 		if ($this->NewspaperReel->saveField('deleted', false, false)) {
 			$this->Session->setFlash(__('Newspaper reel restored'));
-			$this->redirect(array('action' => 'expanded'));
+			$this->redirect(array('action' => 'find'));
 		}
 		$this->Session->setFlash(__('Newspaper reel was not restored'));
-		$this->redirect(array('action' => 'expanded'));
+		$this->redirect(array('action' => 'find'));
 	}
     
     /*

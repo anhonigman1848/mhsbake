@@ -59,9 +59,9 @@ class NewspaperContentsController extends AppController {
 		
 		// Staff permissions [see also the beforeFilter()]
 		if ($user['role'] == 'staff') {
-			if (in_array($this->action, array('index', 'view',
-							  'add', 'edit',
-							  'delete'))) {
+			if (in_array($this->action, array('addNewspaperRecord',
+							  'addWithNewspaper',
+							  'view'))) {
 				return true; // action request authorized
 			}
 			return false; // action request not authorized

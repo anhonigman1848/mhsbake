@@ -34,7 +34,7 @@ echo $this->Form->input('date_to', array('id'=>'datepicker2',
 					 'div' => false,					 					 
 					 ));
 echo $this->Form->input('checked_out', array('div' => false));
-echo $this->Form->input('deleted', array('div' => 'false'));
+echo $this->Form->input('deleted', array('div' => false));
 echo $this->Form->submit(__('Search', true)/*, array('div' => false)*/);
 echo $this->Form->end(); ?>	
 	
@@ -53,7 +53,7 @@ echo $this->Form->end(); ?>
 			<th><?php echo $this->Paginator->sort('checked_out');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th><?php echo $this->Paginator->sort('deleted');?></th>
+			<?php  if($this->Access->cat('deleted')){ echo '<th>'.$this->Paginator->sort('deleted').'</th>'; } ?>
 	</tr>
 	<?php
 	foreach ($newspaperRecords as $newspaperRecord): ?>
@@ -66,7 +66,8 @@ echo $this->Form->end(); ?>
 		</td>
 -->		<td><input type="checkbox" class="ncheckbox" id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"/></td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['newspaper_reel_id']); ?>&nbsp;</td>
-		<td class="editntitle" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['title']); ?></td>
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editntitle"'; } ?>
+		    id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['title']); ?></td>
 		<td class="editncity" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['city']); ?></td>
 		<td class="editncounty" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['county']); ?></td>
 		<td class="editnalephnumber" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['aleph_number']); ?></td>
@@ -75,7 +76,7 @@ echo $this->Form->end(); ?>
 		<td class="editnrcheckedout" id="<?php echo $newspaperRecord['NewspaperReel']['checked_out']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['checked_out']); ?></td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['created']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($newspaperRecord['NewspaperReel']['deleted']); ?>&nbsp;</td>
+		<?php  if($this->Access->cat('deleted')){ echo '<td>'.h($newspaperRecord['NewspaperReel']['deleted']).'</td>'; } ?>
 	</tr>
 <?php endforeach; ?>
 	</table>

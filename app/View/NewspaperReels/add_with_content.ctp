@@ -95,7 +95,7 @@
 		echo $this->Form->input('date_of_last_access', $options = array('empty' => true));
 		echo $this->Form->input('date_of_microfilm', $options = array('empty' => true));
 		echo $this->Form->input('checked_out');
-		echo $this->Form->input('deleted');
+		//echo $this->Form->input('deleted');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
