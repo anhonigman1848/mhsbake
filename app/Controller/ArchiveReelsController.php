@@ -255,7 +255,7 @@ class ArchiveReelsController extends AppController {
  * @return void
  */
 	public function export_selected() {		
-		
+	    $this->autoLayout = false;				
 		if (!($this->Session->check('ar_selected'))) {
 			$this->Session->write('ar_selected.selectedRows', array());		
 		}
@@ -466,10 +466,10 @@ class ArchiveReelsController extends AppController {
 		}
 		if ($this->ArchiveReel->delete()) {
 			$this->Session->setFlash(__('Archive reel deleted'));
-			$this->redirect(array('action' => 'expanded'));
+			$this->redirect(array('action' => 'find'));
 		}
 		$this->Session->setFlash(__('Archive reel was not deleted'));
-		$this->redirect(array('action' => 'expanded'));
+		$this->redirect(array('action' => 'find'));
 	}
 
 

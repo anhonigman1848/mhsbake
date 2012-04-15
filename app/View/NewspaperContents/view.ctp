@@ -2,14 +2,9 @@
 <div class="newspaperContents view">
 <h2><?php  echo __('Newspaper Content');?></h2>
 	<dl>
-		<dt><?php echo __('Newspaper Content Id'); ?></dt>
-		<dd>
-			<?php echo h($newspaperContent['NewspaperContent']['newspaper_content_id']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Newspaper'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($newspaperContent['Newspaper']['title'], array('controller' => 'newspapers', 'action' => 'view', $newspaperContent['Newspaper']['newspaper_id'])); ?>
+			<?php echo h($newspaperContent['Newspaper']['title']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Begin Date'); ?></dt>
@@ -72,9 +67,7 @@
 	<?php if (!empty($newspaperContent['NewspaperReel'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th class="actions"><?php echo __('Actions');?></th>
 		<th><?php echo __('Newspaper Reel Id'); ?></th>
-		<th><?php echo __('Newspaper Content Id'); ?></th>
 		<th><?php echo __('Reel Polarity'); ?></th>
 		<th><?php echo __('Generation'); ?></th>
 		<th><?php echo __('Redox Quality Date'); ?></th>
@@ -88,19 +81,12 @@
 		<th><?php echo __('Checked Out'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
-		<th><?php echo __('Deleted'); ?></th>
 	</tr>
 	<?php
 		$i = 0;
 		foreach ($newspaperContent['NewspaperReel'] as $newspaperReel): ?>
 		<tr>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'newspaper_reels', 'action' => 'view', $newspaperReel['newspaper_reel_id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'newspaper_reels', 'action' => 'edit', $newspaperReel['newspaper_reel_id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'newspaper_reels', 'action' => 'delete', $newspaperReel['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperReel['newspaper_reel_id'])); ?>
-			</td>
 			<td><?php echo $newspaperReel['newspaper_reel_id'];?></td>
-			<td><?php echo $newspaperReel['newspaper_content_id'];?></td>
 			<td><?php echo $newspaperReel['reel_polarity'];?></td>
 			<td><?php echo $newspaperReel['generation'];?></td>
 			<td><?php echo $newspaperReel['redox_quality_date'];?></td>
@@ -114,7 +100,6 @@
 			<td><?php echo $newspaperReel['checked_out'];?></td>
 			<td><?php echo $newspaperReel['created'];?></td>
 			<td><?php echo $newspaperReel['modified'];?></td>
-			<td><?php echo $newspaperReel['deleted'];?></td>
 		</tr>
 	<?php endforeach; ?>
 	</table>

@@ -40,7 +40,6 @@ echo $this->Form->end(); ?>
 
 	<table cellpadding="0" cellspacing="0">
 	<tr>		
-			<th class="actions"><?php echo __('Actions');?></th>
 			<th><input type="checkbox" id="nselectall" onclick="ntoggleChecked(this.checked)"></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.title','Title');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.city', 'City');?></th>
@@ -61,11 +60,6 @@ echo $this->Form->end(); ?>
 	foreach ($newspaperRecords as $newspaperRecord): ?>
 	<tr id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>">
 		
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'record', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
-		</td>
 		<td><input type="checkbox" class="ncheckbox" id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"/></td>
 		<td><?php echo h($newspaperRecord['Newspaper']['title']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['Newspaper']['city']); ?>&nbsp;</td>
@@ -101,6 +95,7 @@ echo $this->Form->end(); ?>
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'newspaper_reels','action' => 'clear_all_check_boxes', 'display')); ?></li>
+		<li><?php echo $this->Html->link(__('Export Selected for Labels'), array('controller' => 'newspaper_reels','action' => 'export_selected')); ?></li>		
 		<li><input type='button' onclick="goOffline()" value="Go offline" /></li>
 		
 	</ul>
