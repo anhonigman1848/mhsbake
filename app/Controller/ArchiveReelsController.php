@@ -255,7 +255,7 @@ class ArchiveReelsController extends AppController {
  * @return void
  */
 	public function export_selected() {		
-		
+	    $this->autoLayout = false;				
 		if (!($this->Session->check('ar_selected'))) {
 			$this->Session->write('ar_selected.selectedRows', array());		
 		}
