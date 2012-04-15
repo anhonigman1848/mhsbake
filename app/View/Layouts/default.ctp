@@ -91,7 +91,7 @@ Welcome <?php echo $current_user['username']; ?>. <?php echo $this->Html->link(_
         <li><a href="/mhsbake/users">List Users</a></li>
         <li><a href="/mhsbake/users/add">New User</a></li>
       </ul>
-    </li> 
+    </li>
     <li><a>Audits</a>
       <ul>
         <li><a href="/mhsbake/audits/index">Audit Log</a></li>
