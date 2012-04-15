@@ -24,7 +24,7 @@ $( "#datepicker4" ).datepicker({changeYear: true,
 			       dateFormat: 'yy-mm-dd'});
 });
 </script>
-<div class="newspaperReels form">
+div class="newspaperReels form">
 	<h2><?php echo __('Display Selected Newspaper Records & Quality Search');?></h2>
 <?php $this->Access->setRole($current_user['role']);
 

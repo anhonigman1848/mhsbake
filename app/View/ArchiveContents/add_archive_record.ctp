@@ -32,13 +32,3 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
 </div>
-<!--<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Archives'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Archive Contents'), array('controller' => 'archive_contents', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archive Content'), array('controller' => 'archive_contents', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
--->

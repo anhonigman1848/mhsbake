@@ -54,18 +54,7 @@
 		</dd>
 	</dl>
 </div>
-<!--<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Archive Contents'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Archives'), array('controller' => 'archives', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archive'), array('controller' => 'archives', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Archive Reels'), array('controller' => 'archive_reels', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archive Reel'), array('controller' => 'archive_reels', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
---><div class="archiveContents form">
+<div class="archiveContents form">
 <?php echo $this->Form->create('ArchiveContent');?>
 	<fieldset>
 		<legend><?php echo __('Add Record for Archive ID '.$archive['Archive']['archive_id']); ?></legend>
