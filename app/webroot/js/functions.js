@@ -628,3 +628,8 @@ function goOfflineN(records) {
     $.jStorage.set('newspaper', records);    
     window.location = '/mhsbake/newspaper.html';
 }
+
+function goOfflineA(records) {    
+    $.jStorage.set('archive', records);    
+    window.location = '/mhsbake/archive.html';
+}

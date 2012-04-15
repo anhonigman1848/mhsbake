@@ -68,7 +68,7 @@ class AppController extends Controller {
         if( !empty( $this->data ) && empty( $this->data[$this->Auth->userModel] ) ) {
 			$this->data[$this->Auth->userModel] = $this->Auth->user();
 			        debug($this->data[$this->Auth->userModel]);
-		}      
-*/
+		}  
+*/    
     }
 }

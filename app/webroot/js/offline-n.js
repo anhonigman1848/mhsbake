@@ -40,8 +40,8 @@ function resetList() {
     }
     $('table').html(tableHtml);
     
-    var ulHtml = "<li><input type='button' onclick='createNewRecord()' value='Create New Record' /></li>" +
-		"<li><input type='button' onclick='submitChanges()' value='Submit Offline Changes' /></li>";
+    var ulHtml = "<li><input type='button' onclick='submitChanges()' value='Submit Offline Changes' /></li>" +
+                 "<li><input type='button' onclick='cancelChanges()' value='Cancel Offline Changes' /></li>";
     $('ul').html(ulHtml);
     
     // edit existing records on row doubleclick
@@ -49,6 +49,18 @@ function resetList() {
         var records = $.jStorage.get('newspaper');
         var id = $(this).attr("id");
         $.jStorage.set('id', id);
+        
+        //set flags for checkboxes
+	var redox_check = '';
+	var checked_out = '';
+	if (records[id].ArchiveReel.redox_quality_present) {
+	    redox_check = 'checked';
+	}
+	if (records[id].ArchiveReel.checked_out) {
+	    checked_out = 'checked';
+	}
+	
+	// generate form html
         var formHtml = '<label for="Title">Title</label>' +
             '<input name="title" type="text" id="Title" value= "' + records[id].Newspaper.title + '" />' +
             '<label for="City">City</label>' +
@@ -80,7 +92,7 @@ function resetList() {
             '<label for="datepicker3">Redox Quality Date</label>' +
             '<input name="redox_quality_date" type="text" id="datepicker3" value= "' + records[id].NewspaperReel.redox_quality_date + '" />' +
             '<label for="RedoxQualityPresent">Redox Quality Present</label>' +
-            '<input name="redox_quality_present" type="checkbox" id="RedoxQualityPresent" checked= "' + records[id].NewspaperReel.redox_quality_present + '" />' +
+            '<input name="redox_quality_present" type="checkbox" id="RedoxQualityPresent" ' + redox_check + '" />' +
             '<br /><br /><label for="Scratches">Scratches</label>' +
             '<input name="scratches" type="text" id="Scratches" value= "' + records[id].NewspaperReel.scratches + '" />' +
             '<label for="QualityIn">Quality In</label>' +
@@ -94,7 +106,7 @@ function resetList() {
             '<label for="datepicker5">Redox Quality Date</label>' +
             '<input name="date_of_microfilm" type="text" id="datepicker5" value= "' + records[id].NewspaperReel.date_of_microfilm + '" />' +
             '<label for="CheckedOut">Checked Out</label>' +
-            '<input name="checked_out" type="checkbox" id="CheckedOut" checked= "' + records[id].NewspaperReel.checked_out + '" />';
+            '<input name="checked_out" type="checkbox" id="CheckedOut" ' + checked_out + '" />';
         
         // swap out the titles
         var h2Html = 'Edit Record';
@@ -153,7 +165,7 @@ function saveRecord() {
         if (records[i].Newspaper.newspaper_id == records[id].Newspaper.newspaper_id) {
             records[i].Newspaper.title = $('#Title').val();
             records[i].Newspaper.city = $('#City').val();
-            records[i].Newspaper.county = $('#Title').val();
+            records[i].Newspaper.county = $('#County').val();
             records[i].Newspaper.title_control = $('#TitleControl').val();
             records[i].Newspaper.aleph_number = $('#AlephNumber').val();
         }    
@@ -197,7 +209,7 @@ function submitChanges() {
                         window.location = '/mhsbake/newspaper_reels/display';
                     },
                     error: function() {
-                        alert('Save attempt failed. Please verify that you\n have a working connection to the server.')
+                        alert('Save attempt failed. Please verify that you\nhave a working connection to the server\and try again.');
                     }                    
                 });
 }
@@ -207,5 +219,21 @@ function cancel() {
     resetList();
 }
 
-
+// cancel all changes and attempt return to online
+function cancelChanges() {
+    $.jStorage.flush();
+    var records = $.toJSON($.jStorage.get('newspaper'));    
+    
+    $.ajax({
+                    url: '/mhsbake/newspaper_reels/offlineEdit',
+                    type: 'POST',
+                    data: {'records[]': records},
+                    success: function() {
+                        window.location = '/mhsbake/newspaper_reels/display';
+                    },
+                    error: function() {
+                        alert('Cancel attempt failed. Please verify that you\nhave a working connection to the server\nand try again.');
+                    }                    
+                });
+}
 
