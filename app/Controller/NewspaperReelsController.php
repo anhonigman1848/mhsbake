@@ -447,10 +447,10 @@ class NewspaperReelsController extends AppController {
 		}
 		if ($this->NewspaperReel->delete()) {
 			$this->Session->setFlash(__('Newspaper reel deleted'));
-			$this->redirect(array('action' => 'expanded'));
+			$this->redirect(array('action' => 'find'));
 		}
 		$this->Session->setFlash(__('Newspaper reel was not deleted'));
-		$this->redirect(array('action' => 'expanded'));
+		$this->redirect(array('action' => 'find'));
 	}
 	
 /**
