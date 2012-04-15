@@ -377,6 +377,21 @@ class NewspaperReelsController extends AppController {
 	}
 
 /**
+ * cancel method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function cancel($id = null) {
+		$this->NewspaperReel->id = $id;
+		if (!$this->NewspaperReel->exists()) {
+			throw new NotFoundException(__('Invalid newspaper reel'));
+		}
+		$this->Session->setFlash(__('Edit cancelled. Changes not saved.'));
+		$this->redirect(array('action' => 'record', $id)); // display the unedited record
+	}
+
+/**
  * editNewspaperRecord method
  *
  * @param string $id
@@ -387,6 +402,7 @@ class NewspaperReelsController extends AppController {
 		if (!$this->NewspaperReel->exists()) {
 			throw new NotFoundException(__('Invalid newspaper content'));
 		}
+		$this->set('newspaperReel', $this->NewspaperReel->read());
 		if ($this->request->is('post') || $this->request->is('put')) {
 			// saveAssociated() saves into related tables
 			if ($this->NewspaperReel->saveAssociated($this->request->data, $options = array('deep' => true))) {

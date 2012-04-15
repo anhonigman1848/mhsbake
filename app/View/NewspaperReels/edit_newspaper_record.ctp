@@ -47,3 +47,10 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
 </div>
+
+<div id="cancel">
+  <ul>
+	<li><?php echo $this->Html->link(__('Cancel Edit'), array('action' => 'cancel', $newspaperReel['NewspaperReel']['newspaper_reel_id'])); ?> </li>
+  </ul>
+
+</div>
