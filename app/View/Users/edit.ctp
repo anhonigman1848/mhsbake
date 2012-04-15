@@ -6,9 +6,16 @@
 	<?php		
 		echo $this->Form->input('first_name');
 		echo $this->Form->input('last_name');
-		echo $this->Form->input('username');		
+		echo $this->Form->input('username');
+		if($this->Access->cat('setusertypeadmin')) {
+			$user_type = array('admin' => 'admin', 'staff' => 'staff', 'basic' => 'basic');
+		} elseif ($this->Access->cat('setusertypestaff')) {
+			$user_type = array( 'staff' => 'staff');
+		} else {
+			$user_type = array( 'basic' => 'basic');
+		}
 		echo $this->Form->input('role', array(
-			'options' => array('admin' => 'admin', 'staff' => 'staff', 'user' => 'user')
+			'options' => $user_type
 		));
 	?>
 	</fieldset>
@@ -18,7 +25,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
+		<li><?php if($this->Access->cat('delete')){  echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); } ?></li>
 		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index'));?></li>
 	</ul>
 </div>

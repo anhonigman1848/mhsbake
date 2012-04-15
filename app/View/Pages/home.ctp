@@ -4,31 +4,12 @@
 		Minnesota Historical Society Microfilm Database Application
 		Home	</title>
 <body>
-<br />	
+<table id= "top" cellspacing="0" border="0">
 
-<br />
-<hr />
-<br />
-<br />
-<?php echo $this->Html->link('Newspaper Records', array('controller' => 'newspaper_reels', 'action' => 'expanded')); ?>
-<br />
-<?php echo $this->Html->link('Newspaper Records Search', array('controller' => 'newspaper_reels', 'action' => 'find')); ?>
-<br />
-<?php echo $this->Html->link('Newspaper Records Quality Search', array('controller' => 'newspaper_reels', 'action' => 'quality')); ?>
-<br />
-<br />
-<?php echo $this->Html->link('Archive Records', array('controller' => 'archive_reels', 'action' => 'expanded')); ?>
-<br />
-<?php echo $this->Html->link('Archive Records Search', array('controller' => 'archive_reels', 'action' => 'find')); ?>
-<br />
-<?php echo $this->Html->link('Archive Records Quality Search', array('controller' => 'archive_reels', 'action' => 'quality')); ?>
-<br />
-<br />
-<?php echo $this->Html->link('Users', array('controller' => 'users')); ?>
-<br />
-<br />
-<?php echo $this->Html->link('Audits', array('controller' => 'audits')); ?>
-<br />
-<?php echo $this->Html->link('Audit Deltas', array('controller' => 'audit_deltas')); ?>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />	
+<tr>
+	<td id="nopad"><div id="mhcBig" ></div></td>
+
+</tr>
+</table>
+
 </body><link rel="stylesheet" type="text/css" href="data:text/css,"></html>
