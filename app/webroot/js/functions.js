@@ -30,6 +30,15 @@ $(document).ready(function() {
          indicator : 'Saving...',
          tooltip   : 'Click to edit the last name'
     });
+    $('.editusername').editable('/mhsbake/users/updateUsername', {
+         id        : 'id',
+         name      : 'username',
+         type      : 'text',
+         cancel    : 'Cancel',
+         submit    : 'Save',
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit the last name'
+    });
     
     // inline-edit functionality for newspapers
     $('.editntitle').editable('/mhsbake/newspapers/updateNTitle', {

@@ -54,7 +54,10 @@ class UsersController extends AppController {
 		if ($user['role'] == 'staff') {
 			if (in_array($this->action, array('login', 'logout',
 							  'index', 'view',
-							  'add', 'edit'))) {
+							  'add', 'edit',
+							  'updateFirstName',
+							  'updateLastName',
+							  'updateUsername'))) {
 				return true; // action request authorized
 			}
 			return false; // action request not authorized
@@ -64,7 +67,10 @@ class UsersController extends AppController {
 		if ($user['role'] == 'basic') {
 			if (in_array($this->action, array('login', 'logout',
 							  'index', 'view',
-							  'edit'))) {
+							  'edit',
+							  'updateFirstName',
+							  'updateLastName',
+							  'updateUsername'))) {
 				return true; // action request authorized
 			}
 			return false; // action request not authorized
@@ -109,7 +115,7 @@ class UsersController extends AppController {
 				throw new NotFoundException('Invalid user');
 			}
 
-			$this->User->saveField('first_name', $_POST['first_name'], false); // save new first name
+			$this->User->saveField('first_name', $_POST['first_name'], true); // save new first name
 			$this->set('postfirstname', $_POST['first_name']); // create variable for passing first name to view
 		} else {
 			// some sort of error...
@@ -131,8 +137,28 @@ class UsersController extends AppController {
 				throw new NotFoundException('Invalid user');
 			}
 
-			$this->User->saveField('last_name', $_POST['last_name'], false); // save new last name
+			$this->User->saveField('last_name', $_POST['last_name'], true); // save new last name
 			$this->set('postlastname', $_POST['last_name']); // create variable for passing last name to view
+		}
+	}
+	
+	/*
+	 * This function changes a user's username based on an ajax call
+	 * @param Needs an id and username passed as key:value pairs through Post
+	 * @returns new value of username 
+	 */
+	public function updateUsername() {
+		if ($this->request->is('post')) { // only change if came params came from Post
+			// App::import('Core', 'sanitize'); // Learn Later
+			// $title = Sanitize::clean($this->data['User']['first_name']); // Learn Later
+
+			$this->User->id = $_POST['id']; // prepare user model to change data for particular user
+			if (!$this->User->exists()) {
+				throw new NotFoundException('Invalid user');
+			}
+
+			$this->User->saveField('username', $_POST['username'], true); // save new username
+			$this->set('postusername', $_POST['username']); // create variable for passing username to view
 		}
 	}
 
