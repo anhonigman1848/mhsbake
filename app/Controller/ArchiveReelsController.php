@@ -385,6 +385,23 @@ class ArchiveReelsController extends AppController {
 	}
 
 /**
+ * offlineEdit method
+ * saves changes made offline
+ *
+ * @return void
+ */
+	public function offlineEdit() {
+		$this->autoRender = false;
+		$records = array();
+		$records = $_POST['records'];
+		$records = json_decode($records[0], true);
+		foreach ($records as $record) {			
+			$this->ArchiveReel->saveAssociated($record, $options = array('deep' => true));
+		}
+	}
+
+
+/**
  * edit method
  *
  * @param string $id

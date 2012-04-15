@@ -395,6 +395,7 @@ class NewspaperReelsController extends AppController {
 
 /**
  * offlineEdit method
+ * saves changes made offline
  *
  * @return void
  */
@@ -403,16 +404,9 @@ class NewspaperReelsController extends AppController {
 		$records = array();
 		$records = $_POST['records'];
 		$records = json_decode($records[0], true);
-		foreach ($records as $record) {
-			
-			debug($record);
-			
+		foreach ($records as $record) {			
 			$this->NewspaperReel->saveAssociated($record, $options = array('deep' => true));
 		}
-		
-		//debug($records);
-		//$this->NewspaperReel->saveAssociated($record, $options = array('deep' => true));
-		//$this->ArchiveReel->saveAssociated($this->request->data, $options = array('deep' => true));
 	}
 
 

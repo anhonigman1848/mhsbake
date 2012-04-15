@@ -126,8 +126,11 @@ div.subnav {
 	text-align: left;
 }
 
+/*lower navigation bar*/
 div.bnav {
 	padding:10px 1.5%;
+	float:left;
+	width:67%;
 }
 
 .bnav a {
@@ -136,7 +139,7 @@ div.bnav {
 	display: block;
 	padding: 1em 0;
 	color: #fff;
-	width: 100%;
+	width: 17em;
 	font-weight: bold;
 	border: 1px solid #FFF;
 	background-color: #a8162b;

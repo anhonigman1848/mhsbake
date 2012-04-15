@@ -105,5 +105,6 @@ echo $this->Form->end(); ?>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'archive_reels','action' => 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'archive_reels','action' => 'clear_all_check_boxes', 'display')); ?></li>
 		<li><?php echo $this->Html->link(__('Export Selected for Labels'), array('controller' => 'archive_reels','action' => 'export_selected')); ?></li>
+		<li><input type='button' onclick='goOfflineA(<?php echo json_encode($archiveRecords); ?>)' value='Go offline' /></li>
 	</ul>
 </div>

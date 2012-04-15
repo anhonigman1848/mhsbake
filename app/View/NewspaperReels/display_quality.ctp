@@ -54,7 +54,7 @@ echo $this->Form->input('redox_to', array('id'=>'datepicker4',
 					 ));
 echo $this->Form->input('redox_quality_present', array('div' => false));
 echo $this->Form->input('checked_out', array('div' => false));
-echo $this->Form->submit(__('Search', true), array('div' => false));
+echo $this->Form->submit(__('Search', true));
 echo $this->Form->end(); ?>	
 	
 
@@ -116,13 +116,16 @@ echo $this->Form->end(); ?>
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+<div class="bnav">
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'newspaper_reels','action' => 'clear_all_check_boxes', 'display_quality')); ?></li>
+<<<<<
 		<li><?php if($this->Access->cat('inlineedit')){
 			       echo "<input type='button' onclick='goOfflineN(".json_encode($newspaperRecords).")' value='Go offline' />"; } ?></li>
+=====
 	</ul>
 </div>
-
+<div class="offline">
+        <input type='button' onclick='goOfflineN(<?php echo json_encode($newspaperRecords); ?>)' value='Go offline' />
+</div>
