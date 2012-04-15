@@ -26,7 +26,7 @@
 		echo $this->Form->input('NewspaperReel.0.date_of_last_access', $options = array('empty' => true));
 		echo $this->Form->input('NewspaperReel.0.date_of_microfilm', $options = array('empty' => true));
 		echo $this->Form->input('NewspaperReel.0.checked_out');
-		echo $this->Form->input('NewspaperReel.0.deleted');
+		//echo $this->Form->input('NewspaperReel.0.deleted');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

@@ -516,10 +516,10 @@ class ArchiveReelsController extends AppController {
 		}
 		if ($this->ArchiveReel->saveField('deleted', true, false)) {
 			$this->Session->setFlash(__('Archive reel deleted'));
-			$this->redirect(array('action' => 'expanded'));
+			$this->redirect(array('action' => 'find'));
 		}
 		$this->Session->setFlash(__('Archive reel was not deleted'));
-		$this->redirect(array('action' => 'expanded'));
+		$this->redirect(array('action' => 'find'));
 	}
 
 

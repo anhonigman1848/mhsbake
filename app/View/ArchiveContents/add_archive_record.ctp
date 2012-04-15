@@ -27,7 +27,7 @@
 		echo $this->Form->input('ArchiveReel.0.shipping_box');
 		echo $this->Form->input('ArchiveReel.0.date_of_last_access', $options = array('empty' => true));
 		echo $this->Form->input('ArchiveReel.0.checked_out');
-		echo $this->Form->input('ArchiveReel.0.deleted');
+		//echo $this->Form->input('ArchiveReel.0.deleted');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
