@@ -130,7 +130,7 @@ div.subnav {
 div.bnav {
 	padding:10px 1.5%;
 	float:left;
-	width:67%;
+	width:65%;
 }
 
 .bnav a {
@@ -166,3 +166,20 @@ div.bnav {
 	position: relative;
 }
 
+div.offline {
+	padding:10px 1.5%;
+	float:right;
+	width:25%;
+}
+.offline {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+.offline  li {
+	margin:0 !important;
+	padding:0 !important;
+	list-style: none; /* remove bullets */
+	float: left;
+	position: relative;
+}

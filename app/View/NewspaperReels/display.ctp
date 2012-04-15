@@ -96,10 +96,5 @@ echo $this->Form->end(); ?>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'newspaper_reels','action' => 'clear_all_check_boxes', 'display')); ?></li>
 		<li><?php echo $this->Html->link(__('Export Selected for Labels'), array('controller' => 'newspaper_reels','action' => 'export_selected')); ?></li>		
-	</ul>
-</div>
-
-<div class="offline">
-        <input type='button' onclick='goOfflineN(<?php echo json_encode($newspaperRecords); ?>)' value='Go offline' />	
-
+</ul>
 </div>
