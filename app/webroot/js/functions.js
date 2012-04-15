@@ -529,12 +529,13 @@ $(document).ready(function() {
     
     // gets all checked boxes for newspapers so we can populate them on page load
     // also determines whether select all box should be checked
+    $('#nselectall').removeAttr('checked');
     if($('.ncheckbox').length) {
         $.get('/mhsbake/newspaper_reels/get_check_boxes', function(result) {
             if (result.length) {
                 result = JSON.parse(result);
                 $.each(result, function(key, value) {
-                    $('#' + value + ' .ncheckbox').attr('checked', true);            
+                    $('#' + value + ' .ncheckbox').attr('checked', 'checked');            
                 });
                 var checked = 1;
                 $('.ncheckbox').each(function() {
@@ -543,7 +544,7 @@ $(document).ready(function() {
                     }                
                 });
                 if (checked == 1) {
-                        $('#nselectall').attr('checked', true);
+                        $('#nselectall').attr('checked', 'checked');
                 }
             }
         });
@@ -551,6 +552,7 @@ $(document).ready(function() {
     
     // gets all checked boxes for archives so we can populate them on page load
     // also determines whether select all box should be checked
+    $('#aselectall').attr('checked', false);
     if($('.acheckbox').length) {
         $.get('/mhsbake/archive_reels/get_check_boxes', function(result) {
             if (result.length) {
@@ -622,7 +624,7 @@ function atoggleChecked(status) {
             });         
     }
 
-function goOffline() {
-    console.log("Inside goOffline()");
-        window.location = '/mhsbake/test1.html'
+function goOfflineN(records) {    
+    $.jStorage.set('newspaper', records);    
+    window.location = '/mhsbake/newspaper.html';
 }

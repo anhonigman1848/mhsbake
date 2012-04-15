@@ -206,6 +206,11 @@ div.viewFloatRight {
 	width:80%;
 	padding:10px;
 }
+div.formFloatLeft {
+	float:left;
+	width:80%;
+	padding:10px;
+}
 div.actions {
 	float:none;
 	width:20%;
@@ -475,6 +480,33 @@ form .submit input[type=submit]:hover {
 	background: #F2C1BC;
 	color: #000;
 }
+
+#cancel a {
+	font-size: 1.25em;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 10em;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	padding: 1em 0;
+	color: #fff;
+	font-weight: normal;
+	border: 1px solid #FFF;
+	background-color: #a8162b;
+	margin: 0px;
+	background:#a8162b;
+}
+#cancel ul li {
+	list-style: none;
+	float:left;
+}
+#cancel a:hover{
+	background-color: #F2C1BC;
+	color: #000;
+}
+
+
 /* Form errors */
 form .error {
 	background: #F2C1BC;
@@ -548,16 +580,16 @@ p.error,
 .error-message {
 	clear: both;
 	color: #fff;
-	background: #c43c35;
+	background: #a8162b;
 	border: 1px solid rgba(0, 0, 0, 0.5);
-	background-repeat: repeat-x;
+/*	background-repeat: repeat-x;
 	background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
 	background-image: -ms-linear-gradient(top, #ee5f5b, #c43c35);
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));
 	background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
 	background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
 	background-image: linear-gradient(top, #ee5f5b, #c43c35);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);*/
 }
 .success {
 	clear: both;
@@ -613,6 +645,7 @@ p.error em {
 
 /* Buttons and button links */
 input[type=submit],
+input[type=button],
 .actions ul li a,
 .actions a {
 	font-weight:normal;
@@ -645,6 +678,7 @@ input[type=submit],
 	text-decoration: none;
 }
 input[type=submit]:active,
+input[type=button]:active,
 .actions ul li a:active,
 .actions a:active {
 	background: #eee;
