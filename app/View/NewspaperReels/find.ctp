@@ -81,7 +81,14 @@ echo $this->Form->end(); ?>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editncenddate"'; } ?>
 		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['end_date']); ?></td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnrcheckedout"'; } ?>
-		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['checked_out']); ?></td>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>">
+		    <?php
+		    if($newspaperRecord['NewspaperReel']['checked_out'] == 1) {
+					$checkedout = 'true';		      
+			       } else {
+			                $checkedout = 'false';
+			       }
+		    echo h($checkedout); ?></td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['created']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['modified']); ?>&nbsp;</td>
 		<?php  if($this->Access->cat('deleted')){
