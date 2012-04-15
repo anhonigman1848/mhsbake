@@ -24,7 +24,7 @@ $( "#datepicker4" ).datepicker({changeYear: true,
 			       dateFormat: 'yy-mm-dd'});
 });
 </script>
-div class="newspaperReels form">
+<div class="newspaperReels form">
 	<h2><?php echo __('Display Selected Newspaper Records & Quality Search');?></h2>
 <?php $this->Access->setRole($current_user['role']);
 
@@ -112,10 +112,12 @@ echo $this->Form->end(); ?>
 	?>
 	</div>
 </div>
+
 <div class="bnav">
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'newspaper_reels','action' => 'clear_all_check_boxes', 'display_quality')); ?></li>
+		<li><h2>&nbsp;</h2></li>
 		<li><?php if($this->Access->cat('inlineedit')){
 			       echo "<input type='button' onclick='goOfflineN(".json_encode($newspaperRecords).")' value='Go offline' />"; } ?></li>
 	</ul>

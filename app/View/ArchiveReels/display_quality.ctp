@@ -132,10 +132,8 @@ echo $this->Form->end(); ?>
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'archive_reels','action' => 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'archive_reels','action' => 'clear_all_check_boxes', 'display_quality')); ?></li>
-		<li><?php echo $this->Html->link(__('Export Selected for Labels'), array('controller' => 'archive_reels','action' => 'export_selected')); ?></li>
+		<li><h2>&nbsp;</h2></li>
+		<li><?php if($this->Access->cat('inlineedit')){
+			       echo "<input type='button' onclick='goOfflineN(".json_encode($archiveRecords).")' value='Go offline' />"; } ?></li>
 	</ul>
-</div>
-<div class="offline">
-		<input type='button' onclick='goOfflineA(<?php echo json_encode($archiveRecords); ?>)' value='Go offline' />
-
 </div>
