@@ -27,18 +27,8 @@
 		echo $this->Form->input('ArchiveReel.0.shipping_box');
 		echo $this->Form->input('ArchiveReel.0.date_of_last_access', $options = array('empty' => true));
 		echo $this->Form->input('ArchiveReel.0.checked_out');
-		echo $this->Form->input('ArchiveReel.0.deleted');
+		//echo $this->Form->input('ArchiveReel.0.deleted');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
 </div>
-<!--<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Archives'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Archive Contents'), array('controller' => 'archive_contents', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archive Content'), array('controller' => 'archive_contents', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
--->

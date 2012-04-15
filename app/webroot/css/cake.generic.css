@@ -87,7 +87,7 @@ p {
 	padding: 10px 20px;
 }
   #top {
-	margin-bottom: 0px;
+	margin-bottom: 10px;
 	}
 	
   #nopad {
@@ -131,7 +131,7 @@ p {
 	}
 
   #results {
-	height: 500px;
+	max-height: 440px;
 	width: 1060px;
 	overflow: auto;
 	}
@@ -167,6 +167,11 @@ p {
   .navtab:hover a {
 	color: #fff;
 	}
+
+  .crumbs {
+	text-align: center;
+	margin: .5em;
+  }
 
 #header h1 {
 	line-height:20px;
@@ -214,10 +219,6 @@ div.viewFloatRight {
 	float:right;
 	width:80%;
 	padding:10px;
-}
-div.offline {
-	float:right;
-	width:30%;
 }
 div.formFloatLeft {
 	float:left;
@@ -701,22 +702,21 @@ p.error em {
 
 input[type=submit],
 input[type=button] {
-	font-size: 1.25em;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	width: 14em;
+	width: 17em;
 	text-decoration: none;
 	text-align: center;
 	display: block;
-	padding: 1em;
+	padding: 1em 0;
 	color: #fff;
-	font-weight: normal;
+	font-weight: bold;
 	border: 1px solid #FFF;
 	background-color: #a8162b;
 	margin: 0px;
-	background:#a8162b;
 	list-style: none;
 }
+
+
+
 input[type=submit]:hover,
 input[type=button]:hover {
 	background-color: #F2C1BC;

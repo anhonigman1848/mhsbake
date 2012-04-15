@@ -35,10 +35,11 @@ echo $this->Form->input('date_to', array('id'=>'datepicker2',
 					 'div' => false,					 					 
 					 ));
 echo $this->Form->input('checked_out', array('div' => false));
-echo $this->Form->submit(__('Search', true), array('div' => false));
+echo $this->Form->submit(__('Search', true));
 echo $this->Form->end(); ?>	
 	
 
+	<div id="results">
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><input type="checkbox" id="aselectall" onclick="atoggleChecked(this.checked)"></th>
@@ -76,6 +77,7 @@ echo $this->Form->end(); ?>
 	</tr>
 <?php endforeach; ?>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(

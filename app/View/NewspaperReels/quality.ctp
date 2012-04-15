@@ -113,7 +113,15 @@ echo $this->Form->end(); ?>
 		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['redox_quality_present']); ?></td>
                 		
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnrcheckedout"'; } ?>
-		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['checked_out']); ?></td>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>">
+		    <?php
+		    if($newspaperRecord['NewspaperReel']['checked_out'] == 1) {
+					$checkedout = 'true';		      
+			       } else {
+			                $checkedout = 'false';
+			       }
+		    
+		    echo h($checkedout); ?></td>
 		
 	</tr>
 <?php endforeach; ?>
@@ -134,8 +142,7 @@ echo $this->Form->end(); ?>
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+<div class="bnav">
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'newspaper_reels','action' => 'clear_all_check_boxes', 'quality')); ?></li>

@@ -56,10 +56,11 @@ echo $this->Form->input('redox_to', array('id'=>'datepicker4',
 					 ));
 echo $this->Form->input('redox_quality_present', array('div' => false));
 echo $this->Form->input('checked_out', array('div' => false));
-echo $this->Form->submit(__('Search', true), array('div' => false));
+echo $this->Form->submit(__('Search', true));
 echo $this->Form->end(); ?>	
 	
 
+	<div id="results">
 	<table cellpadding="0" cellspacing="0">
         <tr>			
 			       <th class="actions"><?php echo __('Actions');?></th>
@@ -111,6 +112,7 @@ echo $this->Form->end(); ?>
 	</tr>
 <?php endforeach; ?>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -126,12 +128,14 @@ echo $this->Form->end(); ?>
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+<div class="bnav">
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'archive_reels','action' => 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'archive_reels','action' => 'clear_all_check_boxes', 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Export Selected for Labels'), array('controller' => 'archive_reels','action' => 'export_selected')); ?></li>
-		<li><input type='button' onclick='goOfflineA(<?php echo json_encode($archiveRecords); ?>)' value='Go offline' /></li>
 	</ul>
+</div>
+<div class="offline">
+		<input type='button' onclick='goOfflineA(<?php echo json_encode($archiveRecords); ?>)' value='Go offline' />
+
 </div>
