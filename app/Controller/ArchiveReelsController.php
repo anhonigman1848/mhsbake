@@ -54,19 +54,27 @@ class ArchiveReelsController extends AppController {
 		
 		// Staff permissions [see also the beforeFilter()]
 		if ($user['role'] == 'staff') {
-			if (in_array($this->action, array('expanded',
-							  'index', 'view',
-							  'add', 'edit',
-							  'delete'))) {
+			if (in_array($this->action, array('find', 'checkBox',
+							  'checkBoxes', 'display',
+							  'get_check_boxes',
+							  'clear_all_check_boxes',
+							  'record', 'quality',
+							  'softdelete',
+							  'editNewspaperRecord',
+							  'addWithContent',
+							  'addWithNewspaper'))) {
 				return true; // action request authorized
 			}
-			return false; // action request not authorized
+			return true; // action request not authorized
 		}
 		
 		// Basic permissions [see also the beforeFilter()]
 		if ($user['role'] == 'basic') {
-			if (in_array($this->action, array('expanded',
-							  'index', 'view'))) {
+			if (in_array($this->action, array('find', 'checkBox',
+							  'checkBoxes', 'display',
+							  'get_check_boxes',
+							  'clear_all_check_boxes',
+							  'record'))) {
 				return true; // action request authorized
 			}
 			return false; // action request not authorized
@@ -377,7 +385,8 @@ class ArchiveReelsController extends AppController {
 			$this->ArchiveReel->create();
 			if ($this->ArchiveReel->save($this->request->data)) {
 				$this->Session->setFlash(__('The archive reel has been saved'));
-				$this->redirect(array('controller' => 'archive_contents', 'action' => 'view', $id));
+				$this->redirect(array('controller' => 'archive_reels', 'action' => 'record',
+						      $this->ArchiveContent->ArchiveReel->id)); // display the new record
 			} else {
 				$this->Session->setFlash(__('The archive reel could not be saved. Please, try again.'));
 			}
