@@ -43,7 +43,14 @@
 		echo $this->Form->input('ArchiveReel.shipping_box');
 		echo $this->Form->input('ArchiveReel.date_of_last_access', $options = array('empty' => true));
 		echo $this->Form->input('ArchiveReel.checked_out');
-		echo $this->Form->input('ArchiveReel.deleted');
+		
+		if($this->Access->cat('deleted')){
+			echo $this->Form->input('deleted', array('div' => 'false'));
+		} else {
+			echo '<div style="visibility:hidden" >';
+			echo $this->Form->input('deleted', array('div' => 'false'));
+			echo '</div>';
+		}
 	?>
  </fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
