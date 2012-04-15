@@ -125,7 +125,7 @@ class AuditableBehavior extends ModelBehavior {
     if( method_exists( $Model, 'currentUser' ) ) {
       $source = $Model->currentUser();
     }
-/*     debug($this->{$Model->{$this->userModel}); */
+    debug($this->{$Model->{$this->userModel}});
 /*     $source = $Model->$this->Auth->user(); */
     if( method_exists( $Model, 'current_user' ) ) {
       $source = $Model->current_user();

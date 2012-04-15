@@ -64,11 +64,9 @@ class AppController extends Controller {
 			$this->Session->write('ar_selected.selectedRows', array());	    */
 /*         debug($this->Auth->user()); */
 /* attempt to get the current user to the model for the behavior to document the source */
-/*
         if( !empty( $this->data ) && empty( $this->data[$this->Auth->userModel] ) ) {
 			$this->data[$this->Auth->userModel] = $this->Auth->user();
 			        debug($this->data[$this->Auth->userModel]);
 		}      
-*/
     }
 }
