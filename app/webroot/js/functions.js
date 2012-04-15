@@ -10,6 +10,7 @@ $(document).ready(function() {
         // Work on code here later...
         // check with http://www.appelsiini.net/2008/2/creating-inline-timepicker-with-javascript for help
     });
+
     
     // inline-edit functionality for users
     $('.editfirstname').editable('/mhsbake/users/updateFirstName', {
@@ -91,20 +92,24 @@ $(document).ready(function() {
     $('.editncbegindate').editable('/mhsbake/newspapercontents/updateNCBeginDate', {
          id        : 'id',
          name      : 'begin_date',
-         type      : 'text',
-         cancel    : 'Cancel',
-         submit    : 'Save',
+         type      : 'datepicker',
          indicator : 'Saving...',
-         tooltip   : 'Click to edit the newspaper begin date'
+         tooltip   : 'Click to edit the newspaper begin date',
+         datepicker: {
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true}
     });
     $('.editncenddate').editable('/mhsbake/newspapercontents/updateNCEndDate', {
          id        : 'id',
          name      : 'end_date',
-         type      : 'text',
-         cancel    : 'Cancel',
-         submit    : 'Save',
+         type      : 'datepicker',
          indicator : 'Saving...',
-         tooltip   : 'Click to edit the newspaper end date'
+         tooltip   : 'Click to edit the newspaper begin date',
+         datepicker: {
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true}
     });
     $('.editncreelcontrol').editable('/mhsbake/newspapercontents/updateNCReelControl', {
          id        : 'id',
@@ -165,11 +170,13 @@ $(document).ready(function() {
     $('.editnrredoxqualitydate').editable('/mhsbake/newspaperreels/updateNRRedoxQualityDate', {
          id        : 'id',
          name      : 'redox_quality_date',
-         type      : 'text',
-         cancel    : 'Cancel',
-         submit    : 'Save',
+         type      : 'datepicker',
          indicator : 'Saving...',
-         tooltip   : 'Click to edit the newspaper redox quality date'
+         tooltip   : 'Click to edit the newspaper redox quality date',
+         datepicker: {
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true}
     });
     $('.editnrredoxqualitypresent').editable('/mhsbake/newspaperreels/updateNRRedoxQualityPresent', {
          id        : 'id',

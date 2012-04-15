@@ -35,7 +35,13 @@ echo $this->Form->input('date_to', array('id'=>'datepicker2',
 					 ));
 echo $this->Form->input('checked_out', array('div' => false));
 
-echo $this->Form->input('deleted', array('div' => 'false'));
+if($this->Access->cat('deleted')){
+     echo $this->Form->input('deleted', array('div' => 'false'));
+} else {
+     echo '<div style="visibility:hidden" >';
+     echo $this->Form->input('deleted', array('div' => 'false'));
+     echo '</div>';
+}
 echo $this->Form->submit(__('Search', true));
 echo $this->Form->end(); ?>	
 	
@@ -63,16 +69,30 @@ echo $this->Form->end(); ?>
 		<td><input type="checkbox" class="ncheckbox" id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"/></td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['newspaper_reel_id']); ?>&nbsp;</td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editntitle"'; } ?>
-		    id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['title']); ?></td>
-		<td class="editncity" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['city']); ?></td>
-		<td class="editncounty" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['county']); ?></td>
-		<td class="editnalephnumber" id="<?php echo $newspaperRecord['Newspaper']['newspaper_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['aleph_number']); ?></td>
-		<td class="editncbegindate" id="<?php echo $newspaperRecord['NewspaperContent']['begin_date']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['begin_date']); ?></td>
-		<td class="editncenddate" id="<?php echo $newspaperRecord['NewspaperContent']['end_date']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['end_date']); ?></td>
-		<td class="editnrcheckedout" id="<?php echo $newspaperRecord['NewspaperReel']['checked_out']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['checked_out']); ?></td>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['title']); ?></td>
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editncity"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['city']); ?></td>
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editncounty"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['county']); ?></td>
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnalephnumber"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['Newspaper']['aleph_number']); ?></td>
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editncbegindate"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['begin_date']); ?></td>
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editncenddate"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperContent']['end_date']); ?></td>
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnrcheckedout"'; } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['checked_out']); ?></td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['created']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['NewspaperReel']['modified']); ?>&nbsp;</td>
-		<?php  if($this->Access->cat('deleted')){ echo '<td>'.h($newspaperRecord['NewspaperReel']['deleted']).'</td>'; } ?>
+		<?php  if($this->Access->cat('deleted')){
+			       if($newspaperRecord['NewspaperReel']['deleted'] == 1) {
+					$deleted = 'true';		      
+			       } else {
+			                $deleted = 'false';
+			       }
+			       echo '<td>';
+			       echo h( $deleted );
+			       echo '</td>'; } ?>
 	</tr>
 <?php endforeach; ?>
 	</table>

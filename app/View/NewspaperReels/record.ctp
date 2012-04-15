@@ -143,10 +143,9 @@
 			<?php echo h($newspaperRecord['NewspaperReel']['modified']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Deleted'); ?></dt>
+		<dt><?php if($this->Access->cat('deleted')){ echo __('Deleted'); } ?></dt>
 		<dd>
-			<?php echo h($newspaperRecord['NewspaperReel']['deleted']); ?>
-			&nbsp;
+			<?php if($this->Access->cat('deleted')){ echo h($newspaperRecord['NewspaperReel']['deleted']); } ?>
 		</dd>
 	</dl>
 </div>

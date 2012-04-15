@@ -121,7 +121,8 @@ echo $this->Form->end(); ?>
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'newspaper_reels','action' => 'clear_all_check_boxes', 'display_quality')); ?></li>
-		<li><input type='button' onclick='goOfflineN(<?php echo json_encode($newspaperRecords); ?>)' value='Go offline' /></li>
+		<li><?php if($this->Access->cat('inlineedit')){
+			       echo "<input type='button' onclick='goOfflineN(".json_encode($newspaperRecords).")' value='Go offline' />"; } ?></li>
 	</ul>
 </div>
 
