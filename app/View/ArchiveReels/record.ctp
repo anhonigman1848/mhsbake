@@ -7,6 +7,7 @@
 	echo '<li>'.$this->Form->postLink(__('Delete Record'), array('action' => 'softdelete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])).'</li>';
 	if($this->Access->cat('delete')){
 	    echo '<li>'.$this->Form->postLink(__('Delete Forever'), array('action' => 'delete', $archiveRecord['ArchiveReel']['archive_reel_id']), null, __('Are you sure you want to PERMANENTLY delete # %s?', $archiveRecord['ArchiveReel']['archive_reel_id'])).'</li>';
+	    echo '<li>'.$this->Form->postLink(__('Restore Deleted Record'), array('action' => 'restore', $archiveRecord['ArchiveReel']['archive_reel_id'])).'</li>';
 	}
 	echo '<li>'.$this->Html->link(__('Copy Record'), array('action' => 'addWithContent', $archiveRecord['ArchiveContent']['archive_content_id'])).'</li>';
 	echo '<li>'.$this->Html->link(__('New Content'), array('controller' => 'archive_contents', 'action' => 'addWithArchive', $archiveRecord['Archive']['archive_id'])).'</li>';

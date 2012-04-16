@@ -7,6 +7,7 @@
 	  echo '<li>'.$this->Form->postLink(__('Delete Record'), array('action' => 'softdelete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])).'</li>';
 	  if($this->Access->cat('delete')){
 	    echo '<li>'.$this->Form->postLink(__('Delete Forever'), array('action' => 'delete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to PERMANENTLY delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])).'</li>';
+	    echo '<li>'.$this->Form->postLink(__('Restore Deleted Record'), array('action' => 'restore', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])).'</li>';
 	  }
 	  echo '<li>'.$this->Html->link(__('Copy Record'), array('action' => 'addWithContent', $newspaperRecord['NewspaperContent']['newspaper_content_id'])).'</li>';
 	  echo '<li>'.$this->Html->link(__('New Content'), array('controller' => 'newspaper_contents', 'action' => 'addWithNewspaper', $newspaperRecord['Newspaper']['newspaper_id'])).'</li>';
