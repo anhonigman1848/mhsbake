@@ -4,6 +4,7 @@
 		Minnesota Historical Society Microfilm Database Application
 		Home	</title>
 <body>
+<h2>Welcome!</h2>
 <table id= "top" cellspacing="0" border="0">
 
 <tr>
