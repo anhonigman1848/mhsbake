@@ -87,7 +87,7 @@ p {
 	padding: 10px 20px;
 }
   #top {
-	margin-bottom: 0px;
+	margin-bottom: 10px;
 	}
 	
   #nopad {
@@ -131,7 +131,7 @@ p {
 	}
 
   #results {
-	height: 440px;
+	max-height: 440px;
 	width: 1060px;
 	overflow: auto;
 	}
@@ -167,6 +167,11 @@ p {
   .navtab:hover a {
 	color: #fff;
 	}
+
+  .crumbs {
+	text-align: center;
+	margin: .5em;
+  }
 
 #header h1 {
 	line-height:20px;

@@ -50,7 +50,7 @@ echo $this->Form->end(); ?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>		
 			<th><input type="checkbox" id="nselectall" onclick="ntoggleChecked(this.checked)"></th>
-			<th><?php echo $this->Paginator->sort('newspaper_reel_id');?>ID</th>
+			<th><?php echo $this->Paginator->sort('newspaper_reel_id', 'Newspaper Reel ID');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.title','Title');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.city', 'City');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.county', 'County');?></th>

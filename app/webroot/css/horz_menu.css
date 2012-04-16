@@ -166,6 +166,28 @@ div.bnav {
 	position: relative;
 }
 
+.bnav  li h2 {
+	margin:0 !important;
+	padding:0 !important;
+	list-style: none; /* remove bullets */
+	float: left;
+	position: relative;
+	color:#fff;
+	background-color: #fff;
+	width:900px;
+}
+
+.bnav  li h3 {
+	margin:0 !important;
+	padding:0 !important;
+	list-style: none; /* remove bullets */
+	float: left;
+	position: relative;
+	color:#fff;
+	background-color: #fff;
+	width:17em;
+}
+
 div.offline {
 	padding:10px 1.5%;
 	float:right;

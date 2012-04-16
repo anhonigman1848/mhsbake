@@ -61,7 +61,6 @@ echo $this->Form->end(); ?>
 	<div id="results">
 	<table cellpadding="0" cellspacing="0">
 	<tr>			
-			<th class="actions"><?php echo __('Actions');?></th>
 			<th><input type="checkbox" id="nselectall" onclick="ntoggleChecked(this.checked)"></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.title','Title');?></th>
 			<th><?php echo $this->Paginator->sort('Newspaper.city', 'City');?></th>
@@ -80,11 +79,6 @@ echo $this->Form->end(); ?>
 	<?php
 	foreach ($newspaperRecords as $newspaperRecord): ?>
 	<tr id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>">		
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'record', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $newspaperRecord['NewspaperReel']['newspaper_reel_id']), null, __('Are you sure you want to delete # %s?', $newspaperRecord['NewspaperReel']['newspaper_reel_id'])); ?>
-		</td>
 		<td><input type="checkbox" class="ncheckbox" id="<?php echo$newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"/></td>
 		<td><?php echo h($newspaperRecord['Newspaper']['title']); ?>&nbsp;</td>
 		<td><?php echo h($newspaperRecord['Newspaper']['city']); ?>&nbsp;</td>
@@ -118,16 +112,13 @@ echo $this->Form->end(); ?>
 	?>
 	</div>
 </div>
+
 <div class="bnav">
 	<ul>
 		<li><?php echo $this->Html->link(__('Display Selected'), array('controller' => 'newspaper_reels','action' => 'display_quality')); ?></li>
 		<li><?php echo $this->Html->link(__('Clear All Selected'), array('controller' => 'newspaper_reels','action' => 'clear_all_check_boxes', 'display_quality')); ?></li>
-<<<<<
+		<li><h2>&nbsp;</h2></li>
 		<li><?php if($this->Access->cat('inlineedit')){
 			       echo "<input type='button' onclick='goOfflineN(".json_encode($newspaperRecords).")' value='Go offline' />"; } ?></li>
-=====
 	</ul>
-</div>
-<div class="offline">
-        <input type='button' onclick='goOfflineN(<?php echo json_encode($newspaperRecords); ?>)' value='Go offline' />
 </div>
