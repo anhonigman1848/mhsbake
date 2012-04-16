@@ -209,7 +209,7 @@ function submitChanges() {
                         window.location = '/mhsbake/newspaper_reels/display';
                     },
                     error: function() {
-                        alert('Save attempt failed. Please verify that you\nhave a working connection to the server\and try again.');
+                        alert('Save attempt failed. Please verify that you\nhave a working connection to the server\nand try again.');
                     }                    
                 });
 }
