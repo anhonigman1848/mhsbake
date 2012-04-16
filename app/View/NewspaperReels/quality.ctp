@@ -56,10 +56,12 @@ echo $this->Form->input('redox_quality_present', array('div' => false));
 echo $this->Form->input('checked_out', array('div' => false));
 
 if($this->Access->cat('deleted')){
-     echo $this->Form->input('deleted', array('div' => 'false'));
+     echo $this->Form->input('deleted', array('div' => 'false',
+					      'type' => 'checkbox'));
 } else {
      echo '<div style="visibility:hidden" >';
-     echo $this->Form->input('deleted', array('div' => 'false'));
+     echo $this->Form->input('deleted', array('div' => 'false',
+					      'type' => 'checkbox'));
      echo '</div>';
 }
 
