@@ -112,16 +112,13 @@ echo $this->Form->end(); ?>
                 <td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editarredoxqualitypresent"'; } ?>
 		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['ArchiveReel']['redox_quality_present']); ?></td>
                 		
-		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editarcheckedout"'; } ?>
-		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>">
-		    <?php
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editarcheckedout"'; } 
 		    if($archiveRecord['ArchiveReel']['checked_out'] == 1) {
 					$checkedout = 'true';		      
 			       } else {
 			                $checkedout = 'false';
-			       }
-		    
-		    echo h($checkedout); ?></td>
+			       } ?>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($checkedout); ?></td>
 		
 	</tr>
 <?php endforeach; ?>

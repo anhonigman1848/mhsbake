@@ -112,16 +112,13 @@ echo $this->Form->end(); ?>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnrredoxqualitypresent"'; } ?>
 		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($newspaperRecord['NewspaperReel']['redox_quality_present']); ?></td>
                 		
-		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnrcheckedout"'; } ?>
-		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>">
-		    <?php
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editnrcheckedout"'; }
 		    if($newspaperRecord['NewspaperReel']['checked_out'] == 1) {
 					$checkedout = 'true';		      
 			       } else {
 			                $checkedout = 'false';
-			       }
-		    
-		    echo h($checkedout); ?></td>
+			       } ?>
+		    id="<?php echo $newspaperRecord['NewspaperReel']['newspaper_reel_id']; ?>"><?php echo h($checkedout); ?></td>
 		
 	</tr>
 <?php endforeach; ?>

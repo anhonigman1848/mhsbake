@@ -71,32 +71,30 @@ echo $this->Form->end(); ?>
 		<td><input type="checkbox" class="acheckbox" id="<?php echo$archiveRecord['ArchiveReel']['archive_reel_id']; ?>"/></td>		
 		<td><?php echo h($archiveRecord['ArchiveReel']['archive_reel_id']); ?></td>	
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editatitle"'; } ?>
-		    id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['title']); ?></td>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['Archive']['title']); ?></td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editacity"'; } ?>
-		    id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['city']); ?></td>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['Archive']['city']); ?></td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editacounty"'; } ?>
-		    id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['county']); ?></td>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['Archive']['county']); ?></td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editaalephnumber"'; } ?>
-		    id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['aleph_number']); ?></td>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['Archive']['aleph_number']); ?></td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editaseries"'; } ?>
-		    id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['series']); ?></td>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['Archive']['series']); ?></td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editaseriesnumber"'; } ?>
-		    id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['series_number']); ?></td>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['Archive']['series_number']); ?></td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editaauthorcitation"'; } ?>
-		    id="<?php echo $archiveRecord['Archive']['archive_id']; ?>"><?php echo h($archiveRecord['Archive']['author_citation']); ?></td>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['Archive']['author_citation']); ?></td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editacbegindate"'; } ?>
-		    id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveRecord['ArchiveContent']['begin_date']); ?></td>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['ArchiveContent']['begin_date']); ?></td>
 		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editacenddate"'; } ?>
-		    id="<?php echo $archiveRecord['ArchiveContent']['archive_content_id']; ?>"><?php echo h($archiveRecord['ArchiveContent']['end_date']); ?></td>			
-		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editarcheckedout"'; } ?>
-		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>">
-		    <?php
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($archiveRecord['ArchiveContent']['end_date']); ?></td>			
+		<td <?php  if($this->Access->cat('inlineedit')){ echo 'class="editarcheckedout"'; }
 		    if($archiveRecord['ArchiveReel']['checked_out'] == 1) {
 					$checkedout = 'true';		      
 			       } else {
 			                $checkedout = 'false';
-			       }
-		    echo h($checkedout); ?></td>
+			       } ?>
+		    id="<?php echo $archiveRecord['ArchiveReel']['archive_reel_id']; ?>"><?php echo h($checkedout); ?></td>
 		<td><?php echo h($archiveRecord['ArchiveReel']['created']); ?></td>
 		<td><?php echo h($archiveRecord['ArchiveReel']['modified']); ?></td>
 		<?php  if($this->Access->cat('deleted')){
@@ -105,9 +103,7 @@ echo $this->Form->end(); ?>
 			       } else {
 			                $deleted = 'false';
 			       }
-			       echo '<td>';
-			       echo h( $deleted );
-			       echo '</td>'; } ?>
+			       echo '<td>'.h( $deleted ).'</td>'; } ?>
 	</tr>
 <?php endforeach; ?>
 	</table>
